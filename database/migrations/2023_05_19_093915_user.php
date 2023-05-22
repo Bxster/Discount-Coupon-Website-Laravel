@@ -17,7 +17,7 @@ return new class extends Migration
             $table->bigIncrements('userId');
             $table->string('name');
             $table->string('surname');
-            $table->integer('cellulare');
+            $table->string('cellulare', 10);
             $table->string('email');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('username',20);

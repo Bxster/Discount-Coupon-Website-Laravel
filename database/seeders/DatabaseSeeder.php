@@ -13,55 +13,238 @@ class DatabaseSeeder extends Seeder {
 
     public function run() {
 
-        DB::table('category')->insert([
-            ['catId' => 1, 'name' => 'Computer', 'parId' => 0, 'desc' => 'Desktop, Laptop, Netbook'],
-            ['catId' => 2, 'name' => 'Periferiche', 'parId' => 0, 'desc' => 'Hard Disk, Tastiere, Mouse'],
-            ['catId' => 3, 'name' => 'Desktop', 'parId' => 1, 'desc' => 'Descrizione dei Prodotti Desktop'],
-            ['catId' => 4, 'name' => 'Laptop', 'parId' => 1, 'desc' => 'Descrizione dei Prodotti Laptop'],
-            ['catId' => 5, 'name' => 'NetBook', 'parId' => 1, 'desc' => 'Descrizione dei Prodotti Netbook'],
-            ['catId' => 6, 'name' => 'HardDisk', 'parId' => 2, 'desc' => 'Descrizione dei Dischi Rigidi'],
+        DB::table('user')->insert([
+            [
+                'name' => 'Mario', 'surname' => 'Rossi', 'cellulare' => '1234567890',
+                'email' => 'mario@example.com', 'email_verified_at' => now(), 'username' => 'mario123',
+                'password' => Hash::make('password123'), 'role' => 'user', 'genere' => 0, 'dataNascita' => '1990-01-01',
+                'remember_token' => Str::random(10), 'created_at' => now(), 'updated_at' => now(),
+            ],
+            [
+                'name' => 'Giulia', 'surname' => 'Verdi', 'cellulare' => '9876543210',
+                'email' => 'giulia@example.com', 'email_verified_at' => now(), 'username' => 'giulia456',
+                'password' => Hash::make('password456'), 'role' => 'user', 'genere' => 1, 'dataNascita' => '1995-05-10',
+                'remember_token' => Str::random(10), 'created_at' => now(), 'updated_at' => now(),
+            ]
         ]);
 
-        DB::table('product')->insert([
-            ['name' => 'NetBook Modello2', 'catId' => 5,
-                'descShort' => 'Caratteristiche NetBook2', 'descLong' => self::DESCPROD,
-                'price' => 219.34, 'discountPerc' => 12, 'discounted' => 0, 'image' => ''],
-            ['name' => 'HardDisk Modello2', 'catId' => 6,
-                'descShort' => 'Caratteristiche HardDisk2', 'descLong' => self::DESCPROD,
-                'price' => 86.37, 'discountPerc' => 15, 'discounted' => 1, 'image' => 'Italy.gif'],
-            ['name' => 'Desktop Modello1', 'catId' => 3,
-                'descShort' => 'Caratteristiche Desktop1', 'descLong' => self::DESCPROD,
-                'price' => 1230.49, 'discountPerc' => 25, 'discounted' => 1, 'image' => 'Brazil.gif'],
-            ['name' => 'Laptop Modello1', 'catId' => 4,
-                'descShort' => 'Caratteristiche Laptop1', 'descLong' => self::DESCPROD,
-                'price' => 455.37, 'discountPerc' => 17, 'discounted' => 1, 'image' => ''],
-            ['name' => 'Laptop Modello2', 'catId' => 4,
-                'descShort' => 'Caratteristiche Laptop1', 'descLong' => self::DESCPROD,
-                'price' => 1889.67, 'discountPerc' => 15, 'discounted' => 1, 'image' => 'Argentina.gif'],
-            ['name' => 'Netbook Modello3', 'catId' => 5,
-                'descShort' => 'Caratteristiche NetBook3', 'descLong' => self::DESCPROD,
-                'price' => 259.99, 'discountPerc' => 17, 'discounted' => 0, 'image' => 'Red Apple.gif'],
-            ['name' => 'Laptop Modello3', 'catId' => 4,
-                'descShort' => 'Caratteristiche Laptop3', 'descLong' => self::DESCPROD,
-                'price' => 998.99, 'discountPerc' => 23, 'discounted' => 1, 'image' => 'UK.gif'],
-            ['name' => 'HardDisk Modello1', 'catId' => 6,
-                'descShort' => 'Caratteristiche HardDisk1', 'descLong' => self::DESCPROD,
-                'price' => 88.93, 'discountPerc' => 5, 'discounted' => 0, 'image' => 'USA.gif'],
-            ['name' => 'HardDisk Modello4', 'catId' => 6,
-                'descShort' => 'Caratteristiche HardDisk4', 'descLong' => self::DESCPROD,
-                'price' => 78.66, 'discountPerc' => 7, 'discounted' => 01, 'image' => 'Ukraine.gif']
+        DB::table('promozioni')->insert([
+            [
+                
+                'nome' => 'Promozione 1',
+                'oggetto' => 'Oggetto promozione 1',
+                'modalita' => 'Modalità promozione 1',
+                'tempi_fruizione' => 'Tempi fruizione promozione 1',
+                'luoghi_fruizione' => 'Luoghi fruizione promozione 1',
+                'codice_promozione' => 'Codice promozione 1',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                
+                'nome' => 'Promozione 2',
+                'oggetto' => 'Oggetto promozione 2',
+                'modalita' => 'Modalità promozione 2',
+                'tempi_fruizione' => 'Tempi fruizione promozione 2',
+                'luoghi_fruizione' => 'Luoghi fruizione promozione 2',
+                'codice_promozione' => 'Codice promozione 2',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                
+                'nome' => 'Promozione 3',
+                'oggetto' => 'Oggetto promozione 1',
+                'modalita' => 'Modalità promozione 1',
+                'tempi_fruizione' => 'Tempi fruizione promozione 1',
+                'luoghi_fruizione' => 'Luoghi fruizione promozione 1',
+                'codice_promozione' => 'Codice promozione 1',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                
+                'nome' => 'Promozione 4',
+                'oggetto' => 'Oggetto promozione 1',
+                'modalita' => 'Modalità promozione 1',
+                'tempi_fruizione' => 'Tempi fruizione promozione 1',
+                'luoghi_fruizione' => 'Luoghi fruizione promozione 1',
+                'codice_promozione' => 'Codice promozione 1',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                
+                'nome' => 'Promozione 5',
+                'oggetto' => 'Oggetto promozione 1',
+                'modalita' => 'Modalità promozione 1',
+                'tempi_fruizione' => 'Tempi fruizione promozione 1',
+                'luoghi_fruizione' => 'Luoghi fruizione promozione 1',
+                'codice_promozione' => 'Codice promozione 1',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                
+                'nome' => 'Promozione 6',
+                'oggetto' => 'Oggetto promozione 1',
+                'modalita' => 'Modalità promozione 1',
+                'tempi_fruizione' => 'Tempi fruizione promozione 1',
+                'luoghi_fruizione' => 'Luoghi fruizione promozione 1',
+                'codice_promozione' => 'Codice promozione 1',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                
+                'nome' => 'Promozione 7',
+                'oggetto' => 'Oggetto promozione 1',
+                'modalita' => 'Modalità promozione 1',
+                'tempi_fruizione' => 'Tempi fruizione promozione 1',
+                'luoghi_fruizione' => 'Luoghi fruizione promozione 1',
+                'codice_promozione' => 'Codice promozione 1',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                
+                'nome' => 'Promozione 8',
+                'oggetto' => 'Oggetto promozione 1',
+                'modalita' => 'Modalità promozione 1',
+                'tempi_fruizione' => 'Tempi fruizione promozione 1',
+                'luoghi_fruizione' => 'Luoghi fruizione promozione 1',
+                'codice_promozione' => 'Codice promozione 1',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]
         ]);
 
-        DB::table('users')->insert([
-            ['name' => 'Alex', 'surname' => 'Verdi', 'email' => 'alex@verdi.it', 'username' => 'alexalex',
-                'password' => Hash::make('alexalex'), 'role' => 'user','created_at' => date("Y-m-d H:i:s"),
-                'updated_at' => date("Y-m-d H:i:s")],
-            ['name' => 'Marco', 'surname' => 'Bianchi', 'email' => 'marco@bianchi.it', 'username' => 'useruser',
-                'password' => Hash::make('useruser'), 'role' => 'user', 'created_at' => date("Y-m-d H:i:s"),
-                'updated_at' => date("Y-m-d H:i:s")],
-            ['name' => 'Mario', 'surname' => 'Rossi', 'email' => 'mario@rossi.it', 'username' => 'adminadmin',
-                'password' => Hash::make('adminadmin'), 'role' => 'admin', 'created_at' => date("Y-m-d H:i:s"),
-                'updated_at' => date("Y-m-d H:i:s")]
+        DB::table('coupon')->insert([
+            [
+                
+                'codice' => 'ABC123',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                
+                'codice' => 'DEF456',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                
+                'codice' => 'GHI789',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                
+                'codice' => 'JKL012',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]
+        ]);
+
+        DB::table('aziende')->insert([
+            [
+                
+                'ragionesociale' => 'Azienda 1',
+                'tipologia' => 'Tipologia 1',
+                'desc' => 'Descrizione Azienda 1',
+                'citta' => 'Città 1',
+                'via' => 'Via 1',
+                'cap' => '12345',
+                'image' => 'https://picsum.photos/200/300',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+            
+                'ragionesociale' => 'Azienda 2',
+                'tipologia' => 'Tipologia 2',
+                'desc' => 'Descrizione Azienda 2',
+                'citta' => 'Città 2',
+                'via' => 'Via 2',
+                'cap' => '67890',
+                'image' => 'https://picsum.photos/200/300',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                
+                'ragionesociale' => 'Azienda 3',
+                'tipologia' => 'Tipologia 3',
+                'desc' => 'Descrizione Azienda 3',
+                'citta' => 'Città 3',
+                'via' => 'Via 3',
+                'cap' => '11111',
+                'image' => 'https://picsum.photos/200/300',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                
+                'ragionesociale' => 'Azienda 4',
+                'tipologia' => 'Tipologia 4',
+                'desc' => 'Descrizione Azienda 4',
+                'citta' => 'Città 4',
+                'via' => 'Via 4',
+                'cap' => '22222',
+                'image' => 'https://picsum.photos/200/300',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                
+                'ragionesociale' => 'Azienda 5',
+                'tipologia' => 'Tipologia 5',
+                'desc' => 'Descrizione Azienda 5',
+                'citta' => 'Città 5',
+                'via' => 'Via 5',
+                'cap' => '33333',
+                'image' => 'https://picsum.photos/200/300',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]
+        ]);
+
+        DB::table('faq')->insert([
+            [
+                
+                'titolo' => 'Domanda 1',
+                'corpo' => 'Risposta 1',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                
+                'titolo' => 'Domanda 2',
+                'corpo' => 'Risposta 2',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                
+                'titolo' => 'Domanda 3',
+                'corpo' => 'Risposta 3',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                
+                'titolo' => 'Domanda 4',
+                'corpo' => 'Risposta 4',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                
+                'titolo' => 'Domanda 5',
+                'corpo' => 'Risposta 5',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]
         ]);
     }
 
