@@ -19,11 +19,8 @@ use App\Http\Controllers\UserController;
 Route::get('/', [PublicController::class, 'index'])->name('home');
 Route::get('/aziende', [PublicController::class, 'listaAziende'])->name('lista_aziende');
 Route::get('/promozioni', [PublicController::class, 'listaPromozioni'])->name('lista_promozioni');
+Route::get('/who', function () {return view('who');})->name('who');
 /*
-Route::get('/chisiamo', function () {
-        return view('chisiamo');
-       });
-
 Route::get('/FAQ', function () {
         return view('faq');
        });

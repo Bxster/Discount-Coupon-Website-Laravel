@@ -197,18 +197,47 @@
         </h2>
     </div>
     <div>
-        <table>
+        <!-- <table>
             <tr>
                 @foreach($aziende as $azienda)
                 <td>
                     <div class="img_aziendeloghi text-center">
-                        <img src="{{ asset('images/' . $azienda->logo) }}" alt="{{ $azienda->ragioneSociale }}">
-                        <span>{{ $azienda->ragioneSociale }}</span>
+                        <span>{{ $azienda->ragionesociale }}</span>
                     </div>
                 </td>
                 @endforeach
             </tr>
+        </table> -->
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Ragione Sociale</th>
+                    <th>Tipologia</th>
+                    <th>Descrizione</th>
+                    <th>Città</th>
+                    <th>Via</th>
+                    <th>CAP</th>
+                    <!-- Aggiungi altre colonne se necessario -->
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($aziende as $azienda)
+                <tr>
+                    <td>{{ $azienda->aziendeId }}</td>
+                    <td>{{ $azienda->ragionesociale }}</td>
+                    <td>{{ $azienda->tipologia }}</td>
+                    <td>{{ $azienda->desc }}</td>
+                    <td>{{ $azienda->citta }}</td>
+                    <td>{{ $azienda->via }}</td>
+                    <td>{{ $azienda->cap }}</td>
+                    <!-- Aggiungi altre colonne se necessario -->
+                </tr>
+                @endforeach
+            </tbody>
         </table>
+
         <div class="btn-box">
             <a href="{{ route('lista_aziende') }}">
                 Vedi tutte le aziende
@@ -232,7 +261,6 @@
                 @foreach($promozioni as $promozione)
                 <td>
                     <div class="img_aziendeloghi">
-                        <img src="{{ asset('images/' . $promozione->logo) }}" alt="{{ $promozione->nome }}">
                         <span>{{ $promozione->nome }}</span>
                     </div>
                 </td>
@@ -287,3 +315,5 @@
   </script>
   <!-- end owl carousel script -->
   @endsection
+
+
