@@ -21,6 +21,8 @@ class PublicController extends Controller
             ->with('promozioni', $promozioni);
     }
 
+//porcoddeddioooooooooo
+
     public function listaAziende()
     {
         $aziende = Aziende::all();
