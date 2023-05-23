@@ -94,25 +94,25 @@ class DatabaseSeeder extends Seeder {
             ]
         ]);
 
-        DB::table('faq')->insert([
+        DB::table('faqs')->insert([
             [
                 
-                'titolo' => 'Domanda 1',
-                'corpo' => 'Risposta 1',
+                'titolo' => 'Come faccio a cercare una promozione?',
+                'corpo' => 'Per cercare una promozione devi cliccare nel box di ricerca ed inserire il nome della promozione che vuoi cercare.',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
                 
-                'titolo' => 'Domanda 2',
-                'corpo' => 'Risposta 2',
+                'titolo' => 'Come vedo le aziende presenti nel sito?',
+                'corpo' => 'Per vedere le aziende presenti nel sito devi cliccare su "Vedi tutte le aziende" scorrendo la homepage.',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
                 
-                'titolo' => 'Domanda 3',
-                'corpo' => 'Risposta 3',
+                'titolo' => 'Come faccio a conttatarvi',
+                'corpo' => 'Nella sezione in basso trovi un pulsante "Contattaci" che ti permette di inviarci una mail.',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],

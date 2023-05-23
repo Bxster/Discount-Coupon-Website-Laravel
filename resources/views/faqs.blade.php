@@ -19,6 +19,15 @@
     Trova qui le risposte alle tue domande!
   </p>
 
+  <ul>
+    @foreach ($faqs as $faq)
+        <li>
+            <h3>{{ $faq->titolo}}</h3>
+            <p>{{ $faq->corpo}}</p>
+        </li>
+    @endforeach
+  </ul>
+<!--
   <div class="row">
     <div class="col-md-6 col-lg-4 mb-4">
       <h6 class="mb-3 text-primary"><i class="far fa-paper-plane text-primary pe-2"></i> A simple
@@ -74,6 +83,8 @@
       </p>
     </div>
   </div>
+
+-->
 </section>
 <!--Section: FAQ-->
   <!-- end about section -->

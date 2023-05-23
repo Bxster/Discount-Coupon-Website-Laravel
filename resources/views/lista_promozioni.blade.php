@@ -17,8 +17,10 @@
     <div class="row">
         <div class="col-md-6 mx-auto">
         <div class="container-1">
-            <span class="icon"><i class="fa fa-search"></i></span>
-            <input type="search" id="search" placeholder="Cerca il coupon che fa per te" />
+        <form action="{{ route('lista_promozioni_search') }}" method="POST">
+                        @csrf
+                        <input type="text" name="query" placeholder="Cerca promozioni" onkeydown="if(event.keyCode===13){event.preventDefault(); this.form.submit();}">
+                    </form>
         </div>
         </div>
     </div>

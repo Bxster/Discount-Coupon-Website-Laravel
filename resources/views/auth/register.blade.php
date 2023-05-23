@@ -86,6 +86,7 @@
 
 </div>-->
 <!-- Custom styles for this template -->
+<link href="{{ asset('css/style.css')}}" rel="stylesheet" />
 <link href="{{ asset('css/register.css')}}" rel="stylesheet" />
 <div class="register-container">
 		<h1>Pagina di registrazione</h1>
@@ -112,7 +113,7 @@
 			<input type="text" id="indirizzo" name="indirizzo" required>
 
 			<div class="buttons">
-				<button type="button" class="cancel" onclick="{{route('home')}}">Annulla</button>
+				<button type="button" class="cancel"> <a href="{{route('home')}}">Annulla</a></button>
 				<button type="submit" class="register">Registrati</button>
 			</div>
 		</form>

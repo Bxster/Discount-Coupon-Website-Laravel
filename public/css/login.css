@@ -93,6 +93,9 @@ button:hover{
 	margin-top: 30px;
 }
 a {
-  color:#f1f1f1;
-  text-decoration: none;
+    color:white;
+
+}
+a:hover{
+    color:white;
 }

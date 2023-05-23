@@ -48,3 +48,11 @@ button {
 .register {
     background-color: #30ae69;
 }
+
+a {
+    color:white;
+
+}
+a:hover{
+    color:white;
+}
