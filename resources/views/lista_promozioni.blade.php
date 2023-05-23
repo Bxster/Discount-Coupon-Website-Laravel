@@ -29,10 +29,10 @@
             <li class="list-group-item">
             <a href="#" class="promotion-link">
                 <div class="promotion">
-                <img src="{{ asset('path/to/promotion-image.jpg') }}" alt="Promotion Image" class="promotion-image">
+                <img src="{{'https://picsum.photos/200/300' }}" alt="Promotion Image" class="promotion-image">
                 <div class="promotion-details">
-                    <h3 class="promotion-title">{{ $promozione->titolo }}</h3>
-                    <p class="promotion-description">{{ $promozione->descrizione }}</p>
+                    <h3 class="promotion-title">{{ $promozione->nome }}</h3>
+                    <p class="promotion-description">{{ $promozione->oggetto }}</p>
                 </div>
                 </div>
             </a>

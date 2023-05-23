@@ -197,47 +197,25 @@
         </h2>
     </div>
     <div>
-        <!-- <table>
+         <table>
             <tr>
-                @foreach($aziende as $azienda)
+            @php
+             $limit = 4;
+             $aziendeLimitate = $aziende->take($limit);
+            @endphp
+            @for ($i = 0; $i <$limit; $i++)
+            @if (isset($aziendeLimitate[$i]))
+            @php $azienda = $aziendeLimitate[$i]; @endphp
                 <td>
                     <div class="img_aziendeloghi text-center">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/2.png" alt="">
                         <span>{{ $azienda->ragionesociale }}</span>
                     </div>
                 </td>
-                @endforeach
+                @endif
+            @endfor
             </tr>
-        </table> -->
-
-        <table>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Ragione Sociale</th>
-                    <th>Tipologia</th>
-                    <th>Descrizione</th>
-                    <th>Città</th>
-                    <th>Via</th>
-                    <th>CAP</th>
-                    <!-- Aggiungi altre colonne se necessario -->
-                </tr>
-            </thead>
-            <tbody>
-                @foreach($aziende as $azienda)
-                <tr>
-                    <td>{{ $azienda->aziendeId }}</td>
-                    <td>{{ $azienda->ragionesociale }}</td>
-                    <td>{{ $azienda->tipologia }}</td>
-                    <td>{{ $azienda->desc }}</td>
-                    <td>{{ $azienda->citta }}</td>
-                    <td>{{ $azienda->via }}</td>
-                    <td>{{ $azienda->cap }}</td>
-                    <!-- Aggiungi altre colonne se necessario -->
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
-
+        </table> 
         <div class="btn-box">
             <a href="{{ route('lista_aziende') }}">
                 Vedi tutte le aziende
@@ -258,23 +236,40 @@
         </div>
         <table>
             <tr>
-                @foreach($promozioni as $promozione)
+            @php
+             $limit = 3;
+             $promozioniLimit = $promozioni->take($limit);
+            @endphp
+            @for ($i = 0; $i <$limit; $i++)
+            @if (isset($promozioniLimit[$i]))
+            @php $promozione = $promozioniLimit[$i]; @endphp
+                <td>
                 <td>
                     <div class="img_aziendeloghi">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/2.png" alt="">
                         <span>{{ $promozione->nome }}</span>
                     </div>
                 </td>
-                @endforeach
+                @endif
+                @endfor
             </tr>
             <tr>
-                @foreach($promozioni as $promozione)
+            @php
+             $limit = 6;
+             $promozioniLimit = $promozioni->take($limit);
+            @endphp
+            @for ($i = 3; $i <$limit; $i++)
+            @if (isset($promozioniLimit[$i]))
+            @php $promozione = $promozioniLimit[$i]; @endphp
+                <td>
                 <td>
                     <div class="img_aziendeloghi">
-                        <img src="{{ asset('images/' . $promozione->logo) }}" alt="{{ $promozione->nome }}">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/2.png" alt="">
                         <span>{{ $promozione->nome }}</span>
                     </div>
                 </td>
-                @endforeach
+                @endif
+                @endfor
             </tr>
         </table>
         <div class="btn-box">

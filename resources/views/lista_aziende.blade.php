@@ -30,9 +30,11 @@
           <li class="list-group-item">
             <a href="#" class="custom-link">
               <div class="promotion">
-                <img src="{{ asset('images/' . $azienda->logo) }}" alt="{{ $azienda->nome }}" class="immagine-ridotta">
+                <img src="{{ $azienda->image }}" alt="{{ $azienda->nome }}" class="immagine-ridotta">
                 <div class="promotion-details">
-                  <h1 class="promotion-title">{{ $azienda->nome }}</h1>
+                  <h1 class="promotion-title">{{ $azienda->ragionesociale }}</h1>
+                  <p class="promotion-description">{{ $azienda->desc }}</p>
+
                 </div>
               </div>
             </a>
