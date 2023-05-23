@@ -197,7 +197,7 @@
         </h2>
     </div>
     <div>
-         <table>
+         <table class="table center" >
             <tr>
             @php
              $limit = 4;
@@ -207,10 +207,10 @@
             @if (isset($aziendeLimitate[$i]))
             @php $azienda = $aziendeLimitate[$i]; @endphp
                 <td>
-                    <div class="img_aziendeloghi text-center">
+                  <div class="img_aziendeloghi">
                     <img src="{{$azienda->image}}" alt="">
-                        <span>{{ $azienda->ragionesociale }}</span>
                     </div>
+                    <span>{{ $azienda->ragionesociale }}</span>
                 </td>
                 @endif
             @endfor
@@ -234,7 +234,7 @@
                 Catalogo Offerte
             </h2>
         </div>
-        <table>
+        <table class="table text-center">
             <tr>
             @php
              $limit = 3;
@@ -247,8 +247,8 @@
                 <td>
                     <div class="img_aziendeloghi">
                     <img src="{{$promozione->promAz->image}}" alt="">
-                        <span>{{ $promozione->nome }}</span>
                     </div>
+                    <span>{{ $promozione->nome }}</span>
                 </td>
                 @endif
                 @endfor
@@ -265,8 +265,8 @@
                 <td>
                     <div class="img_aziendeloghi">
                     <img src="{{$promozione->promAz->image}}" alt="">
-                        <span>{{ $promozione->nome }}</span>
                     </div>
+                    <span>{{ $promozione->nome }}</span>
                 </td>
                 @endif
                 @endfor
