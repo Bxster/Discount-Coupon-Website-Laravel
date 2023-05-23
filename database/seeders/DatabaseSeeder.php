@@ -31,124 +31,6 @@ class DatabaseSeeder extends Seeder {
             ]
         ]);
 
-        DB::table('promozioni')->insert([
-            [
-                
-                'nome' => 'Promozione 1',
-                'oggetto' => 'Oggetto promozione 1',
-                'modalita' => 'Modalità promozione 1',
-                'tempi_fruizione' => 'Tempi fruizione promozione 1',
-                'luoghi_fruizione' => 'Luoghi fruizione promozione 1',
-                'codice_promozione' => 'Codice promozione 1',
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                
-                'nome' => 'Promozione 2',
-                'oggetto' => 'Oggetto promozione 2',
-                'modalita' => 'Modalità promozione 2',
-                'tempi_fruizione' => 'Tempi fruizione promozione 2',
-                'luoghi_fruizione' => 'Luoghi fruizione promozione 2',
-                'codice_promozione' => 'Codice promozione 2',
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                
-                'nome' => 'Promozione 3',
-                'oggetto' => 'Oggetto promozione 1',
-                'modalita' => 'Modalità promozione 1',
-                'tempi_fruizione' => 'Tempi fruizione promozione 1',
-                'luoghi_fruizione' => 'Luoghi fruizione promozione 1',
-                'codice_promozione' => 'Codice promozione 1',
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                
-                'nome' => 'Promozione 4',
-                'oggetto' => 'Oggetto promozione 1',
-                'modalita' => 'Modalità promozione 1',
-                'tempi_fruizione' => 'Tempi fruizione promozione 1',
-                'luoghi_fruizione' => 'Luoghi fruizione promozione 1',
-                'codice_promozione' => 'Codice promozione 1',
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                
-                'nome' => 'Promozione 5',
-                'oggetto' => 'Oggetto promozione 1',
-                'modalita' => 'Modalità promozione 1',
-                'tempi_fruizione' => 'Tempi fruizione promozione 1',
-                'luoghi_fruizione' => 'Luoghi fruizione promozione 1',
-                'codice_promozione' => 'Codice promozione 1',
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                
-                'nome' => 'Promozione 6',
-                'oggetto' => 'Oggetto promozione 1',
-                'modalita' => 'Modalità promozione 1',
-                'tempi_fruizione' => 'Tempi fruizione promozione 1',
-                'luoghi_fruizione' => 'Luoghi fruizione promozione 1',
-                'codice_promozione' => 'Codice promozione 1',
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                
-                'nome' => 'Promozione 7',
-                'oggetto' => 'Oggetto promozione 1',
-                'modalita' => 'Modalità promozione 1',
-                'tempi_fruizione' => 'Tempi fruizione promozione 1',
-                'luoghi_fruizione' => 'Luoghi fruizione promozione 1',
-                'codice_promozione' => 'Codice promozione 1',
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                
-                'nome' => 'Promozione 8',
-                'oggetto' => 'Oggetto promozione 1',
-                'modalita' => 'Modalità promozione 1',
-                'tempi_fruizione' => 'Tempi fruizione promozione 1',
-                'luoghi_fruizione' => 'Luoghi fruizione promozione 1',
-                'codice_promozione' => 'Codice promozione 1',
-                'created_at' => now(),
-                'updated_at' => now(),
-            ]
-        ]);
-
-        DB::table('coupon')->insert([
-            [
-                
-                'codice' => 'ABC123',
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                
-                'codice' => 'DEF456',
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                
-                'codice' => 'GHI789',
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                
-                'codice' => 'JKL012',
-                'created_at' => now(),
-                'updated_at' => now(),
-            ]
-        ]);
-
         DB::table('aziende')->insert([
             [
                 
@@ -249,6 +131,133 @@ class DatabaseSeeder extends Seeder {
                 'updated_at' => now(),
             ]
         ]);
+
+        DB::table('promozioni')->insert([
+            [
+                
+                'nome' => 'Promozione 1',
+                'oggetto' => 'Oggetto promozione 1',
+                'modalita' => 'Modalità promozione 1',
+                'tempi_fruizione' => 'Tempi fruizione promozione 1',
+                'luoghi_fruizione' => 'Luoghi fruizione promozione 1',
+                'codice_promozione' => 'Codice promozione 1',
+                'aziendeId' => 1, // 'azienId' => '1
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                
+                'nome' => 'Promozione 2',
+                'oggetto' => 'Oggetto promozione 2',
+                'modalita' => 'Modalità promozione 2',
+                'tempi_fruizione' => 'Tempi fruizione promozione 2',
+                'luoghi_fruizione' => 'Luoghi fruizione promozione 2',
+                'codice_promozione' => 'Codice promozione 2',
+                'aziendeId' => 2, // 'azienId' => '2
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                
+                'nome' => 'Promozione 3',
+                'oggetto' => 'Oggetto promozione 1',
+                'modalita' => 'Modalità promozione 1',
+                'tempi_fruizione' => 'Tempi fruizione promozione 1',
+                'luoghi_fruizione' => 'Luoghi fruizione promozione 1',
+                'codice_promozione' => 'Codice promozione 1',
+                'aziendeId' => 3, // 'azienId' => '3
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                
+                'nome' => 'Promozione 4',
+                'oggetto' => 'Oggetto promozione 1',
+                'modalita' => 'Modalità promozione 1',
+                'tempi_fruizione' => 'Tempi fruizione promozione 1',
+                'luoghi_fruizione' => 'Luoghi fruizione promozione 1',
+                'codice_promozione' => 'Codice promozione 1',
+                'aziendeId' => 4, // 'azienId' => '4
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                
+                'nome' => 'Promozione 5',
+                'oggetto' => 'Oggetto promozione 1',
+                'modalita' => 'Modalità promozione 1',
+                'tempi_fruizione' => 'Tempi fruizione promozione 1',
+                'luoghi_fruizione' => 'Luoghi fruizione promozione 1',
+                'codice_promozione' => 'Codice promozione 1',
+                'aziendeId' => 5, // 'azienId' => '5
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                
+                'nome' => 'Promozione 6',
+                'oggetto' => 'Oggetto promozione 1',
+                'modalita' => 'Modalità promozione 1',
+                'tempi_fruizione' => 'Tempi fruizione promozione 1',
+                'luoghi_fruizione' => 'Luoghi fruizione promozione 1',
+                'codice_promozione' => 'Codice promozione 1',
+                'aziendeId' => 1, 
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                
+                'nome' => 'Promozione 7',
+                'oggetto' => 'Oggetto promozione 1',
+                'modalita' => 'Modalità promozione 1',
+                'tempi_fruizione' => 'Tempi fruizione promozione 1',
+                'luoghi_fruizione' => 'Luoghi fruizione promozione 1',
+                'codice_promozione' => 'Codice promozione 1',
+                'aziendeId' => 2,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                
+                'nome' => 'Promozione 8',
+                'oggetto' => 'Oggetto promozione 1',
+                'modalita' => 'Modalità promozione 1',
+                'tempi_fruizione' => 'Tempi fruizione promozione 1',
+                'luoghi_fruizione' => 'Luoghi fruizione promozione 1',
+                'codice_promozione' => 'Codice promozione 1',
+                'aziendeId' => 3,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ] 
+        ]);
+
+        DB::table('coupon')->insert([
+            [
+                
+                'codice' => 'ABC123',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                
+                'codice' => 'DEF456',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                
+                'codice' => 'GHI789',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                
+                'codice' => 'JKL012',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]
+        ]);
+
     }
 
 }

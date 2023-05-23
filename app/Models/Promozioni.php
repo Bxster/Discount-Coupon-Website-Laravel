@@ -22,4 +22,9 @@ class Promozioni extends Model
     {
         return $this->_promozioni->firstWhere('id', $id);
     }
+
+       // Realazione One-To-One con Aziende
+       public function promAz() {
+        return $this->hasOne(Aziende::class, 'aziendeId', 'aziendeId');
+    }
 }

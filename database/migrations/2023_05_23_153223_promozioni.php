@@ -21,8 +21,8 @@ return new class extends Migration
             $table->string('tempi_fruizione');
             $table->string('luoghi_fruizione');
             $table->string('codice_promozione');
-            //$table->BigInteger('aziendeId')->unsigned()->index();
-            //$table->foreign('aziendeId')->references('promId')->on('aziende');
+            $table->bigInteger('aziendeId')->unsigned()->index();
+            $table->foreign('aziendeId')->references('aziendeId')->on('aziende');
             $table->timestamps();
         });
     }

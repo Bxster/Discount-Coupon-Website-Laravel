@@ -3,18 +3,14 @@
 @section('title', 'Registrazione')
 
 @section('content')
-<div class="static">
-    <h3>Login</h3>
-    <p>Utilizza questa form per autenticarti al sito</p>
+<!-- Custom styles for this template -->
+<link href="{{ asset('css/login.css')}}" rel="stylesheet" />
 
-    <div class="container-contact">
-        <div class="wrap-contact1">
-            {{ Form::open(array('route' => 'login', 'class' => 'contact-form')) }}
-            
-             <div  class="wrap-input">
-                 <p> Se non hai già un account <a  href="{{ route('register') }}">registrati</a></p>
-             </div>            
-             <div  class="wrap-input">
+<div class="login-box">
+    <h3>Pagina di Login</h3>
+
+            {{ Form::open(array('route' => 'login',)) }}          
+             <div class="user-box">
                 {{ Form::label('username', 'Nome Utente', ['class' => 'label-input']) }}
                 {{ Form::text('username', '', ['class' => 'input','id' => 'username']) }}
                 @if ($errors->first('username'))
@@ -26,7 +22,7 @@
                 @endif
             </div>
             
-             <div  class="wrap-input">
+            <div class="user-box">
                 {{ Form::label('password', 'Password', ['class' => 'label-input']) }}
                 {{ Form::password('password', ['class' => 'input', 'id' => 'password']) }}
                 @if ($errors->first('password'))
@@ -38,13 +34,15 @@
                 @endif
             </div>
             
-            <div class="container-form-btn">                
-                {{ Form::submit('Login', ['class' => 'form-btn1']) }}
+			<div class="button-box">
+                
+            <button type="reset" class="btn register-btn"><a  href="{{ route('register') }}">Registrati</a></p></button>
+            <button type="submit" class="btn submit-btn">{{ Form::submit('Login') }}</button>
             </div>
+
+            <button type="reset" class="btn cancel-btn"> <a href="{{route('home')}}">Annulla</a></button>
             
             {{ Form::close() }}
-        </div>
-    </div>
 
 </div>
 @endsection

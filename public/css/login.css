@@ -1,0 +1,96 @@
+/*login*/
+body{
+	font-family: sans-serif;
+	background: #f1f1f1;
+}
+.login-box{
+	width: 500px;
+	height: 350px;
+	background: #fff;
+	color: #000;
+	
+	transform: translate(-50%,-50%);
+	box-shadow: 0 5px 15px rgba(0,0,0,.5);
+	padding: 70px 30px;
+}
+h2{
+	margin: 0;
+	padding: 0 0 20px;
+	top: 35px;
+	left: 30px;
+	font-size: 30px;
+	color: #000;
+}
+.login-box label{
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 10px 0;
+	font-size: 20px;
+	color: #000;
+	pointer-events: none;
+	transition: .5s;
+}
+.login-box input{
+	position: relative;
+	width: 100%;
+	padding: 10px 0;
+	font-size: 16px;
+	color: #000;
+	background: none;
+	border: none;
+	outline: none;
+	border-bottom: 1px solid #000;
+}
+.login-box input:focus ~ label,
+.login-box input:valid ~ label{
+	top: -20px;
+	left: 0;
+	color: #000;
+	font-size: 14px;
+}
+.user-box{
+	position: relative;
+	margin: 30px 0;
+}
+button{
+	border-radius: 20px;
+	border: none;
+	outline: none;
+	padding: 10px 30px;
+	cursor: pointer;
+	font-size: 18px;
+	color:#30ae69
+}
+button:hover{
+	opacity: .7;
+}
+.submit-btn{
+	margin-left: 50px;
+	background-color: #30ae69;
+	color: #f1f1f1;
+	border-radius: 0;
+}
+.cancel-btn{
+	position: absolute;
+	top: 35px;
+	right: 30px;
+	background-color: #30ae69;
+	color: #f1f1f1;
+	border-radius: 0;
+}
+.register-btn{
+	margin-right: 50px;
+	background-color: #30ae69;
+	color: #f1f1f1;
+	border-radius: 0;
+}
+.button-box{
+	display: flex;
+	justify-content: space-between;
+	color:#000;
+}
+a {
+  color:#f1f1f1;
+  text-decoration: none;
+}
