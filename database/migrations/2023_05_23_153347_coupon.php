@@ -16,10 +16,11 @@ return new class extends Migration
         Schema::create('coupon', function (Blueprint $table) {
             $table->bigIncrements('couponId');
             $table->string('codice')->unique();
-            //$table->BigInteger('promoId')->unsigned()->index();
-            //$table->BigInteger('userId')->unsigned()->index();
-            //$table->foreign('promId')->references('couponId')->on('promozioni');
-            //$table->foreign('userId')->references('couponId')->on('user');
+            $table->BigInteger('promId')->unsigned()->index();
+            $table->foreign('promId')->references('promId')->on('promozioni');
+            $table->BigInteger('userId')->unsigned()->index();
+            $table->foreign('userId')->references('userId')->on('user');
+
             $table->timestamps();
         });
     }
