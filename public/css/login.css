@@ -1,22 +1,25 @@
 /*login*/
-body{
-	font-family: sans-serif;
-	background: #f1f1f1;
+
+.login-container{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding:70px 30px ;
+
 }
+
 .login-box{
+	position: relative;
 	width: 500px;
 	height: 350px;
-	background: #fff;
+	background: #e6e6e6;
 	color: #000;
-	transform: translate(-50%,-50%);
 	box-shadow: 0 5px 15px rgba(0,0,0,.5);
-	padding: 70px 30px;
+	
 }
 h2{
-	margin: 0;
-	padding: 0 0 20px;
-	top: 35px;
-	left: 30px;
+	margin-top: 35px;
+	text-align: center;
 	font-size: 30px;
 	color: #000;
 }
@@ -86,8 +89,8 @@ button:hover{
 }
 .button-box{
 	display: flex;
-	justify-content: space-between;
-	color:#000;
+	justify-content: center;
+	margin-top: 30px;
 }
 a {
   color:#f1f1f1;

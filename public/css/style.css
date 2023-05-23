@@ -1066,29 +1066,6 @@ section.app_section .img-box img {
 }
 
 /* footer section*/
-.footer_section {
-  background-color: #171717;
-  font-weight: 500;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  position: sticky;
-  bottom: 0;
-}
-
-.footer_section p {
-  padding: 20px;
-  color: #636363;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.footer_section a {
-  color: #636363;
-}
 
 /* end footer section*/
 /*# sourceMappingURL=style.css.map */

@@ -3,7 +3,7 @@
 @section('title', 'Registrazione')
 
 @section('content')
-<div class="static">
+<!--<div class="static">
     <h3>Registrazione</h3>
     <p>Utilizza questa form per registrarti al sito</p>
 
@@ -84,5 +84,37 @@
         </div>
     </div>
 
-</div>
+</div>-->
+<!-- Custom styles for this template -->
+<link href="{{ asset('css/register.css')}}" rel="stylesheet" />
+<div class="register-container">
+		<h1>Pagina di registrazione</h1>
+		<form>
+			<label for="nome">Nome</label>
+			<input type="text" id="nome" name="nome" required>
+
+			<label for="cognome">Cognome</label>
+			<input type="text" id="cognome" name="cognome" required>
+
+			<label for="email">Email</label>
+			<input type="email" id="email" name="email" required>
+
+			<label for="username">Username</label>
+			<input type="text" id="username" name="username" required>
+
+			<label for="password">Password</label>
+			<input type="password" id="password" name="password" required>
+
+			<label for="dataNascita">Data di nascita</label>
+			<input type="date" id="dataNascita" name="dataNascita" required>
+
+			<label for="indirizzo">Indirizzo</label>
+			<input type="text" id="indirizzo" name="indirizzo" required>
+
+			<div class="buttons">
+				<button type="button" class="cancel" onclick="{{route('home')}}">Annulla</button>
+				<button type="submit" class="register">Registrati</button>
+			</div>
+		</form>
+	</div>
 @endsection
