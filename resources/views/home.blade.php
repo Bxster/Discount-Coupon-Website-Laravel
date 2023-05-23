@@ -208,7 +208,7 @@
             @php $azienda = $aziendeLimitate[$i]; @endphp
                 <td>
                     <div class="img_aziendeloghi text-center">
-                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/2.png" alt="">
+                    <img src="{{$azienda->image}}" alt="">
                         <span>{{ $azienda->ragionesociale }}</span>
                     </div>
                 </td>
@@ -246,7 +246,7 @@
                 <td>
                 <td>
                     <div class="img_aziendeloghi">
-                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/2.png" alt="">
+                    <img src="{{$promozione->promAz->image}}" alt="">
                         <span>{{ $promozione->nome }}</span>
                     </div>
                 </td>
@@ -264,7 +264,7 @@
                 <td>
                 <td>
                     <div class="img_aziendeloghi">
-                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/2.png" alt="">
+                    <img src="{{$promozione->promAz->image}}" alt="">
                         <span>{{ $promozione->nome }}</span>
                     </div>
                 </td>

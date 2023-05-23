@@ -7,10 +7,9 @@
 <link href="{{ asset('css/login.css')}}" rel="stylesheet" />
 
 <div class="login-box">
-    <h3>Pagina di Login</h3>
-
-            {{ Form::open(array('route' => 'login',)) }}          
+    <h3>Pagina di Login</h3>     
              <div class="user-box">
+             {{ Form::open(array('route' => 'login',)) }}   
                 {{ Form::label('username', 'Nome Utente', ['class' => 'label-input']) }}
                 {{ Form::text('username', '', ['class' => 'input','id' => 'username']) }}
                 @if ($errors->first('username'))
