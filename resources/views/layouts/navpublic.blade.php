@@ -18,13 +18,13 @@
               <a class="nav-link" href="{{ route('home') }}">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" > Chi siamo </a>
+              <a class="nav-link" href="{{ route('who') }}" > Chi siamo </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" > FAQ </a>
+              <a class="nav-link" href="{{ route('faq') }}" > FAQ </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" > Login</a>
+              <a class="nav-link" href=" " > Login</a>
             </li>
           </ul>
         </div>

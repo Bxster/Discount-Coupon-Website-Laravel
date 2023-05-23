@@ -20,6 +20,7 @@ Route::get('/', [PublicController::class, 'index'])->name('home');
 Route::get('/aziende', [PublicController::class, 'listaAziende'])->name('lista_aziende');
 Route::get('/promozioni', [PublicController::class, 'listaPromozioni'])->name('lista_promozioni');
 Route::get('/who', function () {return view('who');})->name('who');
+Route::get('/faq', function () {return view('faq');})->name('faq');
 /*
 Route::get('/FAQ', function () {
         return view('faq');
