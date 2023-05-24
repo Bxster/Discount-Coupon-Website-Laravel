@@ -121,9 +121,9 @@
 
             <p><strong>Genere:</strong>
             @if ($user->genere == 0)
-                Uomo
+                Maschio
             @elseif ($user->genere == 1)
-                Donna
+                Femmina
             @endif
             </p>
 

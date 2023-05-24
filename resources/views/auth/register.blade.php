@@ -89,7 +89,7 @@
 
     <div class="wrap-input">
         {{ Form::label('genere', 'Genere', ['class' => 'label-input']) }}
-        {{ Form::select('genere', ['0' => 'Uomo', '1' => 'Donna'], null, ['class' => 'input', 'id' => 'genere']) }}
+        {{ Form::select('genere', ['0' => 'Maschio', '1' => 'Femmina'], null, ['class' => 'input', 'id' => 'genere']) }}
         @if ($errors->first('genere'))
         <ul class="errors">
             @foreach ($errors->get('genere') as $message)
