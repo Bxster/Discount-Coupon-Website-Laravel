@@ -29,7 +29,6 @@ class PublicController extends Controller
             ->with('promozioni', $topPromozioni);
     }
 
-//porcoddeddioooooooooo
 
     public function listaAziende()
     {

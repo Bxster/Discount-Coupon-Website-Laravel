@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('user', function (Blueprint $table) {
+        Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('userId');
             $table->string('name');
             $table->string('surname');
@@ -22,7 +22,7 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('username',20);
             $table->string('password');
-            $table->string('role',10)->default('user');
+            $table->string('role',10)->default('users');
             $table->integer('genere'); //0=maschio, 1=femmina
             $table->date('dataNascita');
             $table->rememberToken();
@@ -38,6 +38,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::droplfExist('user');
+        Schema::droplfExist('users');
     }
 };
