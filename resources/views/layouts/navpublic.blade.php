@@ -32,7 +32,7 @@
             
             @endguest
 
-            @can('isUser')
+            @auth
 
             <li class="nav-item">
               <a class="nav-link" href="pagina_staff.html">{{Auth::user()->username}}</a> <!--cambiare link-->
@@ -46,7 +46,7 @@
             {{ csrf_field() }}
             </form>
 
-            @endcan
+            @endauth
 
           </ul>
         </div>
