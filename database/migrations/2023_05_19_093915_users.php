@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('username',20);
             $table->string('password');
             $table->string('role',10)->default('user');
-            $table->integer('genere'); //0=maschio, 1=femmina
+            $table->integer('genere');
             $table->date('dataNascita');
             $table->rememberToken();
             $table->timestamps();  

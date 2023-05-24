@@ -31,11 +31,13 @@
             </li>
             
             @endguest
+            
 
             @auth
 
             <li class="nav-item">
-              <a class="nav-link" href="pagina_staff.html">{{Auth::user()->username}}</a> <!--cambiare link-->
+              <!-- <a class="nav-link" href="pagina_staff.html">{{Auth::user()->username}}</a> -->
+              <a class="nav-link" href="{{ route('userpage.show', ['userId' => Auth::user()->userId]) }}">{{ Auth::user()->username }}</a>
             </li>
 
             <li class="nav-item">

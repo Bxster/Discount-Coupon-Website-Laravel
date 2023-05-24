@@ -28,6 +28,15 @@ class UserController extends Controller
         return view('home');
     }
 
+    public function show($userId) {
+    $user = User::find($userId);
+
+    if (!$user) {
+        abort(404);
+    }
+
+    return view('userpage', compact('user'));
+    }
 
 
 }

@@ -26,6 +26,7 @@ Route::post('/lista_promozioni_search', [SearchControllerPromozioni::class, 'sea
 Route::get('/lista_promozioni', [PublicController::class, 'listaPromozioni'])->name('lista_promozioni');
 Route::get('/who', function () {return view('who');})->name('who');
 Route::get('/faqs', [FaqController::class, 'index'])->name('faqs');
+Route::get('/userpage/{userId}', [UserController::class, 'show'])->name('userpage.show');
 
 
 
