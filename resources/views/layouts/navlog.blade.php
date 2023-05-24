@@ -23,9 +23,9 @@
                             <a class="nav-link" href="{{ route('faqs') }}"> FAQ </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="pagina_staff.html"> @Nome_utente</a> <!--cambiare link-->
+                            <a class="nav-link" href="pagina_staff.html"> {{Auth::user()->username}}</a> <!--cambiare link-->
                         </li>
-                        @auth
+
                         <li class="nav-item">
                             <a class="nav-link" href="" class="highlight" title="Esci dal sito" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                             Logout</a>
@@ -33,7 +33,7 @@
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         {{ csrf_field() }}
                         </form>
-                        @endauth 
+
                     </ul>
                 </div>
             </div>

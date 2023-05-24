@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\Promozioni;
+use App\Models\Aziende;
 use Illuminate\Http\Request;
 
-class SearchControllerPromozioni extends Controller
+class SearchControllerAziende extends Controller
 {
     public function index()
     {
@@ -16,10 +16,9 @@ class SearchControllerPromozioni extends Controller
     public function search(Request $request)
     {
         $query = $request->input('query');
-        $promozioni = Promozioni::where('nome', 'LIKE', "%$query%")
-            ->orWhere('oggetto', 'LIKE', "%$query%")
+        $aziende = Aziende::where('ragionesociale', 'LIKE', "%$query%")
             ->get();
 
-        return view('lista_promozioni_search', compact('promozioni', 'query'));
+        return view('lista_aziende_search', compact('aziende', 'query'));
     }
 }

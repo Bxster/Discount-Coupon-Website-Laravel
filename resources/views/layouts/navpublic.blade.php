@@ -23,9 +23,31 @@
             <li class="nav-item">
               <a class="nav-link" href="{{ route('faqs') }}" > FAQ </a>
             </li>
+
+            @guest
+
             <li class="nav-item">
               <a class="nav-link" href="{{route('login')}} " > Login</a>
             </li>
+            
+            @endguest
+
+            @can('isUser')
+
+            <li class="nav-item">
+              <a class="nav-link" href="pagina_staff.html">{{Auth::user()->username}}</a> <!--cambiare link-->
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="" class="highlight" title="Esci dal sito" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+              Logout</a>
+            </li>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            {{ csrf_field() }}
+            </form>
+
+            @endcan
+
           </ul>
         </div>
       </div>

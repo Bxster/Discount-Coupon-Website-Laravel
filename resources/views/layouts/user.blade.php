@@ -34,7 +34,7 @@
 
 <!-- header section strats -->
 
-@include('layouts/navlog')
+@include('layouts/navpublic')
 
 <!-- end header section -->
 

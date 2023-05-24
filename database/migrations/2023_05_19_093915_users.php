@@ -22,7 +22,7 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('username',20);
             $table->string('password');
-            $table->string('role',10)->default('users');
+            $table->string('role',10)->default('user');
             $table->integer('genere'); //0=maschio, 1=femmina
             $table->date('dataNascita');
             $table->rememberToken();
