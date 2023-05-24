@@ -51,5 +51,9 @@
 </section>
 <!-- end how section -->
 
+<div class="heading_container1">
+    @include('pagination.paginator', ['paginator' => $aziende])
+</div>
+
 
 @endsection

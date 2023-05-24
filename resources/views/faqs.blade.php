@@ -36,5 +36,9 @@
 </section>
 <!--Section: FAQ-->
   <!-- end about section -->
+  <div class="heading_container1">
+    @include('pagination.paginator', ['paginator' => $faqs])
+</div>
+
 
 @endsection

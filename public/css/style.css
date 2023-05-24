@@ -216,6 +216,13 @@ body {
   justify-content: center;
   text-align: center;
 }
+.heading_container1  a{
+  color: #000000;
+
+}
+.heading_container a:hover{
+  color: #000000;
+}
 
 .heading_container1 h2 {
   font-weight: bold;

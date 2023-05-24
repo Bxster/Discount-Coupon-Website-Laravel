@@ -46,5 +46,8 @@
     </div>
 </section>
 <!-- end catalogo section -->
+<div class="heading_container1">
+    @include('pagination.paginator', ['paginator' => $promozioni])
+</div>
 
 @endsection

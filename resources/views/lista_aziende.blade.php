@@ -23,8 +23,12 @@
         </div>
       </div>
     </div>
-  </div>
-  <div>
+     </div>
+      <div>
+
+
+
+
     <div class="row mb-4">
       <div class="col-md-8 mx-auto">
         <ul class="list-group mt-4">
@@ -47,6 +51,11 @@
   </div>
 </section>
 <!-- end how section -->
+
+    <!--Paginazione-->
+    <div class="heading_container1">
+    @include('pagination.paginator', ['paginator' => $aziende])
+</div>
 
 
 @endsection

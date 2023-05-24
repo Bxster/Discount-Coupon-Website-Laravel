@@ -11,12 +11,18 @@ class Aziende extends Model
     protected $primaryKey = 'aziendeId';
     public $timestamps = false;
 
-    public function getAziende()
+    public function getAziende($paged = 4,$order=null)
     {
-        return $aziende= Aziende::all();
+        $query = Aziende::query();
+
+        if (!is_null($order)) {
+            $query->orderBy('ragionesociale', $order);
+        }
+    
+        return $query->paginate($paged);
     }
 
-    public function getAziendaById($id)
+    public function getAziendaPaged($id)
     {
         return $this->_aziende->firstWhere('azId', $id);
     }

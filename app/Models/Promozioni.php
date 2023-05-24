@@ -18,9 +18,15 @@ class Promozioni extends Model
         return $this->find($id);
     }
 
-    public function getPromozioni()
+    public function getPromozioni($paged = 6, $order = null)
     {
-        return $promozioni=Promozioni::all();
+        $query = Promozioni::query();
+
+        if (!is_null($order)) {
+            $query->orderBy('nome', $order);
+        }
+    
+        return $query->paginate($paged);
     }
        // Realazione One-To-One con Aziende
       public function promAz() {
