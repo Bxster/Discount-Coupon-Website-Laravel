@@ -20,5 +20,13 @@ class SearchControllerAziende extends Controller
             ->paginate($paged);
 
         return view('lista_aziende_search', compact('aziende', 'query'));
+
     }
+
+    public function show($id)
+    {
+        $azienda = Aziende::findOrFail($id);
+        return view('aziendapage', compact('azienda'));
+    }
+
 }
