@@ -13,11 +13,11 @@ class SearchControllerAziende extends Controller
         return view('home');
     }
 
-    public function search(Request $request)
+    public function search(Request $request, $paged= 4)
     {
         $query = $request->input('query');
         $aziende = Aziende::where('ragionesociale', 'LIKE', "%$query%")
-            ->get();
+            ->paginate($paged);
 
         return view('lista_aziende_search', compact('aziende', 'query'));
     }

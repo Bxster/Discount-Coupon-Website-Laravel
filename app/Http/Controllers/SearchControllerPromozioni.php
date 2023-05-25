@@ -13,12 +13,13 @@ class SearchControllerPromozioni extends Controller
         return view('home');
     }
 
-    public function search(Request $request)
+    public function search(Request $request, $paged = 3)
     {
         $query = $request->input('query');
         $promozioni = Promozioni::where('nome', 'LIKE', "%$query%")
             ->orWhere('oggetto', 'LIKE', "%$query%")
-            ->get();
+            ->paginate($paged);
+            
 
         return view('lista_promozioni_search', compact('promozioni', 'query'));
     }
