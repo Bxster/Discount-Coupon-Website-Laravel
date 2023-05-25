@@ -30,6 +30,6 @@ class Promozioni extends Model
     }
        // Realazione One-To-One con Aziende
       public function promAz() {
-        return $this->hasOne(Aziende::class, 'aziendeId', 'aziendeId');
+        return $this->hasOne(Aziende::class, 'aziendeId', 'aziendeId'); 
     }
 }

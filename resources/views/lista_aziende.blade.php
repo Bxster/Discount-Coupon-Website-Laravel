@@ -34,7 +34,7 @@
         <ul class="list-group mt-4">
           @foreach($aziende as $azienda)
           <li class="list-group-item">
-            <a href="#" class="custom-link">
+            <a href="{{ route('aziendapage.show', ['aziendeId' => $azienda->aziendeId]) }}" class="promotion-link">
               <div class="promotion">
                 <img src="{{ $azienda->image }}" alt="{{ $azienda->nome }}" class="immagine-ridotta">
                 <div class="promotion-details">

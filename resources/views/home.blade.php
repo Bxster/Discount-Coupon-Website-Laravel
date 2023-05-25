@@ -209,10 +209,12 @@
             @if (isset($aziendeLimitate[$i]))
             @php $azienda = $aziendeLimitate[$i]; @endphp
                 <td>
+                <a href="{{ route('aziendapage.show', ['aziendeId' => $azienda->aziendeId]) }}" class="promotion-link">
                   <div class="img_aziendeloghi">
                     <img src="{{$azienda->image}}" alt="">
                     </div>
                     <span>{{ $azienda->ragionesociale }}</span>
+                </a>
                 </td>
                 @endif
             @endfor
@@ -247,10 +249,12 @@
             @php $promozione = $promozioniLimit[$i]; @endphp
                 <td>
                 <td>
+                <a href="{{ route('prompage.show', ['promId' => $promozione->promId]) }}" class="promotion-link">
                     <div class="img_aziendeloghi">
                     <img src="{{$promozione->promAz->image}}" alt="">
                     </div>
                     <span>{{ $promozione->nome }}</span>
+                </a>
                 </td>
                 @endif
                 @endfor
@@ -265,10 +269,12 @@
             @php $promozione = $promozioniLimit[$i]; @endphp
                 <td>
                 <td>
+                <a href="{{ route('prompage.show', ['promId' => $promozione->promId]) }}" class="promotion-link">
                     <div class="img_aziendeloghi">
                     <img src="{{$promozione->promAz->image}}" alt="">
                     </div>
                     <span>{{ $promozione->nome }}</span>
+                </a>
                 </td>
                 @endif
                 @endfor

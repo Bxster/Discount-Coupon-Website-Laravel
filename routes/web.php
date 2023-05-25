@@ -7,6 +7,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\SearchControllerPromozioni;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\SearchControllerAziende;
+use App\Http\Controllers\AziendaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +28,9 @@ Route::get('/lista_promozioni', [PublicController::class, 'listaPromozioni'])->n
 Route::get('/who', function () {return view('who');})->name('who');
 Route::get('/faqs', [FaqController::class, 'index'])->name('faqs');
 Route::get('/userpage/{userId}', [UserController::class, 'show'])->name('userpage.show');
+Route::get('/azienda/{aziendeId}', [AziendaController::class, 'show'])->name('aziendapage.show');
+Route::get('/promozione/{promId}', [SearchControllerPromozioni::class, 'show'])->name('prompage.show');
+
 
 
 

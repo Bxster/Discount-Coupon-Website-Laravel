@@ -18,9 +18,18 @@ class SearchControllerPromozioni extends Controller
         $query = $request->input('query');
         $promozioni = Promozioni::where('nome', 'LIKE', "%$query%")
             ->orWhere('oggetto', 'LIKE', "%$query%")
+            
             ->paginate($paged);
             
 
         return view('lista_promozioni_search', compact('promozioni', 'query'));
     }
+
+    public function show($id)
+    {
+        $promozione = Promozioni::findOrFail($id);
+        
+        return view('prompage', compact('promozione'));
+    }
+
 }

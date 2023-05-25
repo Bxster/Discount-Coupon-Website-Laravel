@@ -31,7 +31,7 @@
                     @if ($promozioni->count() > 0)
                     @foreach($promozioni as $promozione)
                     <li class="list-group-item">
-                        <a href="#" class="promotion-link">
+                        <a href="{{ route('prompage.show', ['promId' => $promozione->promId]) }}" class="promotion-link">
                             <div class="promotion">
                                 <img src="{{$promozione->promAz->image}}" alt="Promotion Image" class="promotion-image">
                                 <div class="promotion-details">

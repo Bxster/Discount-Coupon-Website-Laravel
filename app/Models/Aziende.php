@@ -27,4 +27,14 @@ class Aziende extends Model
         return $this->_aziende->firstWhere('azId', $id);
     }
 
+    protected $fillable = [
+        'ragionesociale',
+        'tipologia',
+        'desc',
+        'citta',
+        'via',
+        'cap',
+        'image',
+    ];
+
 }
