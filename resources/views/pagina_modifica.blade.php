@@ -4,7 +4,7 @@
 
 @section('content')
 
-<!--<div class="register-container">
+<div class="register-container">
 <h1>Pagina di modifica profilo</h1>
 
      <div class="wrap-contact1">
@@ -130,6 +130,5 @@
 </div>
  Custom styles for this template 
 <link href="{{ asset('css/style.css')}}" rel="stylesheet" />
-<link href="{{ asset('css/register.css')}}" rel="stylesheet" />-->
-<h2>hello</h2>
+<link href="{{ asset('css/register.css')}}" rel="stylesheet" />
 @endsection

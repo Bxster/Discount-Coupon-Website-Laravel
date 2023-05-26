@@ -249,7 +249,7 @@
             @php $promozione = $promozioniLimit[$i]; @endphp
                 <td>
                 <td>
-                <a href="{{ route('prompage.show', ['promId' => $promozione->promId]) }}" class="promotion-link">
+                <a href="{{route('prompage.show', ['promId' => $promozione->promId]) }}" class="promotion-link">
                     <div class="img_aziendeloghi">
                     <img src="{{$promozione->promAz->image}}" alt="">
                     </div>
@@ -269,7 +269,7 @@
             @php $promozione = $promozioniLimit[$i]; @endphp
                 <td>
                 <td>
-                <a href="{{ route('prompage.show', ['promId' => $promozione->promId]) }}" class="promotion-link">
+                <a href="{{route('prompage.show', ['promId' => $promozione->promId]) }}" class="promotion-link">
                     <div class="img_aziendeloghi">
                     <img src="{{$promozione->promAz->image}}" alt="">
                     </div>
