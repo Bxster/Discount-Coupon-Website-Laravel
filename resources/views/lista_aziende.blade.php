@@ -16,7 +16,7 @@
     <div class="row">
       <div class="col-md-6 mx-auto">
         <div class="container-1">
-          <form action="{{ route('lista_aziende_search') }}" method="POST">
+          <form action="{{ route('lista_aziende_search') }}">
           @csrf
           <input type="text" name="query" placeholder="Cerca aziende" onkeydown="if(event.keyCode===13){event.preventDefault(); this.form.submit();}">
           </form>

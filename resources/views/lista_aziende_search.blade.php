@@ -14,7 +14,7 @@
         <div class="row">
             <div class="col-md-6 mx-auto">
                 <div class="container-1">
-                    <form action="{{ route('lista_aziende_search') }}" method="POST">
+                    <form action="{{ route('lista_aziende_search') }}">
                         @csrf
                         <input type="text" name="query" placeholder="Cerca aziende" onkeydown="if(event.keyCode===13){event.preventDefault(); this.form.submit();}">
                     </form>
@@ -25,7 +25,7 @@
     <div>
         <div class="row mb-4">
             <div class="col-md-8 mx-auto">
-                <h2>Risultati della ricerca per: {{ $query }}</h2>
+                <h2>Risultati della ricerca:</h2>
                 <ul class="list-group mt-4">
                     @if ($aziende->count() > 0)
                     @foreach($aziende as $azienda)
@@ -52,7 +52,7 @@
 <!-- end how section -->
 
 <div class="heading_container1">
-    @include('pagination.paginator_search', ['paginator' => $aziende])
+    @include('pagination.paginator', ['paginator' => $aziende])
 </div>
 
 
