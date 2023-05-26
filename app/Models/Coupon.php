@@ -12,6 +12,11 @@ class Coupon extends Model
     protected $primaryKey = 'couponId';
     public $timestamps = false;
 
+    public function getCouponById($id)
+    {
+        return $this->find($id);
+    }
+
         // Realazione One-To-One con User
         public function coupUs() {
         return $this->hasOne(Aziende::class, 'userId', 'userId');
