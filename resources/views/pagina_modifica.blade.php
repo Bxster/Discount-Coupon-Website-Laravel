@@ -4,132 +4,65 @@
 
 @section('content')
 
-<!--<div class="register-container">
+<link href="{{ asset('css/login.css')}}" rel="stylesheet" />
+<link href="{{ asset('css/style.css')}}" rel="stylesheet" />
+
+<div class="login-container">
+<div class="static">
 <h1>Pagina di modifica profilo</h1>
 
-     <div class="wrap-contact1">
-    {{ Form::open(array('route' => 'register', 'class' => 'contact-form')) }}
-
-    <div class="wrap-input">
-        {{ Form::label('name', 'Nome', ['class' => 'label-input']) }}
-        {{ Form::text('name', '$user->nome', ['class' => 'input', 'id' => 'name']) }}
-        @if ($errors->first('name'))
-        <ul class="errors">
-            @foreach ($errors->get('name') as $message)
-            <li>{{ $message }}</li>
-            @endforeach
-        </ul>
-        @endif
-    </div>
-
-    <div class="wrap-input">
-        {{ Form::label('surname', 'Cognome', ['class' => 'label-input']) }}
-        {{ Form::text('surname', '$user->cognome', ['class' => 'input', 'id' => 'surname']) }}
-        @if ($errors->first('surname'))
-        <ul class="errors">
-            @foreach ($errors->get('surname') as $message)
-            <li>{{ $message }}</li>
-            @endforeach
-        </ul>
-        @endif
-    </div>
-
-    <div class="wrap-input">
-        {{ Form::label('cellulare', 'Cellulare', ['class' => 'label-input']) }}
-        {{ Form::text('cellulare', '$user->cellurare', ['class' => 'input', 'id' => 'cellulare']) }}
-        @if ($errors->first('cellulare'))
-        <ul class="errors">
-            @foreach ($errors->get('cellulare') as $message)
-            <li>{{ $message }}</li>
-            @endforeach
-        </ul>
-        @endif
-    </div>
-    @can('isUser')
-    <div class="wrap-input">
-        {{ Form::label('email', 'Email', ['class' => 'label-input']) }}
-        {{ Form::text('email', '$user->email', ['class' => 'input','id' => 'email', 'type'=>'email']) }}
-        @if ($errors->first('email'))
-        <ul class="errors">
-            @foreach ($errors->get('email') as $message)
-            <li>{{ $message }}</li>
-            @endforeach
-        </ul>
-        @endif
-    </div>
-
-    <div class="wrap-input">
-        {{ Form::label('username', 'Nome Utente', ['class' => 'label-input']) }}
-        {{ Form::text('username', '$user->username', ['class' => 'input','id' => 'username']) }}
-        @if ($errors->first('username'))
-        <ul class="errors">
-            @foreach ($errors->get('username') as $message)
-            <li>{{ $message }}</li>
-            @endforeach
-        </ul>
-        @endif
-    </div>
-
-    <div class="wrap-input">
-        {{ Form::label('password', 'Password', ['class' => 'label-input']) }}
-        {{ Form::password('password','$user->password' ['class' => 'input', 'id' => 'password']) }}
-        @if ($errors->first('password'))
-        <ul class="errors">
-            @foreach ($errors->get('password') as $message)
-            <li>{{ $message }}</li>
-            @endforeach
-        </ul>
-        @endif
-    </div>
-
-    <div class="wrap-input">
-        {{ Form::label('password-confirm', 'Conferma password', ['class' => 'label-input']) }}
-        {{ Form::password('password_confirmation','$user->password' ['class' => 'input', 'id' => 'password-confirm']) }}
-    </div>
-
-    <div class="wrap-input">
-        {{ Form::label('genere', 'Genere', ['class' => 'label-input']) }}
-        {{ Form::select('genere', ['0' => 'Maschio', '1' => 'Femmina'], null, ['class' => 'input', 'id' => 'genere']) }}
-        @if ($errors->first('genere'))
-        <ul class="errors">
-            @foreach ($errors->get('genere') as $message)
-            <li>{{ $message }}</li>
-            @endforeach
-        </ul>
-        @endif
-    </div>
-
-    <div class="wrap-input">
-        {{ Form::label('dataNascita', 'Data di Nascita', ['class' => 'label-input']) }}
-        {{ Form::date('dataNascita', null, ['class' => 'input', 'id' => 'dataNascita']) }}
-        @if ($errors->first('dataNascita'))
-        <ul class="errors">
-            @foreach ($errors->get('dataNascita') as $message)
-            <li>{{ $message }}</li>
-            @endforeach
-        </ul>
-        @endif
-    </div>
-    @endcan
-
-    <div class="buttons">
-        <div class="container-form-btn col-4">
-            {{ Form::submit('Salva', ['class' => 'form-btn1']) }}
-        </div>
-
-        <div class="container-form-btn col-4">
-            {{ Form::reset('Annulla', ['class' => 'form-btn1']) }}    
-        </div>
-    </div>
-
-
-  {{ Form::close() }}
-
+<form action="{{ route('userpage_update',['userId' => Auth::user()->userId]) }}" method="POST">
+    @csrf
+    @method('PUT')
+<div>
+    <label for="name">Nome:</label>
+    <input type="text" id="name" name="name" value="{{ $user->name }}" required>
+</div>
+<div>
+    <label for="surname">Cognome:</label>
+    <input type="text" id="surname" name="surname" value="{{ $user->surname }}" required>
+</div>
+    <div>
+    <label for="email">Email:</label>
+    <input type="text" id="email" name="email" value="{{ $user->email}}" required>
+</div>
+    <div>
+    <label for="cellulare">Cellulare:</label>
+    <input type="text" id="cellulare" name="cellulare" value="{{ $user->cellulare }}" required>
+</div>
+    <div>
+    <label for="username">Nome Utente:</label>
+    {{$user->username}}
+</div>
+    <div>
+    <label for="pasword">Password:</label>
+    <input type="password" id="nome" name="nome" value="" >
+</div>
+    <div>
+    <label for="password_confirm">Conferma password:</label>
+    <input type="password" id="password_confirm" name="password_confirm" value="" >
+</div>
+    <div>
+    <label for="dataNascita">Data di nascita:</label>
+    <input type="date" id="dataNascita" name="dataNascita" value="{{$user->dataNascita}}" required>
+</div>
+    <div>
+    <label for="genere">Genere:</label>
+    <select id="genere" name="genere" required>
+    <option value="0" {{ $user->genere == '0' ? 'selected' : '' }}>Maschio</option>
+    <option value="1" {{ $user->genere == '1' ? 'selected' : '' }}>Femmina</option>
+</select>
 </div>
 
+    <!-- Altri campi per i dati personali -->
+    <div class="button_box">
+    <button class= "btn cancel-btn" type="submit">Aggiorna</button>
+
+    <button type="reset" class="btn cancel-btn"> <a href="{{ route('userpage.show', ['userId' => Auth::user()->userId]) }}">Annulla</a></button>
+
 </div>
- Custom styles for this template 
-<link href="{{ asset('css/style.css')}}" rel="stylesheet" />
-<link href="{{ asset('css/register.css')}}" rel="stylesheet" />-->
-<h2>hello</h2>
+</form>
+</div>
+</div>
+
 @endsection
