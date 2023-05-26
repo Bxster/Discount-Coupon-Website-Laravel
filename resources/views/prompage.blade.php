@@ -63,11 +63,14 @@
           <p>
           Codice promozione: {{ $promozione->codice_promozione }}
           </p>
-            <a href=" ">
+            @can('isUser')
+            
+              <a>
                 <button class="btn btn-success">
                   Ottieni
                 </button>
-            </a>
+              </a>
+            @endcan
          </div>   
         </div>
     

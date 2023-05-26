@@ -5,8 +5,10 @@ use App\Http\Controllers\PublicController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\SearchControllerPromozioni;
-use App\Http\Controllers\FaqController;
 use App\Http\Controllers\SearchControllerAziende;
+use App\Http\Controllers\FaqController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -32,29 +34,4 @@ Route::get('/promozione/{promId}', [SearchControllerPromozioni::class, 'show'])-
 
 
 
-
-/*
-Route::get('/FAQ', function () {
-        return view('faq');
-       });
-
-Route::get('/login', function () {
-        return view('login');
-       });
-
-Route::get('/registrazione', function () {
-        return view('registrazione');
-       });
-
-Route::get('/listazienda', function () {
-        return view('listaAzienda');
-       });
-
-Route::get('/catalogo', function () {
-        return view('catalogo');
-       });
-
-Route::get('/homepage1',function () {
-        return view('homepage1');
-       });*/
 require __DIR__.'/auth.php';

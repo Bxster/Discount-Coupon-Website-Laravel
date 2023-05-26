@@ -48,7 +48,7 @@
 
     <div class="wrap-input">
         {{ Form::label('email', 'Email', ['class' => 'label-input']) }}
-        {{ Form::text('email', '', ['class' => 'input','id' => 'email']) }}
+        {{ Form::text('email', '', ['class' => 'input','id' => 'email', 'type'=>'email']) }}
         @if ($errors->first('email'))
         <ul class="errors">
             @foreach ($errors->get('email') as $message)
