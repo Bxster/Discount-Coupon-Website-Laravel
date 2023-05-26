@@ -31,14 +31,14 @@
                     @if ($promozioni->count() > 0)
                     @foreach($promozioni as $promozione)
                     <li class="list-group-item">
-                        <a href="{{ route('prompage.show', ['promId' => $promozione->promId]) }}" class="promotion-link">
-                            <div class="promotion">
-                                <img src="{{$promozione->promAz->image}}" alt="Promotion Image" class="promotion-image">
+                    <a href="{{route('prompage.show', ['promId' => $promozione->proId]) }}" class="promotion-link">
+                        <div class="promotion">
+                            <img src="{{ $promozione->image_link }}" alt="Promotion Image" class="promotion-image">
                                 <div class="promotion-details">
                                     <h3 class="promotion-title">{{ $promozione->nome }}</h3>
                                     <p class="promotion-description">{{ $promozione->oggetto }}</p>
                                 </div>
-                            </div>
+                        </div>
                         </a>
                     </li>
                     @endforeach

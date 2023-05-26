@@ -4,11 +4,15 @@
 
 @section('content')
 
+<<<<<<< HEAD
 <link href="{{ asset('css/login.css')}}" rel="stylesheet" />
 <link href="{{ asset('css/style.css')}}" rel="stylesheet" />
 
 <div class="login-container">
 <div class="static">
+=======
+<div class="register-container">
+>>>>>>> 9925877f4ec8ba509d54c55f08228a3412663d80
 <h1>Pagina di modifica profilo</h1>
 
 <form action="{{ route('userpage_update',['userId' => Auth::user()->userId]) }}" method="POST">
@@ -61,8 +65,14 @@
     <button type="reset" class="btn cancel-btn"> <a href="{{ route('userpage.show', ['userId' => Auth::user()->userId]) }}">Annulla</a></button>
 
 </div>
+<<<<<<< HEAD
 </form>
 </div>
 </div>
 
+=======
+ Custom styles for this template 
+<link href="{{ asset('css/style.css')}}" rel="stylesheet" />
+<link href="{{ asset('css/register.css')}}" rel="stylesheet" />
+>>>>>>> 9925877f4ec8ba509d54c55f08228a3412663d80
 @endsection
