@@ -19,7 +19,7 @@
         <a href="#" onclick="event.preventDefault(); document.getElementById('form-pagination').submit();">&lt; Precedente</a> |
             <form id='form-pagination' method="POST" action="{{ route('lista_aziende_search') }}">
                 @csrf
-                <input type="hidden" name="page" value="{{ $paginator->previousPageUrl() }}"></input>
+                <input type="hidden" name="page" value="{{ $paginator->currentPage() - 1 }}"></input>
             </form>
         @else
             &lt; Precedente |
@@ -31,7 +31,7 @@
 
             <form id='form-pagination' method="POST" action="{{ route('lista_aziende_search') }}">
                 @csrf
-                <input type="hidden" name="page" value="{{ $paginator->nextPageUrl() }}"></input>
+                <input type="hidden" name="page" value="{{ $paginator->currentPage() + 1 }}"></input>
             </form>
         @else
             Successivo &gt; |
