@@ -54,7 +54,7 @@
 <!-- end catalogo section -->
 
 <div class="heading_container1">
-    <!--@include('pagination.paginator', ['paginator' => $promozioni])-->
+    @include('pagination.paginator_search', ['paginator' => $promozioni])
 </div>
 
 @endsection

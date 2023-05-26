@@ -52,7 +52,7 @@
 <!-- end how section -->
 
 <div class="heading_container1">
-   <!-- @include('pagination.paginator', ['paginator' => $aziende])-->
+    @include('pagination.paginator_search', ['paginator' => $aziende])
 </div>
 
 
