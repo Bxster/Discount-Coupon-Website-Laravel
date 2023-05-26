@@ -3,10 +3,11 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Promozioni;
+use App\Models\Aziende;
 
 class Coupon extends Model
 {
-    protected $_promozioni;
     protected $table = 'coupon';
     protected $primaryKey = 'couponId';
     public $timestamps = false;
@@ -17,7 +18,7 @@ class Coupon extends Model
     }
 
         // Realazione One-To-One con Promozioni
-        public function CoupPr() {
+        public function coupPr() {
         return $this->hasOne(Aziende::class, 'promId', 'promId');
     }
 

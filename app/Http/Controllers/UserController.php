@@ -15,6 +15,7 @@ class UserController extends Controller
     protected $_userModel;
     protected $_aziende;
     protected $_promozioni;
+
     
 
     public function __construct() {
