@@ -19,12 +19,12 @@ class Coupon extends Model
 
         // Realazione One-To-One con User
         public function coupUs() {
-        return $this->hasOne(Aziende::class, 'userId', 'userId');
+        return $this->hasOne(User::class, 'userId', 'userId');
     }
 
         // Realazione One-To-One con Promozioni
         public function coupPr() {
-        return $this->hasOne(Aziende::class, 'promId', 'promId');
+        return $this->hasOne(Promozioni::class, 'promId', 'promId');
     }
 
 

@@ -10,40 +10,31 @@
       <div class="row">
         <div class="col-lg-4">
           <div class="company-logo">
-            <img src="images/gianluca.gif" alt="Logo Azienda">
-            <h4>{{ $coupon->coupPr->coupAz->ragionesociale }}</h4>
+            <img src="{{ $coupon->coupPr->promAz->image }}" alt="Logo Azienda">
+            <h4>{{ $coupon->coupPr->promAz->ragionesociale }}</h4>
           </div>
         </div>
         <div class="col-lg-8">
           <div class="coupon-details">
             <div class="coupon-header">
-              <h4>Grazie, {{ $coupon->coupUs->name }}{{ $coupon->coupUs->surname }}!</h4>
+              <h4>Grazie, {{ $coupon->coupUs->name }} {{ $coupon->coupUs->surname }}!</h4>
               <p>Il tuo coupon è pronto per essere utilizzato:</p>
-            </div>
+            </div> 
             <div class="coupon-code">
               <h1>{{ $coupon->codice }}</h1>
             </div>
-            <div class="coupon-info">
-              <h4>Descrizione della promozione</h4>
+          <div class="coupon-info">
+              <h4>Descrizione della promozione:</h4>
               <p>{{ $coupon->coupPr->oggetto }}</p>
             </div>
             <div class="coupon-info">
-              <h4>Dettagli di utilizzo</h4>
+              <h4>Dettagli di utilizzo:</h4>
               <p>{{ $coupon->coupPr->modalita }}</p>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  </div> 
 
 @endsection
-
-<!--
-{{ $coupon->coupPr->nome }}
-{{ $coupon->coupPr->coupAz->ragionesociale }}
-{{ $coupon->coupUs->name }}
-{{ $coupon->coupUs->surname }}
-{{ $coupon->codice }}
-{{ $coupon->coupPr->oggetto }}
-{{ $coupon->coupPr->modalita }} -->

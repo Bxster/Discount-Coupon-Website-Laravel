@@ -231,41 +231,6 @@ class DatabaseSeeder extends Seeder {
             ] 
         ]);
 
-        DB::table('coupon')->insert([
-            [
-                
-                'codice' => 'ABC123',
-                'created_at' => now(),
-                'updated_at' => now(),
-                'promId' => 1, // 'promId' => '1'
-                'userId' => 1, // 'userId' => '1'
-            ],
-            [
-                
-                'codice' => 'DEF456',
-                'created_at' => now(),
-                'updated_at' => now(),
-                'promId' => 2,
-                'userId' => 1,
-            ],
-            [
-                
-                'codice' => 'GHI789',
-                'created_at' => now(),
-                'updated_at' => now(),
-                'promId' => 3, 
-                'userId' => 1,
-            ],
-            [
-                
-                'codice' => 'JKL012',
-                'created_at' => now(),
-                'updated_at' => now(),
-                'promId' => 4, 
-                'userId' => 2,
-            ]
-        ]);
-
     }
 
 }

@@ -63,14 +63,13 @@
           <p>
           Codice promozione: {{ $promozione->codice_promozione }}
           </p>
-            @can('isUser')
-            
-              <a>
-                <button class="btn btn-success">
-                  Ottieni
-                </button>
-              </a>
-            @endcan
+          @can('isUser')           
+            <a href="{{ route('coupon.store', ['promozioneId' => $promozione->promId]) }}">
+              <button class="btn btn-success" data-prom-id="{{ $promozione->promId }}">
+                Ottieni
+              </button>
+            </a>
+          @endcan
          </div>   
         </div>
     

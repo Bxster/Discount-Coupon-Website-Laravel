@@ -20,7 +20,6 @@ return new class extends Migration
             $table->foreign('promId')->references('promId')->on('promozioni');
             $table->BigInteger('userId')->unsigned()->index();
             $table->foreign('userId')->references('userId')->on('users');
-
             $table->timestamps();
         });
     }

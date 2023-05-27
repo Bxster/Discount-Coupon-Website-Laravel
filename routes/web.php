@@ -7,6 +7,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\SearchControllerPromozioni;
 use App\Http\Controllers\SearchControllerAziende;
 use App\Http\Controllers\FaqController;
+use App\Http\Controllers\CouponController;
 
 
 
@@ -33,6 +34,8 @@ Route::get('/pagina_modifica/{userId}', [UserController::class, 'show1'])->name(
 Route::put('/userpage_update', [UserController::class, 'update'])->name('userpage_update');
 Route::get('/azienda/{aziendeId}', [SearchControllerAziende::class, 'show'])->name('aziendapage.show');
 Route::get('/promozione/{promId}', [SearchControllerPromozioni::class, 'show'])->name('prompage.show');
+Route::get('/coupon/store/{promozioneId}', [CouponController::class, 'store'])->name('coupon.store');
+Route::get('/coupon/{couponId}', [CouponController::class, 'show'])->name('coupon.show');
 
 
 
