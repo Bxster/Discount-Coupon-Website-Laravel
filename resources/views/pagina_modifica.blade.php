@@ -22,6 +22,21 @@
     <label for="surname">Cognome:</label>
     <input type="text" id="surname" name="surname" value="{{ $user->surname }}" required>
 </div>
+<div>
+    <label for="username">Nome Utente:</label>
+    {{$user->username}}
+</div>
+    <div>
+    <label for="pasword">Password:</label>
+    <input type="password" id="nome" name="nome" value="" >
+</div>
+
+<div>
+    <label for="password_confirm">Conferma password:</label>
+    <input type="password" id="password_confirm" name="password_confirm" value="" >
+</div>
+
+@can('isUser')
     <div>
     <label for="email">Email:</label>
     <input type="text" id="email" name="email" value="{{ $user->email}}" required>
@@ -30,18 +45,7 @@
     <label for="cellulare">Cellulare:</label>
     <input type="text" id="cellulare" name="cellulare" value="{{ $user->cellulare }}" required>
 </div>
-    <div>
-    <label for="username">Nome Utente:</label>
-    {{$user->username}}
-</div>
-    <div>
-    <label for="pasword">Password:</label>
-    <input type="password" id="nome" name="nome" value="" >
-</div>
-    <div>
-    <label for="password_confirm">Conferma password:</label>
-    <input type="password" id="password_confirm" name="password_confirm" value="" >
-</div>
+
     <div>
     <label for="dataNascita">Data di nascita:</label>
     <input type="date" id="dataNascita" name="dataNascita" value="{{$user->dataNascita}}" required>
@@ -53,6 +57,7 @@
     <option value="1" {{ $user->genere == '1' ? 'selected' : '' }}>Femmina</option>
 </select>
 </div>
+@endcan
 
     <!-- Altri campi per i dati personali -->
     <div class="button_box">
