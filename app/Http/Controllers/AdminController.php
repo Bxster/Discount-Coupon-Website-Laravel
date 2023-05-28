@@ -153,4 +153,19 @@ class AdminController extends Controller
         return redirect()->route('faqs')->with('success', 'Faq eliminata con successo.');
     }
 
+
+    public function destroyUtenti($userId)
+    {
+        // Trova l'azienda da eliminare
+        $user = User::findOrFail($userId);
+
+        // Elimina l'azienda
+        $user->delete();
+
+        // Esegui eventuali altre azioni o reindirizzamenti
+
+        // Ad esempio, puoi reindirizzare l'utente a una pagina di conferma
+        return redirect()->route('home')->with('success', 'Utente eliminato con successo.');
+    }
+
 }

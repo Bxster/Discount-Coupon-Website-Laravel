@@ -43,11 +43,11 @@
             @can('isAdmin')
 
             <li class="nav-item">
-              <a class="nav-link" href="{{ route('faqs') }}" > Gestisci Utenti </a>
+              <a class="nav-link" href="{{ route('admin.elencoUtenti') }}" > Gestisci Utenti </a>
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="{{ route('aggiunta_staff') }}" > Gestisci Staff </a>
+              <a class="nav-link" href="{{ route('admin.elencoStaff') }}" > Gestisci Staff </a>
             </li>
 
             <li class="nav-item">

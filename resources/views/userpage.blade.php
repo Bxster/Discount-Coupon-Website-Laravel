@@ -83,6 +83,13 @@
                   <a href="{{ route('pagina_modifica', ['userId' => Auth::user()->userId]) }}">
                   <button type="button" class="btn btn-success">Modifica</button>
                   </a>
+                  @can('isAdmin')
+                  <form action="{{ route('admin.user.destroy', ['userId' => $user->userId]) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                  <button type="submit" class="btn btn-success">Elimina</button>
+                  </form>
+                  @endcan
                   </div>
                 </div>
             </div>

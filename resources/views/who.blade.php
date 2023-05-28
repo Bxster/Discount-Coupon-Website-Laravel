@@ -56,5 +56,14 @@
         </div>
       </div>
     </div>
+    <div class="heading_container">
+    <h6>
+    Questo sito offre la possibilità di generare diveri coupon da delle promozioni presenti e associate ad
+    un'azienda;
+    potete vedere le liste di tutte le aziende o promozioni; potete cercare le singole aziende;
+    c'è una  pagina per le faq e potete contattarci inviando una mail cliccando nella sezione 
+    in basso del sito. Ricordate che potete generare un solo coupon a promozione!
+    </h6>
+    </div>
   </section>
 @endsection
