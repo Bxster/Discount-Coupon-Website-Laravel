@@ -5,24 +5,37 @@
 @section('content')
 
 
-    <h1>Elenco Staff</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>Username</th>
-                <th>Nome</th>
-                <th>Cognome</th>                
-            </tr>
-        </thead>
-        <tbody>
+    <section class="how_section layout_padding">
+  <div class="heading_container1">
+    <h2>
+      LISTA STAFF
+    </h2>
+  </div>
+    <div class="row mb-4">
+      <div class="col-md-8 mx-auto">
+      @can('isAdmin')
+    <a href="{{ route('aggiunta_staff') }}">
+    <button class="btn btn-success" > Aggiungi Staff </button>
+    </a>
+    @endcan
+        <ul class="list-group mt-4">
         @foreach ($users as $user)
-            <tr onclick="window.location='{{ route('admin.visualizzaStaff', $user->userId) }}';">
-                <td>{{ $user->username }}</td>
-                <td>{{ $user->name }}</td>
-                <td>{{ $user->surname }}</td>
-            </tr>
-         @endforeach
-        </tbody>
-    </table>
+          <li class="list-group-item">
+            <a href="{{ route('admin.visualizzaStaff', $user->userId) }}" class="promotion-link">
+              <div class="promotion">
+              <img src="images/profilodefault1.jpg" alt="" class="immagine-ridotta">
+                <div class="promotion-details">
+                  <h1 class="promotion-title">{{ $user->username }}</h1>
+                  <h4 class="promotion-description">{{ $user->name }} {{ $user->surname }}</h4>
+                </div>
+              </div>
+            </a>
+          </li>
+          @endforeach
+        </ul>
+      </div>
+    </div>
+</section>
 
 @endsection
+
