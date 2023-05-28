@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('luoghi_fruizione');
             $table->string('codice_promozione');
             $table->bigInteger('aziendeId')->unsigned()->index();
-            $table->foreign('aziendeId')->references('aziendeId')->on('aziende');
+            $table->foreign('aziendeId')->references('aziendeId')->on('aziende')->onDelete('cascade');
             $table->timestamps();
         });
     }
