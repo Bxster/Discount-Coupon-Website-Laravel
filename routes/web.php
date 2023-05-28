@@ -8,6 +8,7 @@ use App\Http\Controllers\SearchControllerPromozioni;
 use App\Http\Controllers\SearchControllerAziende;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\CouponController;
+use App\Http\Controllers\StaffController;
 
 
 
@@ -39,6 +40,10 @@ Route::get('/coupon/{couponId}', [CouponController::class, 'show'])->name('coupo
 Route::post('/aziende', [AdminController::class, 'storeAzienda'])->name('aziende.store');
 Route::get('/admin/aziende/create', [AdminController::class, 'create'])->name('aggiunta_azienda');
 Route::delete('/admin/aziende/{aziendeId}', [AdminController::class, 'destroy'])->name('admin.aziende.destroy');
+
+Route::post('/promozioni/{aziendeId}', [StaffController::class, 'storePromozione'])->name('promozione.store');
+Route::get('/staff/promozioni/create/{aziendeId}', [StaffController::class, 'create'])->name('aggiunta_promozione');
+Route::delete('/staff/promozioni/{promId}', [StaffController::class, 'destroy'])->name('staff.promozioni.destroy');
 
 
 

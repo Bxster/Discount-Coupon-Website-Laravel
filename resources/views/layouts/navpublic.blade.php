@@ -35,7 +35,7 @@
             @can('isStaff')
 
             <li class="nav-item">
-              <a class="nav-link" href="{{ route('faqs') }}" > Gestisci Promozioni </a>
+              <a class="nav-link" href="{{ route('lista_promozioni') }}" > Gestisci Promozioni </a>
             </li>
 
             @endcan

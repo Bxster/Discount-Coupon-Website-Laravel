@@ -26,6 +26,13 @@
          <p><strong>Città:</strong> {{ $azienda->citta }}</p>
          <p><strong>Via:</strong> {{ $azienda->via }}</p>
          <p><strong>CAP:</strong> {{ $azienda->cap }}</p>
+         @can('isStaff')           
+            <a href="{{ route('aggiunta_promozione',['aziendeId' => $azienda->aziendeId])}}">
+              <button class="btn btn-success" >
+                Aggiungi promozione
+              </button>
+            </a>
+          @endcan
          @can('isAdmin')           
             <a href=" ">
               <button class="btn btn-success">

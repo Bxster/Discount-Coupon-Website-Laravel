@@ -20,7 +20,6 @@ class UserController extends Controller
 
     public function __construct() {
         $this->_userModel = new User;
-        $this->middleware('can:isUser');
         $this->_aziende = new Aziende;
         $this->_promozioni = new Promozioni;
     }

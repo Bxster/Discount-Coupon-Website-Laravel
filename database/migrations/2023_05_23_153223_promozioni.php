@@ -18,9 +18,8 @@ return new class extends Migration
             $table->string('nome');
             $table->string('oggetto');
             $table->string('modalita');
-            $table->string('tempi_fruizione');
+            $table->date('tempi_fruizione');
             $table->string('luoghi_fruizione');
-            $table->string('codice_promozione');
             $table->bigInteger('aziendeId')->unsigned()->index();
             $table->foreign('aziendeId')->references('aziendeId')->on('aziende');
             $table->timestamps();
