@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Aziende;
 use App\Models\Promozioni;
+use App\Models\User;
 
 class StaffController extends Controller
 {
@@ -44,13 +45,6 @@ class StaffController extends Controller
             return redirect()->route('home')->with('success', 'Promozione aggiunta con successo!');
         }
     
-      /*  public function destroy(Aziende $promozione)
-        {
-            $promozione->delete();
-    
-            return redirect()->route('home')->with('success', 'Promozione eliminata con successo');
-        } */
-    
             public function destroy($promId)
         {
             // Trova l'promozione da eliminare
@@ -63,6 +57,18 @@ class StaffController extends Controller
     
             // Ad esempio, puoi reindirizzare l'utente a una pagina di conferma
             return redirect()->route('home')->with('success', 'Promozione eliminata con successo.');
+        }
+
+        public function show($userId)
+        {
+            $user = User::findOrFail($userId);
+            return view('userpage', compact('user'));
+        }
+
+        public function lista()
+        {
+            $user = User::where('role', 'staff')->get();
+            return view('elenco_staff', ['users' => $user]);
         }
     
 }

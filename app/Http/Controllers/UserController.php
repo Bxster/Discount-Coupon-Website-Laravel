@@ -56,6 +56,11 @@ class UserController extends Controller
     return redirect()->route('home')->with('success', 'Dati personali aggiornati con successo.');
 }
 
+public function lista()
+{
+    $users = User::where('role', 'user')->get();
+    return view('elenco_utenti', compact('users'));
+}
         
     
 
