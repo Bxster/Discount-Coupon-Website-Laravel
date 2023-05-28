@@ -35,7 +35,7 @@
             <form action="{{ route('admin.aziende.destroy', ['aziendeId' => $azienda->aziendeId]) }}" method="POST">
                 @csrf
                 @method('DELETE')
-                <button type="submit" class="btn btn-danger">Elimina</button>
+                <button type="submit" class="btn btn-success">Elimina</button>
             </form>
            <!-- <a href=" ">
               <button class="btn btn-success">
