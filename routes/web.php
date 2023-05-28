@@ -36,6 +36,10 @@ Route::get('/azienda/{aziendeId}', [SearchControllerAziende::class, 'show'])->na
 Route::get('/promozione/{promId}', [SearchControllerPromozioni::class, 'show'])->name('prompage.show');
 Route::get('/coupon/store/{promozioneId}', [CouponController::class, 'store'])->name('coupon.store');
 Route::get('/coupon/{couponId}', [CouponController::class, 'show'])->name('coupon.show');
+Route::post('/aziende', [AdminController::class, 'storeAzienda'])->name('aziende.store');
+Route::get('/admin/aziende/create', [AdminController::class, 'create'])->name('aggiunta_azienda');
+Route::delete('/admin/aziende/{aziendeId}', [AdminController::class, 'destroy'])->name('admin.aziende.destroy');
+
 
 
 

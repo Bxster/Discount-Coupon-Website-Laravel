@@ -26,8 +26,23 @@
          <p><strong>Città:</strong> {{ $azienda->citta }}</p>
          <p><strong>Via:</strong> {{ $azienda->via }}</p>
          <p><strong>CAP:</strong> {{ $azienda->cap }}</p>
-         <div class="btn-box">
-         </div>
+         @can('isAdmin')           
+            <a href=" ">
+              <button class="btn btn-success">
+                Modifica
+              </button>
+            </a>
+            <form action="{{ route('admin.aziende.destroy', ['aziendeId' => $azienda->aziendeId]) }}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn-danger">Elimina</button>
+            </form>
+           <!-- <a href=" ">
+              <button class="btn btn-success">
+                Elimina
+              </button>
+            </a> -->
+          @endcan
        </div>
      </div>
    </div>
