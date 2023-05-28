@@ -70,6 +70,13 @@
               </button>
             </a>
           @endcan
+          @can('isStaff') 
+          <form action="{{ route('staff.promozioni.destroy', ['promId' => $promozione->promId]) }}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn-success">Elimina</button>
+            </form>
+            @endcan
          </div>   
         </div>
     

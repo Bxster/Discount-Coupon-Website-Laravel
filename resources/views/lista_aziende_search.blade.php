@@ -25,6 +25,11 @@
     <div>
         <div class="row mb-4">
             <div class="col-md-8 mx-auto">
+            @can('isAdmin')
+    <a href="{{ route('aggiunta_azienda') }}">
+    <button class="btn btn-success" > Aggiungi Azienda </button>
+    </a>
+    @endcan
                 <h2>Risultati della ricerca:</h2>
                 <ul class="list-group mt-4">
                     @if ($aziende->count() > 0)

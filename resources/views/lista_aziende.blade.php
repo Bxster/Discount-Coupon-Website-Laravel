@@ -26,15 +26,13 @@
      </div>
       <div>
 
-    <a href="{{ route('aggiunta_azienda') }}">
-      <button> Aggiungi Azienda </button>
-    </a>
-
-
-
-
     <div class="row mb-4">
       <div class="col-md-8 mx-auto">
+      @can('isAdmin')
+    <a href="{{ route('aggiunta_azienda') }}">
+    <button class="btn btn-success" > Aggiungi Azienda </button>
+    </a>
+    @endcan
         <ul class="list-group mt-4">
           @foreach($aziende as $azienda)
           <li class="list-group-item">

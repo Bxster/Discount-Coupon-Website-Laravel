@@ -54,7 +54,7 @@ class StaffController extends Controller
             public function destroy($promId)
         {
             // Trova l'promozione da eliminare
-            $promozione = Promozione::findOrFail($promId);
+            $promozione = Promozioni::findOrFail($promId);
     
             // Elimina l'promozione
             $promozione->delete();
