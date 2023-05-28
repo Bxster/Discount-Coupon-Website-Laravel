@@ -31,7 +31,30 @@
             </li>
             
             @endguest
-            
+
+            @can('isStaff')
+
+            <li class="nav-item">
+              <a class="nav-link" href="{{ route('faqs') }}" > Gestisci Promozioni </a>
+            </li>
+
+            @endcan
+
+            @can('isAdmin')
+
+            <li class="nav-item">
+              <a class="nav-link" href="{{ route('faqs') }}" > Gestisci Utenti </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="{{ route('faqs') }}" > Gestisci Staff </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="{{ route('aggiunta_azienda') }}" > Gestisci Aziende </a>
+            </li>
+
+            @endcan
 
             @auth
 

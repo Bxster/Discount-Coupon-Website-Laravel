@@ -28,6 +28,12 @@ class DatabaseSeeder extends Seeder {
                 'email' => 'giulia@example.com', 'email_verified_at' => now(), 'username' => 'giulia456',
                 'password' => Hash::make('password456'), 'role' => 'user', 'genere' => 1, 'dataNascita' => '1995-05-10',
                 'remember_token' => Str::random(10), 'created_at' => now(), 'updated_at' => now(),
+            ],
+            [
+                'name' => 'admin', 'surname' => 'admin', 'cellulare' => '3333333333',
+                'email' => 'admin@example.com', 'email_verified_at' => now(), 'username' => 'adminadmin',
+                'password' => Hash::make('adminadmin'), 'role' => 'admin', 'genere' => 1, 'dataNascita' => '1980-05-10',
+                'remember_token' => Str::random(10), 'created_at' => now(), 'updated_at' => now(),
             ]
         ]);
 
