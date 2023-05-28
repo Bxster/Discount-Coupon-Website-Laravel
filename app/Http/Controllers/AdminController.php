@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Admin;
 use App\Models\Aziende;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
@@ -49,13 +51,6 @@ class AdminController extends Controller
         return redirect()->route('home')->with('success', 'Azienda aggiunta con successo!');
     }
 
-  /*  public function destroy(Aziende $azienda)
-    {
-        $azienda->delete();
-
-        return redirect()->route('home')->with('success', 'Azienda eliminata con successo');
-    } */
-
         public function destroy($aziendeId)
     {
         // Trova l'azienda da eliminare
@@ -68,6 +63,43 @@ class AdminController extends Controller
 
         // Ad esempio, puoi reindirizzare l'utente a una pagina di conferma
         return redirect()->route('home')->with('success', 'Azienda eliminata con successo.');
+    }
+
+    public function create2()
+    {
+        return view('aggiunta_staff');
+    }
+
+        public function addStaff(Request $request)
+    {
+        // Validazione dei dati del form
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+            'surname' => 'required|string|max:255',
+            'cellulare' => 'required|string|max:10',
+            'email' => 'required|string|email|unique:users',
+            'username' => 'required|string|max:20',
+            'password' => 'required|string|min:8',
+            'genere' => 'required|integer',
+            'dataNascita' => 'required|date',
+        ]);
+
+        // Creazione del nuovo utente staff
+        $user = new User();
+        $user->name = $validatedData['name'];
+        $user->surname = $validatedData['surname'];
+        $user->cellulare = $validatedData['cellulare'];
+        $user->email = $validatedData['email'];
+        $user->username = $validatedData['username'];
+        $user->password = Hash::make($validatedData['password']);
+        $user->role = 'staff'; // Imposta il ruolo come "staff"
+        $user->genere = $validatedData['genere'];
+        $user->dataNascita = $validatedData['dataNascita'];
+
+        $user->save();
+
+        // Reindirizzamento o visualizzazione di un messaggio di successo
+        return redirect()->route('home')->with('success', 'Utente staff aggiunto con successo!');
     }
 
 }

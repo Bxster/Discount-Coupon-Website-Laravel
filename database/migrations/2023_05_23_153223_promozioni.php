@@ -21,7 +21,7 @@ return new class extends Migration
             $table->date('tempi_fruizione');
             $table->string('luoghi_fruizione');
             $table->bigInteger('aziendeId')->unsigned()->index();
-            $table->foreign('aziendeId')->references('aziendeId')->on('aziende');
+            $table->foreign('aziendeId')->references('aziendeId')->on('aziende')->onDelete('cascade');
             $table->timestamps();
         });
     }

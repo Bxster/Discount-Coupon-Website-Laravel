@@ -47,11 +47,11 @@
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="{{ route('faqs') }}" > Gestisci Staff </a>
+              <a class="nav-link" href="{{ route('aggiunta_staff') }}" > Gestisci Staff </a>
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="{{ route('aggiunta_azienda') }}" > Gestisci Aziende </a>
+              <a class="nav-link" href="{{ route('lista_aziende') }}" > Gestisci Aziende </a>
             </li>
 
             @endcan

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PublicController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\StaffController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\SearchControllerPromozioni;
 use App\Http\Controllers\SearchControllerAziende;
@@ -30,7 +31,7 @@ Route::get('/lista_promozioni_search', [SearchControllerPromozioni::class, 'sear
 Route::get('/lista_promozioni', [PublicController::class, 'listaPromozioni'])->name('lista_promozioni');
 Route::get('/who', function () {return view('who');})->name('who');
 Route::get('/faqs', [FaqController::class, 'index'])->name('faqs');
-Route::get('/userpage/{userId}', [UserController::class, 'show'])->name('userpage.show');
+Route::get('/userpage/{userId}', [UserController::class, 'show', StaffController::class, 'show'])->name('userpage.show');
 Route::get('/pagina_modifica/{userId}', [UserController::class, 'show1'])->name('pagina_modifica');
 Route::put('/userpage_update', [UserController::class, 'update'])->name('userpage_update');
 Route::get('/azienda/{aziendeId}', [SearchControllerAziende::class, 'show'])->name('aziendapage.show');
@@ -40,6 +41,9 @@ Route::get('/coupon/{couponId}', [CouponController::class, 'show'])->name('coupo
 Route::post('/aziende', [AdminController::class, 'storeAzienda'])->name('aziende.store');
 Route::get('/admin/aziende/create', [AdminController::class, 'create'])->name('aggiunta_azienda');
 Route::delete('/admin/aziende/{aziendeId}', [AdminController::class, 'destroy'])->name('admin.aziende.destroy');
+Route::post('/admin/staff', [AdminController::class, 'addStaff'])->name('admin.staff.add');
+Route::get('/admin/aggiunta_staff', [AdminController::class, 'create2'])->name('aggiunta_staff');
+
 
 Route::post('/promozioni/{aziendeId}', [StaffController::class, 'storePromozione'])->name('promozione.store');
 Route::get('/staff/promozioni/create/{aziendeId}', [StaffController::class, 'create'])->name('aggiunta_promozione');

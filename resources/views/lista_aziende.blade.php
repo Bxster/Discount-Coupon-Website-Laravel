@@ -26,6 +26,10 @@
      </div>
       <div>
 
+    <a href="{{ route('aggiunta_azienda') }}">
+      <button> Aggiungi Azienda </button>
+    </a>
+
 
 
 
