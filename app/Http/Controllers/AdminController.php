@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Admin;
 use App\Models\Aziende;
 use App\Models\User;
+use App\Models\Faq;
 use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
@@ -100,6 +101,56 @@ class AdminController extends Controller
 
         // Reindirizzamento o visualizzazione di un messaggio di successo
         return redirect()->route('home')->with('success', 'Utente staff aggiunto con successo!');
+    }
+    public function createFaq()
+    {
+        return view('aggiunta_faq');
+    }
+
+    public function storeFaq(Request $request)
+    {
+        // Validazione dei dati inseriti nel form
+        $validatedData = $request->validate([
+            'titolo' => 'required|string|max:200',
+            'corpo' => 'required|string|max:2500',
+        ]);
+
+        // Salvataggio delle faq nel database
+        $faq = new FAQ();
+        $faq->titolo = $validatedData['titolo'];
+        $faq->corpo = $validatedData['corpo'];
+
+        $faq->save();
+
+        // Reindirizzamento o altra azione dopo il salvataggio delle faq
+        return redirect()->route('faqs')->with('success', 'Faq aggiunta con successo!');
+    }
+    public function modificaFaq($faqId)   
+    {
+        $faq=FAQ::find($faqId);
+
+        return view('pagina_modifica_faq')
+        ->with('faq', $faq);
+    }
+    public function updateFaq(Request $request, $faqId)
+    {  
+        $faq=FAQ::find($faqId);
+        
+        $faq->update($request->all());
+
+        return redirect()->route('faqs')->with('success', 'Faq aggiornate con successo');
+    }
+
+    public function destroyFaq($faqId)
+    {
+        // Trova la faq da eliminare
+        $faq = FAQ::findOrFail($faqId);
+
+        // Elimina l'faq$faq
+        $faq->delete();
+
+        // Ad esempio, puoi reindirizzare l'utente a una pagina di conferma
+        return redirect()->route('faqs')->with('success', 'Faq eliminata con successo.');
     }
 
 }

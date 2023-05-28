@@ -48,6 +48,12 @@ Route::post('/promozioni/{aziendeId}', [StaffController::class, 'storePromozione
 Route::get('/staff/promozioni/create/{aziendeId}', [StaffController::class, 'create'])->name('aggiunta_promozione');
 Route::delete('/staff/promozioni/{promId}', [StaffController::class, 'destroy'])->name('staff.promozioni.destroy');
 
+Route::post('/faqs', [AdminController::class, 'storeFaq'])->name('faq.store');
+Route::get('/admin/faqs/create', [AdminController::class, 'createFaq'])->name('aggiunta_faq');
+Route::get('/faq_update/{faqId}', [AdminController::class, 'modificaFaq'])->name('faq_update');
+Route::put('/faq_update_success/{faqId}', [AdminController::class, 'updateFaq'])->name('faq_update_success');
+Route::delete('/admin/faqs/{faqId}', [AdminController::class, 'destroyFaq'])->name('admin.faq.destroy');
+
 
 
 
