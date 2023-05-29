@@ -10,7 +10,6 @@ class Promozioni extends Model
     protected $_promozioni;
     protected $table = 'promozioni';
     protected $primaryKey = 'promId';
-    public $timestamps = false;
     protected $fillable = ['nome', 'oggetto', 'modalità', 'tempi di fruizione', 'luoghi di fruizione'];
 
     public function getPromozioneById($id)

@@ -51,6 +51,10 @@ public function store($promozioneId)
     $coupon->promId = $promozioneId;
     $coupon->userId = $userId;
     $coupon->save();
+
+    // Incrementa il contatore "coupon" dell'utente
+    $user = Auth::user();
+    $user->increment('coupon');
     
     return redirect()->route('coupon.show', ['couponId' => $coupon->couponId]);
 }

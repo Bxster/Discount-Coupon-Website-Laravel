@@ -10,7 +10,6 @@ class Aziende extends Model
     protected $_aziende;
     protected $table = 'aziende';
     protected $primaryKey = 'aziendeId';
-    public $timestamps = false;
 
     public function getAziende($paged = 4,$order=null)
     {

@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('role',10)->default('user');
             $table->integer('genere');
             $table->date('dataNascita');
+            $table->integer('coupon')->default(0);
             $table->rememberToken();
             $table->timestamps();  
         });

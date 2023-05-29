@@ -10,7 +10,6 @@ class Faq extends Model
 
     protected $table = 'faqs';
     protected $primaryKey = 'faqId';
-    public $timestamps = false;
     protected $fillable = ['titolo', 'corpo'];
     use HasFactory;
 

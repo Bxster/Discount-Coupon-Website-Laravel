@@ -77,6 +77,14 @@
               </div>
             </div>
           </div>
+          @can('isAdmin')
+                  <div class="col-md-12">
+                      <div class="mb-3">
+                          <label for="coupon">Numero di coupon generati:</label>
+                          <p id="coupon">{{ $user->coupon }}</p>
+                      </div>
+                  </div>
+          @endcan
 
             <div class="col-md-6">
                 <div class="mb-3">

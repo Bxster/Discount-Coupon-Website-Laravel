@@ -10,7 +10,6 @@ class Coupon extends Model
 {
     protected $table = 'coupon';
     protected $primaryKey = 'couponId';
-    public $timestamps = false;
 
     public function getCouponById($id)
     {
