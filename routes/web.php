@@ -35,31 +35,31 @@ Route::get('/pagina_modifica/{userId}', [UserController::class, 'show1'])->name(
 Route::put('/userpage_update/{userId}', [UserController::class, 'update'])->name('userpage_update');
 Route::get('/azienda/{aziendeId}', [SearchControllerAziende::class, 'show'])->name('aziendapage.show');
 Route::get('/promozione/{promId}', [SearchControllerPromozioni::class, 'show'])->name('prompage.show');
-Route::get('/coupon/store/{promozioneId}', [CouponController::class, 'store'])->name('coupon.store');
-Route::get('/coupon/{couponId}', [CouponController::class, 'show'])->name('coupon.show');
+Route::get('/coupon/store/{promozioneId}', [CouponController::class, 'store'])->name('coupon.store')->can('isUser');
+Route::get('/coupon/{couponId}', [CouponController::class, 'show'])->name('coupon.show')->can('isUser');
 Route::post('/aziende', [AdminController::class, 'storeAzienda'])->name('aziende.store');
-Route::get('/admin/aziende/create', [AdminController::class, 'create'])->name('aggiunta_azienda');
-Route::delete('/admin/aziende/{aziendeId}', [AdminController::class, 'destroy'])->name('admin.aziende.destroy');
-Route::post('/admin/staff', [AdminController::class, 'addStaff'])->name('admin.staff.add');
-Route::get('/admin/aggiunta_staff', [AdminController::class, 'create2'])->name('aggiunta_staff');
+Route::get('/admin/aziende/create', [AdminController::class, 'create'])->name('aggiunta_azienda')->can('isAdmin');
+Route::delete('/admin/aziende/{aziendeId}', [AdminController::class, 'destroy'])->name('admin.aziende.destroy')->can('isAdmin');
+Route::post('/admin/staff', [AdminController::class, 'addStaff'])->name('admin.staff.add')->can('isAdmin');
+Route::get('/admin/aggiunta_staff', [AdminController::class, 'create2'])->name('aggiunta_staff')->can('isAdmin');
 
 
-Route::post('/promozioni/{aziendeId}', [StaffController::class, 'storePromozione'])->name('promozione.store');
-Route::get('/staff/promozioni/create/{aziendeId}', [StaffController::class, 'create'])->name('aggiunta_promozione');
-Route::delete('/staff/promozioni/{promId}', [StaffController::class, 'destroy'])->name('staff.promozioni.destroy');
+Route::post('/promozioni/{aziendeId}', [StaffController::class, 'storePromozione'])->name('promozione.store')->can('isStaff');
+Route::get('/staff/promozioni/create/{aziendeId}', [StaffController::class, 'create'])->name('aggiunta_promozione')->can('isStaff');
+Route::delete('/staff/promozioni/{promId}', [StaffController::class, 'destroy'])->name('staff.promozioni.destroy')->can('isStaff');
 
 Route::post('/faqs', [AdminController::class, 'storeFaq'])->name('faq.store');
-Route::get('/admin/faqs/create', [AdminController::class, 'createFaq'])->name('aggiunta_faq');
-Route::get('/faq_update/{faqId}', [AdminController::class, 'modificaFaq'])->name('faq_update');
-Route::put('/faq_update_success/{faqId}', [AdminController::class, 'updateFaq'])->name('faq_update_success');
-Route::delete('/admin/faqs/{faqId}', [AdminController::class, 'destroyFaq'])->name('admin.faq.destroy');
+Route::get('/admin/faqs/create', [AdminController::class, 'createFaq'])->name('aggiunta_faq')->can('isAdmin');
+Route::get('/faq_update/{faqId}', [AdminController::class, 'modificaFaq'])->name('faq_update')->can('isAdmin');
+Route::put('/faq_update_success/{faqId}', [AdminController::class, 'updateFaq'])->name('faq_update_success')->can('isAdmin');
+Route::delete('/admin/faqs/{faqId}', [AdminController::class, 'destroyFaq'])->name('admin.faq.destroy')->can('isAdmin');
 
 Route::get('elenco-utenti', [UserController::class, 'lista'])->name('admin.elencoUtenti');
 Route::get('utenti/{userId}', [UserController::class, 'show'])->name('admin.visualizzaUtente');
-Route::delete('/admin/utenti/{userId}', [AdminController::class, 'destroyUtenti'])->name('admin.user.destroy');
+Route::delete('/admin/utenti/{userId}', [AdminController::class, 'destroyUtenti'])->name('admin.user.destroy')->can('isAdmin');
 
-Route::get('staff/{userId}', [StaffController::class, 'show'])->name('admin.visualizzaStaff');
-Route::get('elenco-staff', [StaffController::class, 'lista'])->name('admin.elencoStaff');
+Route::get('staff/{userId}', [StaffController::class, 'show'])->name('admin.visualizzaStaff')->can('isAdmin');
+Route::get('elenco-staff', [StaffController::class, 'lista'])->name('admin.elencoStaff')->can('isAdmin');
 
 
 
