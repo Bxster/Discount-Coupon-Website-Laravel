@@ -57,12 +57,21 @@
             @endcan
 
             @auth
-
+            @can('isUser')
             <li class="nav-item">
-              <!-- <a class="nav-link" href="pagina_staff.html">{{Auth::user()->username}}</a> -->
               <a class="nav-link" href="{{ route('userpage.show', ['userId' => Auth::user()->userId]) }}">{{ Auth::user()->username }}</a>
             </li>
-
+            @endcan
+            @can('isStaff')
+            <li class="nav-item">
+              <a class="nav-link" href="{{ route('staffpage.show', ['userId' => Auth::user()->userId]) }}">{{ Auth::user()->username }}</a>
+            </li>
+            @endcan
+            @can('isAdmin')
+            <li class="nav-item">
+              <a class="nav-link" href="{{ route('staffpage.show', ['userId' => Auth::user()->userId]) }}">{{ Auth::user()->username }}</a>
+            </li>
+            @endcan
             <li class="nav-item">
               <a class="nav-link" href="" class="highlight" title="Esci dal sito" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
               Logout</a>

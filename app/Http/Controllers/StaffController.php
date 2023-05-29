@@ -62,7 +62,7 @@ class StaffController extends Controller
         public function show($userId)
         {
             $user = User::findOrFail($userId);
-            return view('userpage', compact('user'));
+            return view('staffpage', compact('user'));
         }
 
         public function lista()

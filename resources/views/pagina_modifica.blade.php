@@ -63,8 +63,15 @@
     <div class="button_box">
     <button class= "btn cancel-btn" type="submit">Aggiorna</button>
 
+    @can('isUser')
     <button type="reset" class="btn cancel-btn"> <a href="{{ route('userpage.show', ['userId' => $user->userId]) }}">Annulla</a></button>
-
+    @endcan
+    @can('isStaff')
+    <button type="reset" class="btn cancel-btn"> <a href="{{ route('staffpage.show', ['userId' => $user->userId]) }}">Annulla</a></button>
+    @endcan
+    @can('isAdmin')
+    <button type="reset" class="btn cancel-btn"> <a href="{{ route('staffpage.show', ['userId' => $user->userId]) }}">Annulla</a></button>
+    @endcan
 </div>
 </form>
 </div>
