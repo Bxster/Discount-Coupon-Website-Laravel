@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('luoghi_fruizione');
             $table->bigInteger('aziendeId')->unsigned()->index();
             $table->foreign('aziendeId')->references('aziendeId')->on('aziende')->onDelete('cascade');
+            $table->integer('numeroCoupon')->default(0);
             $table->timestamps();
         });
     }

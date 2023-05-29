@@ -7,6 +7,7 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use App\Models\Coupon;
+use App\Models\Promozioni;
 use Illuminate\Support\Facades\View;
 
 class CouponController extends Controller
@@ -55,6 +56,10 @@ public function store($promozioneId)
     // Incrementa il contatore "coupon" dell'utente
     $user = Auth::user();
     $user->increment('coupon');
+
+    // Incrementa il contatore "numeroCoupon" della promozione
+    $promozione = Promozioni::findOrFail($promozioneId);
+    $promozione->increment('numeroCoupon');
     
     return redirect()->route('coupon.show', ['couponId' => $coupon->couponId]);
 }
