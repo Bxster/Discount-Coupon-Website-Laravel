@@ -80,7 +80,7 @@
             <div class="col-md-6">
                 <div class="mb-3">
                   <div class="info_form ">
-                  <a href="{{ route('pagina_modifica', ['userId' => Auth::user()->userId]) }}">
+                  <a href="{{ route('pagina_modifica', ['userId' => $user->userId]) }}">
                   <button type="button" class="btn btn-success">Modifica</button>
                   </a>
                   @can('isAdmin')

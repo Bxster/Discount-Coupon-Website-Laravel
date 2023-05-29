@@ -48,9 +48,9 @@ class UserController extends Controller
         return view('pagina_modifica', compact('user'));
         }
 
-        public function update(Request $request)
+        public function update(Request $request, $userId)
 {
-    $user = auth()->user(); // Recupera l'utente autenticato
+    $user = User::find($userId); // Recupera l'utente autenticato
     $user->update($request->all());
 
     return redirect()->route('home')->with('success', 'Dati personali aggiornati con successo.');

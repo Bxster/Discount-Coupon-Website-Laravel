@@ -11,7 +11,7 @@
 <div class="static">
 <h1>Pagina di modifica profilo</h1>
 
-<form action="{{ route('userpage_update',['userId' => Auth::user()->userId]) }}" method="POST">
+<form action="{{ route('userpage_update',['userId' => $user->userId]) }}" method="POST">
     @csrf
     @method('PUT')
 <div>
@@ -36,7 +36,7 @@
     <input type="password" id="password_confirm" name="password_confirm" value="" >
 </div>
 
-@can('isUser')
+@can('isUser','isAdmin')
     <div>
     <label for="email">Email:</label>
     <input type="text" id="email" name="email" value="{{ $user->email}}" required>
@@ -63,7 +63,7 @@
     <div class="button_box">
     <button class= "btn cancel-btn" type="submit">Aggiorna</button>
 
-    <button type="reset" class="btn cancel-btn"> <a href="{{ route('userpage.show', ['userId' => Auth::user()->userId]) }}">Annulla</a></button>
+    <button type="reset" class="btn cancel-btn"> <a href="{{ route('userpage.show', ['userId' => $user->userId]) }}">Annulla</a></button>
 
 </div>
 </form>

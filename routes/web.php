@@ -32,7 +32,7 @@ Route::get('/who', function () {return view('who');})->name('who');
 Route::get('/faqs', [FaqController::class, 'index'])->name('faqs');
 Route::get('/userpage/{userId}', [UserController::class, 'show', StaffController::class, 'show'])->name('userpage.show');
 Route::get('/pagina_modifica/{userId}', [UserController::class, 'show1'])->name('pagina_modifica');
-Route::put('/userpage_update', [UserController::class, 'update'])->name('userpage_update');
+Route::put('/userpage_update/{userId}', [UserController::class, 'update'])->name('userpage_update');
 Route::get('/azienda/{aziendeId}', [SearchControllerAziende::class, 'show'])->name('aziendapage.show');
 Route::get('/promozione/{promId}', [SearchControllerPromozioni::class, 'show'])->name('prompage.show');
 Route::get('/coupon/store/{promozioneId}', [CouponController::class, 'store'])->name('coupon.store');
