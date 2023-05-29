@@ -61,8 +61,11 @@ public function lista()
     $users = User::where('role', 'user')->get();
     return view('elenco_utenti', compact('users'));
 }
-        
-    
+public function utenti()
+{
+    return view('home');
+}
+
 
 
 

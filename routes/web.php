@@ -61,6 +61,9 @@ Route::delete('/admin/utenti/{userId}', [AdminController::class, 'destroyUtenti'
 Route::get('staff/{userId}', [StaffController::class, 'show'])->name('admin.visualizzaStaff')->can('isAdmin');
 Route::get('elenco-staff', [StaffController::class, 'lista'])->name('admin.elencoStaff')->can('isAdmin');
 
+Route::get('/elenco_staff_search', [AdminController::class, 'searchStaff'])->name('elenco_staff_search');
+Route::get('/elenco_utenti_search', [AdminController::class, 'searchUtenti'])->name('elenco_utenti_search');
+
 
 
 

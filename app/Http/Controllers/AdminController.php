@@ -168,4 +168,39 @@ class AdminController extends Controller
         return redirect()->route('home')->with('success', 'Utente eliminato con successo.');
     }
 
+    public function searchUtenti(Request $request, $paged = 4)
+{
+    $query = $request->input('query');
+    $user = User::where('role', 'user')
+        ->where(function ($queryBuilder) use ($query) {
+            $queryBuilder->where('username', 'LIKE', "%$query%")
+                ->orWhere('name', 'LIKE', "%$query%")
+                ->orWhere('surname', 'LIKE', "%$query%");
+        })
+        ->paginate($paged);
+
+    return view('elenco_utenti_search', compact('user', 'query'));
+}
+
+
+public function staff()
+{
+    return view('home');
+}
+
+public function searchStaff(Request $request, $paged = 4)
+{
+    $query = $request->input('query');
+    $user = User::where('role', 'staff')
+        ->where(function ($queryBuilder) use ($query) {
+            $queryBuilder->where('username', 'LIKE', "%$query%")
+                ->orWhere('name', 'LIKE', "%$query%")
+                ->orWhere('surname', 'LIKE', "%$query%");
+        })
+        ->paginate($paged);
+
+    return view('elenco_staff_search', compact('user', 'query'));
+}    
+    
+
 }

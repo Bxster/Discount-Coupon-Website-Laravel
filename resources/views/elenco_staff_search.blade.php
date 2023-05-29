@@ -23,19 +23,23 @@
       </a>
       @endcan
       <ul class="list-group mt-4">
-        @foreach ($users as $user)
+        @if ($user->count() > 0)
+        @foreach ($user as $users)
         <li class="list-group-item">
-          <a href="{{ route('admin.visualizzaStaff', $user->userId) }}" class="promotion-link">
+          <a href="{{ route('admin.visualizzaStaff', $users->userId) }}" class="promotion-link">
             <div class="promotion">
               <img src="images/profilodefault1.jpg" alt="" class="immagine-ridotta">
               <div class="promotion-details">
-                <h1 class="promotion-title">{{ $user->username }}</h1>
-                <h4 class="promotion-description">{{ $user->name }} {{ $user->surname }}</h4>
+                <h1 class="promotion-title">{{ $users->username }}</h1>
+                <h4 class="promotion-description">{{ $users->name }} {{ $users->surname }}</h4>
               </div>
             </div>
           </a>
         </li>
         @endforeach
+        @else
+        <li>Nessun risultato trovato.</li>
+        @endif
       </ul>
     </div>
   </div>
