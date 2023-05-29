@@ -201,6 +201,31 @@ public function searchStaff(Request $request, $paged = 4)
 
     return view('elenco_staff_search', compact('user', 'query'));
 }    
+
+        public function show1($aziendeId) {
+            $azienda = Aziende::find($aziendeId);
+        
+            if (!$azienda) {
+                abort(404);
+            }
+        
+            return view('pagina_modifica_azienda', compact('azienda'));
+            }
+    
+            public function update(Request $request, $aziendeId)
+    {
+        $azienda = Aziende::find($aziendeId);
+        $azienda->ragionesociale = $request['ragionesociale'];
+        $azienda->tipologia = $request['tipologia'];
+        $azienda->desc = $request['desc'];
+        $azienda->citta = $request['citta'];
+        $azienda->via = $request['via'];
+        $azienda->cap = $request['cap'];
+        $azienda->update();
+    
+        return redirect()->route('home')->with('success', 'Azienda aggiornata con successo.');
+    }
+    
     
 
 }

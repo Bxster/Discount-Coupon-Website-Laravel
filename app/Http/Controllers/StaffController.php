@@ -70,5 +70,30 @@ class StaffController extends Controller
             $user = User::where('role', 'staff')->get();
             return view('elenco_staff', ['users' => $user]);
         }
+
+        public function show1($promId) {
+            $promozione = Promozioni::find($promId);
+        
+            if (!$promozione) {
+                abort(404);
+            }
+        
+            return view('pagina_modifica_promozione', compact('promozione'));
+            }
+    
+            public function update(Request $request, $promId)
+    {
+        $promozione = Promozioni::find($promId);
+        $promozione->nome = $request['nome'];
+        $promozione->oggetto = $request['oggetto'];
+        $promozione->modalita = $request['modalita'];
+        $promozione->luoghi_fruizione = $request['luoghi_fruizione'];
+        $promozione->tempi_fruizione = $request['tempi_fruizione'];
+        //$promozione->update($request->all());
+        $promozione->update();
+    
+        return redirect()->route('home')->with('success', 'Promozione aggiornata con successo.');
+    }
+    
     
 }

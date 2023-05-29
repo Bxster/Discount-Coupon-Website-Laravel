@@ -64,6 +64,11 @@ Route::get('elenco-staff', [StaffController::class, 'lista'])->name('admin.elenc
 Route::get('/elenco_staff_search', [AdminController::class, 'searchStaff'])->name('elenco_staff_search');
 Route::get('/elenco_utenti_search', [AdminController::class, 'searchUtenti'])->name('elenco_utenti_search');
 
+Route::get('/pagina_modifica_promozione/{promId}', [StaffController::class, 'show1'])->name('pagina_modifica_promozione');
+Route::put('/prompage_update/{promId}', [StaffController::class, 'update'])->name('prompage_update');
+
+Route::get('/pagina_modifica_azienda/{aziendeId}', [AdminController::class, 'show1'])->name('pagina_modifica_azienda');
+Route::put('/aziendapage_update/{aziendeId}', [AdminController::class, 'update'])->name('aziendapage_update');
 
 
 

@@ -34,7 +34,7 @@
             </a>
           @endcan
          @can('isAdmin')           
-            <a href=" ">
+            <a href="{{ route('pagina_modifica_azienda',['aziendeId' => $azienda->aziendeId])}} ">
               <button class="btn btn-success">
                 Modifica
               </button>

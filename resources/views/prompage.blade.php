@@ -60,9 +60,6 @@
           <p>
           Luoghi di fruizione: {{ $promozione->luoghi_fruizione }}
           </p>
-          <p>
-          Codice promozione: {{ $promozione->codice_promozione }}
-          </p>
           @can('isUser')           
             <a href="{{ route('coupon.store', ['promozioneId' => $promozione->promId]) }}">
               <button class="btn btn-success" data-prom-id="{{ $promozione->promId }}">
@@ -71,6 +68,9 @@
             </a>
           @endcan
           @can('isStaff') 
+          <form action="{{ route('pagina_modifica_promozione', ['promId' => $promozione->promId]) }}">
+                <button type="submit" class="btn btn-success">Modifica</button>
+            </form>
           <form action="{{ route('staff.promozioni.destroy', ['promId' => $promozione->promId]) }}" method="POST">
                 @csrf
                 @method('DELETE')
