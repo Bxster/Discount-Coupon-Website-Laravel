@@ -16,10 +16,10 @@ return new class extends Migration
         Schema::create('coupon', function (Blueprint $table) {
             $table->bigIncrements('couponId');
             $table->string('codice')->unique();
-            $table->BigInteger('promId')->unsigned()->index();
-            $table->foreign('promId')->references('promId')->on('promozioni');
-            $table->BigInteger('userId')->unsigned()->index();
-            $table->foreign('userId')->references('userId')->on('users');
+            $table->BigInteger('promId')->unsigned()->index()->nullable();
+            $table->foreign('promId')->references('promId')->on('promozioni')->onDelete('set null');
+            $table->BigInteger('userId')->unsigned()->index()->nullable();
+            $table->foreign('userId')->references('userId')->on('users')->onDelete('set null');
             $table->timestamps();
         });
     }
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::droplfExist('coupon');
+        Schema::droplfExists('coupon');
     }
 };

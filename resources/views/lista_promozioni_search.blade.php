@@ -17,7 +17,9 @@
                 <div class="container-1">
                     <form action="{{ route('lista_promozioni_search') }}">
                         @csrf
-                        <input type="text" name="query" placeholder="Cerca promozioni" onkeydown="if(event.keyCode===13){event.preventDefault(); this.form.submit();}">
+                        <input type="text" name="companyQuery" placeholder="Cerca aziende" onkeydown="if(event.keyCode===13){event.preventDefault(); this.form.submit();}">
+                        <input type="text" name="promotionQuery" placeholder="Cerca promozioni" onkeydown="if(event.keyCode===13){event.preventDefault(); this.form.submit();}">
+
                     </form>
                 </div>
             </div>
@@ -28,17 +30,18 @@
             <div class="col-md-8 mx-auto">
                 <h2>Risultati della ricerca:</h2>
                 <ul class="list-group mt-4">
-                    @if ($promozioni->count() > 0)
-                    @foreach($promozioni as $promozione)
+                @if (count($results) > 0)
+                    @foreach($results as $result)
                     <li class="list-group-item">
-                    <a href="{{route('prompage.show', ['promId' => $promozione->proId]) }}" class="promotion-link">
-                        <div class="promotion">
-                            <img src="{{ $promozione->image_link }}" alt="Promotion Image" class="promotion-image">
+                        <a href="{{ route('prompage.show', ['promId' => $result['proId']]) }}" class="promotion-link">
+                            <div class="promotion">
+                                <img src="{{ $result['image_link'] }}" alt="Promotion Image" class="promotion-image">
                                 <div class="promotion-details">
-                                    <h3 class="promotion-title">{{ $promozione->nome }}</h3>
-                                    <p class="promotion-description">{{ $promozione->oggetto }}</p>
+                                    <h3 class="promotion-title">{{ $result['nome']}}</h3>
+                                    <p class="promotion-description">{{ $result['oggetto'] }}</p>
+                                    <p class="promotion-company">{{ $result['ragionesociale'] }}</p>
                                 </div>
-                        </div>
+                            </div>
                         </a>
                     </li>
                     @endforeach
@@ -46,6 +49,7 @@
                     <li>Nessun risultato trovato.</li>
                     @endif
                 </ul>
+
             </div>
         </div>
     </div>
@@ -54,7 +58,7 @@
 <!-- end catalogo section -->
 
 <div class="heading_container1">
-    @include('pagination.paginator', ['paginator' => $promozioni])
+    @include('pagination.paginator', ['paginator' => $results])
 </div>
 
 @endsection

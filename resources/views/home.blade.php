@@ -5,22 +5,27 @@
 
 @section('content')
 
-<div class="hero_area"> 
+@php
+   use App\Models\Coupon
+   @endphp
+
+   <div class="hero_area">
 
 <div class="container">
-      <div class="row">
-        <div class="col-md-6 mx-auto">
+  <div class="row">
+    <div class="col-md-6 mx-auto">
 
-          <div class="container-1">
-          <form action="{{ route('lista_promozioni_search') }}" >
-                        @csrf
-                        <input type="text" name="query" placeholder="Cerca promozioni" onkeydown="if(event.keyCode===13){event.preventDefault(); this.form.submit();}">
-                    </form>
-          </div>
-
-        </div>
+      <div class="container-1">
+        <form action="{{ route('lista_promozioni_search') }}">
+          @csrf
+          <input type="text" name="companyQuery" placeholder="Cerca aziende" onkeydown="if(event.keyCode===13){event.preventDefault(); this.form.submit();}">
+          <input type="text" name="promotionQuery" placeholder="Cerca promozioni" onkeydown="if(event.keyCode===13){event.preventDefault(); this.form.submit();}">
+        </form>
       </div>
+
     </div>
+  </div>
+</div>
 
     <!-- slider section -->
     <section class=" slider_section position-relative">
@@ -190,7 +195,19 @@
 </div>
 
 <!-- end slider scetion -->
+@php 
+$totalCoupons = \App\Models\Coupon::count();
+@endphp
 
+  @can('isAdmin')
+  <div class="heading_container">
+    <h2>Numero di coupon emessi dal sito: </h2>
+</div>
+<div>
+  <div class="heading_container">
+    <h1>{{$totalCoupons}}</h1>
+</div>
+@endcan
 <!-- aziende section -->
 <section class="about_section layout_padding">
     <div class="heading_container">

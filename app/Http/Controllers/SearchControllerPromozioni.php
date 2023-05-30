@@ -13,19 +13,21 @@ class SearchControllerPromozioni extends Controller
         return view('home');
     }
 
-    public function search(Request $request, $paged = 3)
+    public function search(Request $request, $paged = 4)
     {
-        $query = $request->input('query');
+        $companyQuery = $request->input('companyQuery');
+        $promotionQuery = $request->input('promotionQuery');
 
-        $promozioni = Promozioni::join('aziende', 'promozioni.aziendeId', '=', 'aziende.aziendeId')
+        $results = Promozioni::join('aziende', 'promozioni.aziendeId', '=', 'aziende.aziendeId')
             ->select('promozioni.nome', 'promozioni.oggetto', 'aziende.ragionesociale', 'aziende.image AS image_link', 'promozioni.promId AS proId')
-            ->where('promozioni.nome', 'LIKE', "%$query%")
-            ->orWhere('promozioni.oggetto', 'LIKE', "%$query%")
-            ->orWhere('aziende.ragionesociale', 'LIKE', "%$query%")
+            ->where('aziende.ragionesociale', 'LIKE', "%$companyQuery%")
+            ->where(function ($query) use ($promotionQuery) {
+                $query->where('promozioni.nome', 'LIKE', "%$promotionQuery%")
+                    ->orWhere('promozioni.oggetto', 'LIKE', "%$promotionQuery%");
+            })
             ->paginate($paged);
 
-
-        return view('lista_promozioni_search', compact('promozioni', 'query'));
+        return view('lista_promozioni_search', compact('results'));
     }
 
     public function show($id){
