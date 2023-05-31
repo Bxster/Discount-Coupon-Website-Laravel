@@ -19,7 +19,9 @@
                 <div class="container-1">
                     <form action="{{ route('lista_promozioni_search') }}">
                         @csrf
-                        <input type="text" name="query" placeholder="Cerca promozioni" onkeydown="if(event.keyCode===13){event.preventDefault(); this.form.submit();}">
+                        <input type="text" name="companyQuery" placeholder="Cerca aziende" onkeydown="if(event.keyCode===13){event.preventDefault(); this.form.submit();}">
+                        <input type="text" name="promotionQuery" placeholder="Cerca promozioni" onkeydown="if(event.keyCode===13){event.preventDefault(); this.form.submit();}">
+
                     </form>
                 </div>
             </div>
