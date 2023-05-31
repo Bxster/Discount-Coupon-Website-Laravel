@@ -166,7 +166,7 @@ class DatabaseSeeder extends Seeder {
                 'nome' => 'Promozione 3',
                 'oggetto' => 'Oggetto promozione 1',
                 'modalita' => 'Modalità promozione 1',
-                'tempi_fruizione' => '2031-08-11',
+                'tempi_fruizione' => '2022-08-11',
                 'luoghi_fruizione' => 'Luoghi fruizione promozione 1',
                 'aziendeId' => 3, // 'azienId' => '3
                 'created_at' => now(),

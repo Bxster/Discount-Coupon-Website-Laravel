@@ -48,26 +48,12 @@ public function store($promozioneId)
 
     $promozione = Promozioni::find($promozioneId);
 
-    /*$currentDate = \Carbon\Carbon::now();
-    $scadenzaPromozione = Date::parse($promozione->tempo_fruizione);*/
+    $dataScadenzaCarbon = Carbon::parse($promozione->data_scadenza);
 
-
-    // Converto la data scritta in un oggetto Carbon
-    $dataScrittaCarbon = Carbon::parse($promozione->tempo_fruizione);
-
-    // Data corrente
-    $dataCorrente = Carbon::now();
-
-    // Confronto tra le due date
-    $differenzaGiorni = $dataScrittaCarbon->diffInDays($dataCorrente);
-
-    if ($differenzaGiorni < 0) {
-
-    /*if ($currentDate->gt($scadenzaPromozione)) {*/
+    if ($dataScadenzaCarbon->isPast()) {
         // La promozione è scaduta, mostra un messaggio all'utente
         return redirect()->route('home')->with('promScaduta', true);
     }
-
 
     // Genera un codice unico per il coupon
     $codiceCoupon = $this->generaCodiceUnico();
