@@ -28,6 +28,10 @@
   <link href="{{ asset('css/style.css')}}" rel="stylesheet" />
   <!-- responsive style -->
   <link href="{{ asset('css/responsive.css')}}" rel="stylesheet" />
+
+  <script type="text/javascript" src="{{asset('js/jquery-3.4.1.min.js')}}"></script>
+  <script type="text/javascript" src="{{asset('js/bootstrap.js')}}"></script>
+
 </head>
 
 <body>
@@ -114,6 +118,35 @@
         });
     </script>
 @endif
+
+@if(session('promScaduta'))
+    <div class="modal fade" id="promScadutaModal" tabindex="-1" role="dialog" aria-labelledby="promScadutaModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="promScadutaModalLabel">Attenzione</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    La promozione è scaduta, non puoi generare il coupon.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $('#promScadutaModal').modal('show');
+        });
+    </script>
+@endif
+
+
 
 
 </body>

@@ -6,9 +6,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Date;
 use App\Models\Coupon;
 use App\Models\Promozioni;
 use Illuminate\Support\Facades\View;
+use Carbon\Carbon;
 
 class CouponController extends Controller
 {
@@ -32,6 +34,7 @@ public function store($promozioneId)
 {
     // Recupera l'ID dell'utente autenticato
     $userId = Auth::id();
+
     
     // Controlla se l'utente ha già acquisito un coupon per la promozione corrente
     $existingCoupon = Coupon::where('userId', $userId)
@@ -42,7 +45,30 @@ public function store($promozioneId)
         // L'utente ha già acquisito un coupon per questa promozione, visualizza il messaggio di avviso
         return redirect()->route('home')->with('couponExists', true);
     }
-    
+
+    $promozione = Promozioni::find($promozioneId);
+
+    /*$currentDate = \Carbon\Carbon::now();
+    $scadenzaPromozione = Date::parse($promozione->tempo_fruizione);*/
+
+
+    // Converto la data scritta in un oggetto Carbon
+    $dataScrittaCarbon = Carbon::parse($promozione->tempo_fruizione);
+
+    // Data corrente
+    $dataCorrente = Carbon::now();
+
+    // Confronto tra le due date
+    $differenzaGiorni = $dataScrittaCarbon->diffInDays($dataCorrente);
+
+    if ($differenzaGiorni < 0) {
+
+    /*if ($currentDate->gt($scadenzaPromozione)) {*/
+        // La promozione è scaduta, mostra un messaggio all'utente
+        return redirect()->route('home')->with('promScaduta', true);
+    }
+
+
     // Genera un codice unico per il coupon
     $codiceCoupon = $this->generaCodiceUnico();
     
@@ -58,11 +84,13 @@ public function store($promozioneId)
     $user->increment('coupon');
 
     // Incrementa il contatore "numeroCoupon" della promozione
-    $promozione = Promozioni::findOrFail($promozioneId);
+    
     $promozione->increment('numeroCoupon');
     
     return redirect()->route('coupon.show', ['couponId' => $coupon->couponId]);
-}
+
+    }
+
 
 
 
