@@ -6,8 +6,8 @@
 @section('content')
 
 @php
-   use App\Models\Coupon
-   @endphp
+  use App\Models\Coupon
+@endphp
 
    <div class="hero_area">
 

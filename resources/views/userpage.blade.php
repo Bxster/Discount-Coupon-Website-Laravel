@@ -63,11 +63,11 @@
               <div class="mb-3">
                 <label for="genere">Genere:</label>
                 <p id="genere">@if ($user->genere == 0)
-                                   Maschio
-                               @elseif ($user->genere == 1)
-                                        Femmina
-                               @endif
-                  </p>
+                      Maschio
+                  @elseif ($user->genere == 1)
+                          Femmina
+                  @endif
+                </p>
               </div>
             </div>
             <div class="col-md-6">
@@ -105,6 +105,21 @@
                 </div>
             </div>
             </div> 
+
+            <h1>Coupon dell'utente</h1>
+
+            @if ($coupons)
+
+                    <ul>
+                        @foreach ($coupons as $coupon)
+                            <li>Promozione: {{ $coupon->coupPr->nome }}, Codice coupon: {{ $coupon->codice }}</li>
+                        @endforeach
+                    </ul>
+
+            @else
+                <p>Nessun coupon disponibile</p>
+            @endif
+
         </div>
     </div>
 </div>
