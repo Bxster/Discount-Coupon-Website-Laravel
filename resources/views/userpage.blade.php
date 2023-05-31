@@ -106,6 +106,9 @@
             </div>
             </div> 
 
+            <button id="toggleButton">Mostra/Nascondi sezione</button>
+
+            <section id="hiddenSection" style="display: none;">
             <h1>Coupon dell'utente</h1>
 
             @if ($coupons)
@@ -119,6 +122,7 @@
             @else
                 <p>Nessun coupon disponibile</p>
             @endif
+            </section>
 
         </div>
     </div>
