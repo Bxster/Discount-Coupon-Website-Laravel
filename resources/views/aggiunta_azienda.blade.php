@@ -98,10 +98,8 @@
         <div class="container-form-btn col-4">
             {{ Form::submit('Aggiungi', ['class' => 'form-btn1']) }}
         </div>
+        <button type="reset" class="btn cancel-btn" ><a href="{{ route('lista_aziende') }}">Annulla</a></button>
 
-        <div class="container-form-btn col-4">
-            {{ Form::reset('Annulla', ['class' => 'form-btn1']) }}    
-        </div>
     </div>
 
 

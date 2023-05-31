@@ -39,17 +39,15 @@
                         {{ Form::submit('Modifica', ['class' => 'form-btn1']) }}
                     </div>
 
-                    <a href="{{ route('faqs') }}">
-              <button class="btn btn-success" >
-                Annulla
-              </button>
-</div>
+                </div>
 
         </form>
 
+              <button type="reset"class="btn cancel-btn" ><a href="{{ route('faqs') }}">Annulla</a></button>
+
     </div>
-    @endsection
 </div>
+@endsection
 <!-- Custom styles for this template -->
 <link href="{{ asset('css/style.css')}}" rel="stylesheet" />
 <link href="{{ asset('css/login.css')}}" rel="stylesheet" />

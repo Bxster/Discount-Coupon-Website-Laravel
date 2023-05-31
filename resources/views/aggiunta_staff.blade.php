@@ -104,9 +104,7 @@
             {{ Form::submit('Aggiungi', ['class' => 'form-btn1']) }}
         </div>
 
-        <div class="container-form-btn col-4">
-            {{ Form::reset('Annulla', ['class' => 'form-btn1']) }}    
-        </div>
+        <button type="reset" class="btn cancel-btn" ><a href="{{ route('admin.elencoStaff') }}">Annulla</a></button>
     </div>
 
 

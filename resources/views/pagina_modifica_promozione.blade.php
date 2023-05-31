@@ -41,7 +41,7 @@
     <div class="button_box">
     <button class= "btn cancel-btn" type="submit">Aggiorna</button>
 
-    <button type="reset" class="btn cancel-btn"> <a href="{{ route('prompage_update', ['promId' => $promozione->promId]) }}">Annulla</a></button>
+    <button type="reset" class="btn cancel-btn"> <a href="{{ route('lista_promozioni') }}">Annulla</a></button>
 
 </div>
 </form>

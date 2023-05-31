@@ -48,10 +48,11 @@
     <div class="button_box">
     <button class= "btn cancel-btn" type="submit">Aggiorna</button>
 
-    <button type="reset" class="btn cancel-btn"> <a href="{{ route('aziendapage_update', ['aziendeId' => $azienda->aziendeId]) }}">Annulla</a></button>
+    
 
 </div>
 </form>
+<button type="reset" class="btn cancel-btn"> <a href="{{ route('lista_aziende') }}">Annulla</a></button>
 </div>
 </div>
 @endsection

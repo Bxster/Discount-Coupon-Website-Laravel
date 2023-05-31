@@ -105,7 +105,7 @@
                 </div>
             </div>
             </div> 
-
+            @can('isUser')
             <button id="toggleButton">Mostra/Nascondi sezione</button>
 
             <section id="hiddenSection" style="display: none;">
@@ -123,6 +123,7 @@
                 <p>Nessun coupon disponibile</p>
             @endif
             </section>
+            @endcan
 
         </div>
     </div>

@@ -37,22 +37,18 @@
                 <div class="container-form-btn col-4">
                     {{ Form::submit('Aggiungi', ['class' => 'form-btn1']) }}
                 </div>
+                {{ Form::close() }}
 
-                <a href="{{ route('faqs') }}">
-              <button class="btn btn-success" >
-                Annulla
-              </button>
+
+              <button type="reset" class="btn cancel-btn" ><a href="{{ route('faqs') }}">Annulla</a></button>
 </div>
 
 
-            {{ Form::close() }}
 
         </div>
-
+        @endsection
     </div>
     <!-- Custom styles for this template -->
     <link href="{{ asset('css/style.css')}}" rel="stylesheet" />
     <link href="{{ asset('css/login.css')}}" rel="stylesheet" />
 
-
-    @endsection
