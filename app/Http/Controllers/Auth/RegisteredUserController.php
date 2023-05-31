@@ -33,26 +33,27 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'surname' => ['required', 'string', 'max:255'],
-            'cellulare' => ['required', 'string', 'max:10'],
+
+        $validatedData = $request->validate([
+            'name' => ['required', 'string', 'max:255', 'regex:/^[a-zA-Z\s]+$/'],
+            'surname' => ['required', 'string', 'max:255', 'regex:/^[a-zA-Z\s]+$/'],
+            'cellulare' => ['required', 'numeric', 'digits:10'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'username' => ['required', 'string', 'min:8', 'unique:users'],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
-            'genere' => ['required', 'integer'],
-            'dataNascita' => ['required', 'date'],
+            'password' => ['required', 'confirmed', 'min:8'],
+            'genere' => ['required', 'in:0,1'],
+            'dataNascita' => ['required', 'date', 'before_or_equal:oggi'],
         ]);
-    
+
         $user = User::create([
-            'name' => $request->name,
-            'surname' => $request->surname,
-            'cellulare' => $request->cellulare,
-            'email' => $request->email,
-            'username' => $request->username,
-            'password' => Hash::make($request->password),
-            'genere' => $request->genere,
-            'dataNascita' => $request->dataNascita,
+            'name' => $validatedData['name'],
+            'surname' => $validatedData['surname'],
+            'cellulare' => $validatedData['cellulare'],
+            'email' => $validatedData['email'],
+            'username' => $validatedData['username'],
+            'password' => Hash::make($validatedData['password']),
+            'genere' => $validatedData['genere'],
+            'dataNascita' => $validatedData['dataNascita'],
         ]);
 
         event(new Registered($user));
