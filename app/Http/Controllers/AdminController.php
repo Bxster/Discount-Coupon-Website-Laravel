@@ -22,11 +22,11 @@ class AdminController extends Controller
         // Validazione dei dati inseriti nel form
         $validatedData = $request->validate([
             'ragionesociale' => 'required|string|max:25',
-            'tipologia' => 'required|string|max:30',
+            'tipologia' => 'required|string|max:30|regex:/^[a-zA-Z\s]+$/',
             'desc' => 'required|string|max:2500',
-            'citta' => 'required|string|max:30',
+            'citta' => 'required|string|max:30|regex:/^[a-zA-Z\s]+$/',
             'via' => 'required|string|max:30',
-            'cap' => 'required|string|max:5',
+            'cap' => 'required|string|numeric|digits:5',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
@@ -75,14 +75,14 @@ class AdminController extends Controller
     {
         // Validazione dei dati del form
         $validatedData = $request->validate([
-            'name' => 'required|string|max:255',
-            'surname' => 'required|string|max:255',
-            'cellulare' => 'required|string|max:10',
+            'name' => 'required|string|max:255|regex:/^[a-zA-Z\s]+$/',
+            'surname' => 'required|string|max:255|regex:/^[a-zA-Z\s]+$/',
+            'cellulare' => 'required|numeric|digits:10',
             'email' => 'required|string|email|unique:users',
-            'username' => 'required|string|max:20',
+            'username' => 'required|string|min:8|unique:users',
             'password' => 'required|string|min:8',
-            'genere' => 'required|integer',
-            'dataNascita' => 'required|date',
+            'genere' => 'required|in:0,1',
+            'dataNascita' => 'required|date|before_or_equal:oggi',
         ]);
 
         // Creazione del nuovo utente staff
