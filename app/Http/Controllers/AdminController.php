@@ -8,6 +8,7 @@ use App\Models\Aziende;
 use App\Models\User;
 use App\Models\Faq;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rule;
 
 class AdminController extends Controller
 {
@@ -212,8 +213,18 @@ public function searchStaff(Request $request, $paged = 4)
             return view('pagina_modifica_azienda', compact('azienda'));
             }
     
-            public function update(Request $request, $aziendeId)
+        public function update(Request $request, $aziendeId)
     {
+
+        $request->validate([
+            'ragionesociale' => ['required', 'string'],
+            'tipologia' => ['required', 'string', 'regex:/^[a-zA-Z\s]+$/'],
+            'desc' => ['required', 'string'],
+            'citta' => ['required', 'string', 'regex:/^[a-zA-Z\s]+$/'],
+            'via' => ['required', 'string'],
+            'cap' => ['required', 'numeric', 'digits:5'],
+        ]);
+
         $azienda = Aziende::find($aziendeId);
         $azienda->ragionesociale = $request['ragionesociale'];
         $azienda->tipologia = $request['tipologia'];

@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rule;
 use App\Models\User;
 use App\Models\Aziende;
 use App\Models\Promozioni;
@@ -54,8 +56,30 @@ class UserController extends Controller
 
     public function update(Request $request, $userId)
 {
-    $user = User::find($userId); // Recupera l'utente autenticato
-    $user->update($request->all());
+
+    $user = User::find($userId);
+
+    $request->validate([
+        'name' => ['required', 'string', 'max:255', 'regex:/^[a-zA-Z\s]+$/'],
+        'surname' => ['required', 'string', 'max:255', 'regex:/^[a-zA-Z\s]+$/'],
+        'cellulare' => ['required', 'numeric', 'digits:10'],
+        'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore($user)],
+        'password' => ['nullable', 'string', 'min:8'],
+        'genere' => ['required', 'integer', 'in:0,1'],
+        'dataNascita' => ['required', 'date', 'before_or_equal:oggi'],
+    ]);
+
+    
+    $user->name = $request->name;
+    $user->surname = $request->surname;
+    $user->cellulare = $request->cellulare;
+    $user->email = $request->email;
+    if ($request->password) {
+        $user->password = Hash::make($request->password);
+    }
+    $user->genere = $request->genere;
+    $user->dataNascita = $request->dataNascita;
+    $user->update();
 
     return redirect()->route('home')->with('success', 'Dati personali aggiornati con successo.');
 }
