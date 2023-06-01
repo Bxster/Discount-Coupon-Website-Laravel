@@ -29,6 +29,8 @@
   <!-- responsive style -->
   <link href="{{ asset('css/responsive.css')}}" rel="stylesheet" />
 
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
   <script type="text/javascript" src="{{asset('js/jquery-3.4.1.min.js')}}"></script>
   <script type="text/javascript" src="{{asset('js/bootstrap.js')}}"></script>
   <script type="text/javascript" src="{{asset('js/functions.js')}}"></script>
