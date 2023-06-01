@@ -200,6 +200,7 @@ $totalCoupons = \App\Models\Coupon::count();
 @endphp
 
   @can('isAdmin')
+  <section class="about_section layout_padding">
   <div class="heading_container">
     <h2>Numero di coupon emessi dal sito: </h2>
 </div>
@@ -207,6 +208,7 @@ $totalCoupons = \App\Models\Coupon::count();
   <div class="heading_container">
     <h1>{{$totalCoupons}}</h1>
 </div>
+</section>
 @endcan
 <!-- aziende section -->
 <section class="about_section layout_padding">
