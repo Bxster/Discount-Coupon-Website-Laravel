@@ -12,6 +12,7 @@ use App\Models\User;
 use App\Models\Aziende;
 use App\Models\Promozioni;
 use App\Models\Coupon;
+use Carbon\Carbon;
 
 
 class UserController extends Controller
@@ -59,6 +60,8 @@ class UserController extends Controller
 
     $user = User::find($userId);
 
+    $oggi = Carbon::now();
+
     $request->validate([
         'name' => ['required', 'string', 'max:255', 'regex:/^[a-zA-Z\s]+$/'],
         'surname' => ['required', 'string', 'max:255', 'regex:/^[a-zA-Z\s]+$/'],
@@ -66,7 +69,7 @@ class UserController extends Controller
         'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore($user)],
         'password' => ['nullable', 'string', 'min:8'],
         'genere' => ['required', 'integer', 'in:0,1'],
-        'dataNascita' => ['required', 'date', 'before_or_equal:oggi'],
+        'dataNascita' => ['required', 'date', 'before_or_equal:'.$oggi],
     ]);
 
     

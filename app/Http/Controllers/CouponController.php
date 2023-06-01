@@ -48,13 +48,14 @@ public function store($promozioneId)
 
     $promozione = Promozioni::find($promozioneId);
 
-    $dataScadenza = strtotime($promozione->data_scadenza);
-    $dataOdierna = strtotime(date('Y-m-d'));
+    $dataScadenza = Carbon::createFromFormat('Y-m-d',$promozione->tempi_fruizione);
+    //$dataOdierna = strtotime(date('Y-m-d'));
+    $dataOggi = Carbon::now();
 
   /*  $dataScadenza = strtotime($promozione->data_scadenza);
     $dataOdierna = strtotime(date('Y-m-d')); */
     
-    if ($dataOdierna >= $dataScadenza) {
+    if ($dataOggi->gt($dataScadenza) ) {
         // La promozione è scaduta, mostra un messaggio all'utente
         return redirect()->route('home')->with('promScaduta', true);
     }
