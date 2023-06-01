@@ -95,12 +95,12 @@
                   </a>
                   @endcan
                   @can('isAdmin')
-                  <form action="{{ route('admin.user.destroy', ['userId' => $user->userId]) }}" method="POST">
+                  <form action="{{ route('admin.user.destroy', ['userId' => $user->userId]) }}" method="POST" class="confirm-delete-form">
                     @csrf
                     @method('DELETE')
-                  <button type="submit" class="btn btn-success">Elimina</button>
+                    <button type="submit" class="btn btn-success delete-button" data-confirm="Sei sicuro di voler eliminare l'utente?">Elimina</button>
                   </form>
-                  @endcan
+                  @endcan  
                   </div>
                 </div>
             </div>
