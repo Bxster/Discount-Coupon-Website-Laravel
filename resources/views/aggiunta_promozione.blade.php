@@ -67,7 +67,14 @@
     <div class="wrap-input">
     {!! Form::label('tempi_fruizione', 'Tempi di fruizione') !!}
     {!! Form::date('tempi_fruizione', null, ['class' => 'form-control']) !!}
-<!--inserire controllo data-->
+    @if ($errors->first('tempi_fruizione'))
+        <ul class="errors">
+            @foreach ($errors->get('tempi_fruizione') as $message)
+            <li>{{ $message }}</li>
+            @endforeach
+        </ul>
+        @endif
+
     </div>
 
 

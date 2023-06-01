@@ -10,6 +10,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
+use Carbon\Carbon;
+
 
 class RegisteredUserController extends Controller
 {
@@ -34,6 +36,8 @@ class RegisteredUserController extends Controller
     public function store(Request $request)
     {
 
+        $oggi = Carbon::now();
+
         $validatedData = $request->validate([
             'name' => ['required', 'string', 'max:255', 'regex:/^[a-zA-Z\s]+$/'],
             'surname' => ['required', 'string', 'max:255', 'regex:/^[a-zA-Z\s]+$/'],
@@ -42,7 +46,7 @@ class RegisteredUserController extends Controller
             'username' => ['required', 'string', 'min:8', 'unique:users'],
             'password' => ['required', 'confirmed', 'min:8'],
             'genere' => ['required', 'in:0,1'],
-            'dataNascita' => ['required', 'date', 'before_or_equal:oggi'],
+            'dataNascita' => ['required', 'date', 'before_or_equal:'.$oggi],
         ]);
 
         $user = User::create([

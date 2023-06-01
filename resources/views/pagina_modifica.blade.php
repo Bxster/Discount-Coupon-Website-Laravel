@@ -90,7 +90,7 @@
 
     <div>
     <label for="dataNascita">Data di nascita:</label>
-    <input type="text" id="dataNascita" name="dataNascita" value="{{$user->dataNascita}}" required>
+    <input type="date" id="dataNascita" name="dataNascita" value="{{$user->dataNascita}}" required>
     @if ($errors->first('dataNascita'))
                 <ul class="errors">
                     @foreach ($errors->get('dataNascita') as $message)

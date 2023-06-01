@@ -9,6 +9,8 @@ use App\Models\User;
 use App\Models\Faq;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
+use Carbon\Carbon;
+
 
 class AdminController extends Controller
 {
@@ -72,8 +74,11 @@ class AdminController extends Controller
         return view('aggiunta_staff');
     }
 
+
         public function addStaff(Request $request)
     {
+        
+        $oggi = Carbon::now();
         // Validazione dei dati del form
         $validatedData = $request->validate([
             'name' => 'required|string|max:255|regex:/^[a-zA-Z\s]+$/',
@@ -83,7 +88,7 @@ class AdminController extends Controller
             'username' => 'required|string|min:8|unique:users',
             'password' => 'required|string|min:8',
             'genere' => 'required|in:0,1',
-            'dataNascita' => 'required|date|before_or_equal:oggi',
+            'dataNascita' => 'required|date|before_or_equal:'.$oggi,
         ]);
 
         // Creazione del nuovo utente staff

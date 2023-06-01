@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Aziende;
 use App\Models\Promozioni;
 use App\Models\User;
+use Carbon\Carbon;
+
 
 class StaffController extends Controller
 {
@@ -20,13 +22,14 @@ class StaffController extends Controller
         public function storePromozione(Request $request, $aziendeId)
         {
 
+            $oggi = Carbon::now();
             // Validazione dei dati inseriti nel form
             $validatedData = $request->validate([
                 'nome' => 'required|string|max:25',
                 'oggetto' => 'required|string|max:30',
                 'modalita' => 'required|string|max:2500',
                 'luoghi_fruizione' => 'required|string|max:30',
-                'tempi_fruizione' => 'required|date',
+                'tempi_fruizione' => 'required|date|after_or_equal:'.$oggi,
             ]);
     
             // Salvataggio della promozione nel database
@@ -83,7 +86,20 @@ class StaffController extends Controller
     
             public function update(Request $request, $promId)
     {
+        $oggi = Carbon::now();
+
+        
+
+        $request->validate([
+            'nome' => ['required', 'string', 'max:25'],
+            'oggetto' => ['required', 'string', 'max:30'],
+            'modalita' => ['required', 'string', 'max:2500'],
+            'luoghi_fruizione' => ['required', 'string', 'max:30'],
+            'tempi_fruizione' => ['required', 'string', 'after_or_equal:'.$oggi],
+        ]);
+
         $promozione = Promozioni::find($promId);
+
         $promozione->nome = $request['nome'];
         $promozione->oggetto = $request['oggetto'];
         $promozione->modalita = $request['modalita'];
