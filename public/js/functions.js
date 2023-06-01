@@ -31,3 +31,11 @@ $(document).ready(function() {
   });
 });
 
+$(document).ready(function() {
+  $('#couponExistsModal').modal('show');
+});
+
+$(document).ready(function() {
+  $('#promScadutaModal').modal('show');
+});
+

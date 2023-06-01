@@ -115,11 +115,6 @@
         </div>
     </div>
 
-    <script>
-        $(document).ready(function() {
-            $('#couponExistsModal').modal('show');
-        });
-    </script>
 @endif
 
 @if(session('promScaduta'))
@@ -142,11 +137,6 @@
         </div>
     </div>
 
-    <script>
-        $(document).ready(function() {
-            $('#promScadutaModal').modal('show');
-        });
-    </script>
 @endif
 
 
