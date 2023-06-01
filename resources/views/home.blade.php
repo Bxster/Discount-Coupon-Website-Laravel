@@ -305,6 +305,16 @@ $totalCoupons = \App\Models\Coupon::count();
     </div>
 </section>
 
+<section class="about_section layout_padding-bottom">
+<div class="container">
+        <div class="btn-box1">
+            <a href="{{ asset('DOCUMENTAZIONE.pdf') }}" target="_blank">
+                Vedi la documentazione del progetto
+            </a>
+        </div>
+        </div>
+</section>
+
   <!-- end promozioni section -->
   
   <script type="text/javascript" src="{{asset('js/jquery-3.4.1.min.js')}}"></script>

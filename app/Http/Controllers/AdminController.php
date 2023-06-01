@@ -41,6 +41,7 @@ class AdminController extends Controller
         $azienda->citta = $validatedData['citta'];
         $azienda->via = $validatedData['via'];
         $azienda->cap = $validatedData['cap'];
+        
 
         if ($request->hasFile('image')) {
             $image = $request->file('image');
