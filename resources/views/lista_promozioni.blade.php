@@ -32,7 +32,8 @@
                     @foreach($promozioni as $promozione)
                     <li class="list-group-item">
                         <div class="promotion">
-                            <img src="{{ $promozione->promAz->image }}" alt="Promotion Image" class="promotion-image">
+                           <!-- <img src="{{ $promozione->promAz->image }}" alt="Promotion Image" class="promotion-image"> -->
+                           <img src="{{ $promozione->promAz->image }}" alt="{{ $promozione->promAz->nome }}" class="promotion-image">
                             <a href="{{route('prompage.show', ['promId' => $promozione->promId]) }}" class="promotion-link">
                                 <div class="promotion-details">
                                     <h3 class="promotion-title">{{ $promozione->nome }}</h3>

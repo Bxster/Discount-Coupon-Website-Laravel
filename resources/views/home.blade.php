@@ -288,7 +288,7 @@ $totalCoupons = \App\Models\Coupon::count();
                 <td>
                 <a href="{{route('prompage.show', ['promId' => $promozione->promId]) }}" class="promotion-link">
                     <div class="img_aziendeloghi">
-                    <img src="{{$promozione->promAz->image}}" alt="">
+                    <img src="{{ $promozione->promAz->image }}" alt="{{ $promozione->promAz->nome }}">
                     </div>
                     <span>{{ $promozione->nome }}</span>
                 </a>
