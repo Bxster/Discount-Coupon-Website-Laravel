@@ -24,9 +24,21 @@ class DatabaseSeeder extends Seeder {
                 'remember_token' => Str::random(10), 'created_at' => now(), 'updated_at' => now(),
             ],
             [
+                'name' => 'user', 'surname' => 'user', 'cellulare' => '1234567890',
+                'email' => 'user@gmail.com.com', 'email_verified_at' => now(), 'username' => 'useruser',
+                'password' => Hash::make('useruser'), 'role' => 'user', 'genere' => 1, 'dataNascita' => '1990-01-01',
+                'remember_token' => Str::random(10), 'created_at' => now(), 'updated_at' => now(),
+            ],
+            [
                 'name' => 'Giulia', 'surname' => 'Verdi', 'cellulare' => '9876543210',
                 'email' => 'giulia@example.com', 'email_verified_at' => now(), 'username' => 'giulia456',
                 'password' => Hash::make('password456'), 'role' => 'staff', 'genere' => 1, 'dataNascita' => '1995-05-10',
+                'remember_token' => Str::random(10), 'created_at' => now(), 'updated_at' => now(),
+            ],
+            [
+                'name' => 'staff', 'surname' => 'staff', 'cellulare' => '9876543210',
+                'email' => 'staff@gmail.com', 'email_verified_at' => now(), 'username' => 'staffstaff',
+                'password' => Hash::make('staffstaff'), 'role' => 'staff', 'genere' => 0, 'dataNascita' => '1995-05-10',
                 'remember_token' => Str::random(10), 'created_at' => now(), 'updated_at' => now(),
             ],
             [
