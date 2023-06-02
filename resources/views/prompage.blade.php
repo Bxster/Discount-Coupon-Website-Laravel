@@ -76,10 +76,10 @@
           <form action="{{ route('pagina_modifica_promozione', ['promId' => $promozione->promId]) }}">
                 <button type="submit" class="btn btn-success">Modifica</button>
             </form>
-          <form action="{{ route('staff.promozioni.destroy', ['promId' => $promozione->promId]) }}" method="POST">
+          <form action="{{ route('staff.promozioni.destroy', ['promId' => $promozione->promId]) }}" method="POST" class="confirm-delete-form">
                 @csrf
                 @method('DELETE')
-                <button type="submit" class="btn btn-success">Elimina</button>
+                <button type="submit" class="btn btn-success delete-button" data-confirm="Sei sicuro di voler eliminare la promozione?">Elimina</button>
             </form>
             @endcan
          </div>   

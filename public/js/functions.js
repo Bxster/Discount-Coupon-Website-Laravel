@@ -18,7 +18,7 @@ $(document).ready(function() {
       text: confirmMessage,
       icon: 'warning',
       showCancelButton: true,
-      confirmButtonColor: '#3085d6',
+      confirmButtonColor: '#30ae69',
       cancelButtonColor: '#d33',
       confirmButtonText: 'Si',
       cancelButtonText: 'No'

@@ -42,10 +42,10 @@
           Modifica
         </button>
       </a>
-      <form action="{{ route('admin.faq.destroy', ['faqId' => $faq->faqId]) }}" method="POST">
+      <form action="{{ route('admin.faq.destroy', ['faqId' => $faq->faqId]) }}" method="POST" class="confirm-delete-form">
         @csrf
         @method('DELETE')
-        <button type="submit" class="btn btn-success">Elimina</button>
+        <button type="submit" class="btn btn-success delete-button" data-confirm="Sei sicuro di voler eliminare la faq?">Elimina</button>
       </form>
       @endcan
     </div>

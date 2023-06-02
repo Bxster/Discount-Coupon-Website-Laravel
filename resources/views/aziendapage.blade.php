@@ -39,10 +39,10 @@
                 Modifica
               </button>
             </a>
-            <form action="{{ route('admin.aziende.destroy', ['aziendeId' => $azienda->aziendeId]) }}" method="POST">
+            <form action="{{ route('admin.aziende.destroy', ['aziendeId' => $azienda->aziendeId]) }}" method="POST" class="confirm-delete-form">
                 @csrf
                 @method('DELETE')
-                <button type="submit" class="btn btn-success">Elimina</button>
+                <button type="submit" class="btn btn-success delete-button" data-confirm="Sei sicuro di voler eliminare l'azienda?">Elimina</button>
             </form>
            <!-- <a href=" ">
               <button class="btn btn-success">
