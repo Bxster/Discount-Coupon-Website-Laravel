@@ -20,57 +20,6 @@ class AdminController extends Controller
     return view('aggiunta_azienda');
 }
 
-  /*  public function storeAzienda(Request $request)
-    {
-        // Validazione dei dati inseriti nel form
-        $validatedData = $request->validate([
-            'ragionesociale' => 'required|string|max:25',
-            'tipologia' => 'required|string|max:30|regex:/^[a-zA-Z\s]+$/',
-            'desc' => 'required|string|max:2500',
-            'citta' => 'required|string|max:30|regex:/^[a-zA-Z\s]+$/',
-            'via' => 'required|string|max:30',
-            'cap' => 'required|string|numeric|digits:5',
-            'image' => 'file|mimes:jpeg,png,jpg,gif|max:2048',
-        ]);
-
-        // Salvataggio dell'azienda nel database
-        $azienda = new Aziende();
-        $azienda->ragionesociale = $validatedData['ragionesociale'];
-        $azienda->tipologia = $validatedData['tipologia'];
-        $azienda->desc = $validatedData['desc'];
-        $azienda->citta = $validatedData['citta'];
-        $azienda->via = $validatedData['via'];
-        $azienda->cap = $validatedData['cap'];
-
-        if ($request->hasFile('image')) {
-            $image = $validatedData->file('image');
-    
-            // Verifica il tipo dell'immagine
-            if (!$image->isValid()) {
-                return redirect()->back()->withErrors(['image' => 'Il file caricato non è un immagine valida.'])->withInput();
-            }
-    
-            // Verifica la dimensione dell'immagine
-            if ($image->getSize() > 2048000) {
-                return redirect()->back()->withErrors(['image' => 'L immagine caricata supera la dimensione massima consentita di 2MB.'])->withInput();
-            }
-    
-            // Salva l'immagine nella cartella di destinazione
-            $imagePath = $image->store('public/images');
-            $imageName = Storage::url($imagePath);
-        } else {
-            // Se nessuna immagine viene caricata, utilizza l'immagine di default
-            $imageName = 'public/images/azienda.png';
-        }
-        
-       
-
-        $azienda->save();
-
-        // Reindirizzamento o altra azione dopo il salvataggio dell'azienda
-        return redirect()->route('home')->with('success', 'Azienda aggiunta con successo!');
-    } */
-
     public function storeAzienda(NewAziendaRequest $request) {
 
         if ($request->hasFile('image')) {

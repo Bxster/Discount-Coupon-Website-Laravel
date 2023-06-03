@@ -25,9 +25,7 @@
         </h2>
       </div>
       <div class="box">
-        <div class="img_aziende">
-          <img src="images/auto-img.png" alt="">
-        </div>
+        
         <div class="detail-box">
             <h3>
                 Nome Azienda
@@ -36,7 +34,9 @@
           {{ $promozione->promAz->ragionesociale}}
           </p>
         <div class="img_aziende">
-         <img src="{{ $promozione->promAz->image }}" alt="{{ $promozione->promAz->nome }}">
+        
+          @include('helpers/productImg', ['attrs' => 'imagefrm', 'imgFile' => $promozione->promAz->image])
+    
        </div>
         </div>
         <div class="detail-box">
@@ -45,8 +45,7 @@
           </p>
         </div>
         <div class="box">
-        <div class="img_aziende">
-            <img src="images/auto-img.png" alt="">
+        
         <div class="detail-box">
             <h3>
                 Dettagli promozione

@@ -16,7 +16,7 @@
      </div>
      <div class="box">
        <div class="img_aziende">
-         <img src="{{ $azienda->image }}" alt="{{ $azienda->nome }}">
+       @include('helpers/productImg', ['attrs' => 'imagefrm', 'imgFile' => $azienda->image])
        </div>
        <div class="detail-box">
          <p>

@@ -9,8 +9,8 @@
     <div class="black-rectangle">
       <div class="row">
         <div class="col-lg-4">
-          <div class="company-logo">
-            <img src="{{ $coupon->coupPr->promAz->image }}" alt="Logo Azienda">
+          <div class="company_logo">
+              @include('helpers/productImg', ['attrs' => 'imagefrm', 'imgFile' => $coupon->coupPr->promAz->image])
             <h4>{{ $coupon->coupPr->promAz->ragionesociale }}</h4>
           </div>
         </div>

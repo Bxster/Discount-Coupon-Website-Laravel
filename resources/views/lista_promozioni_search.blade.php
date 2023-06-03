@@ -36,7 +36,9 @@
                         <a href="{{ route('prompage.show', ['promId' => $result['proId']]) }}" class="promotion-link">
                             <div class="promotion">
                              <!--   <img src="{{ $result['image_link'] }}" alt="Promotion Image" class="promotion-image"> -->
-                             
+                             <div class="img_aziende">
+                            @include('helpers/productImg', ['attrs' => 'imagefrm', 'imgFile' => $result['image_link']])
+                            </div>
                                 <div class="promotion-details">
                                     <h3 class="promotion-title">{{ $result['nome']}}</h3>
                                     <p class="promotion-description">{{ $result['oggetto'] }}</p>

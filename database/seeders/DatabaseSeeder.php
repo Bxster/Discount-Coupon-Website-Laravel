@@ -12,8 +12,7 @@ class DatabaseSeeder extends Seeder {
      *
      * @return void
      */
-    const DESCPROD = '<p>Sed lacus. Donec lectus. Nullam pretium nibh ut turpis. Nam bibendum. In nulla tortor, elementum vel, tempor at, varius non, purus. Mauris vitae nisl nec metus placerat consectetuer. Donec ipsum. Proin imperdiet est. Phasellus dapibus semper urna. Pellentesque ornare, orci in consectetuer hendrerit, urna elit eleifend nunc, ut consectetuer nisl felis ac diam. Etiam non felis. Donec ut ante. In id eros. Suspendisse lacus turpis, cursus egestas at sem. Phasellus pellentesque. Mauris quam enim, molestie in, rhoncus ut, lobortis a, est. </p><p>Sed lacus. Donec lectus. Nullam pretium nibh ut turpis. Nam bibendum. In nulla tortor, elementum vel, tempor at, varius non, purus. Mauris vitae nisl nec metus placerat consectetuer. Donec ipsum. Proin imperdiet est. Phasellus dapibus semper urna. Pellentesque ornare, orci in consectetuer hendrerit, urna elit eleifend nunc, ut consectetuer nisl felis ac diam. Etiam non felis. Donec ut ante. In id eros. Suspendisse lacus turpis, cursus egestas at sem. Phasellus pellentesque. Mauris quam enim, molestie in, rhoncus ut, lobortis a, est.</p>';
-
+  
     public function run() {
 
         DB::table('users')->insert([
@@ -58,7 +57,7 @@ class DatabaseSeeder extends Seeder {
                 'citta' => 'Città 1',
                 'via' => 'Via 1',
                 'cap' => '12345',
-                'image' => 'https://picsum.photos/200/300',
+                'image' => '',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -70,7 +69,7 @@ class DatabaseSeeder extends Seeder {
                 'citta' => 'Città 2',
                 'via' => 'Via 2',
                 'cap' => '67890',
-                'image' => 'https://picsum.photos/200/300',
+                'image' => '',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -82,7 +81,7 @@ class DatabaseSeeder extends Seeder {
                 'citta' => 'Città 3',
                 'via' => 'Via 3',
                 'cap' => '11111',
-                'image' => 'https://picsum.photos/200/300',
+                'image' => '',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -94,7 +93,7 @@ class DatabaseSeeder extends Seeder {
                 'citta' => 'Città 4',
                 'via' => 'Via 4',
                 'cap' => '22222',
-                'image' => 'https://picsum.photos/200/300',
+                'image' => '',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -106,7 +105,7 @@ class DatabaseSeeder extends Seeder {
                 'citta' => 'Città 5',
                 'via' => 'Via 5',
                 'cap' => '33333',
-                'image' => 'https://picsum.photos/200/300',
+                'image' => '',
                 'created_at' => now(),
                 'updated_at' => now(),
             ]

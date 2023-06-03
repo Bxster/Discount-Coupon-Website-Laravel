@@ -230,7 +230,7 @@ $totalCoupons = \App\Models\Coupon::count();
                 <td>
                 <a href="{{ route('aziendapage.show', ['aziendeId' => $azienda->aziendeId]) }}" class="promotion-link">
                   <div class="img_aziendeloghi">
-                    <img src="{{$azienda->image}}" alt="">
+                  @include('helpers/productImg', ['attrs' => 'imagefrm', 'imgFile' => $azienda->image])
                     </div>
                     <span>{{ $azienda->ragionesociale }}</span>
                 </a>
@@ -270,7 +270,8 @@ $totalCoupons = \App\Models\Coupon::count();
                 <td>
                 <a href="{{route('prompage.show', ['promId' => $promozione->promId]) }}" class="promotion-link">
                     <div class="img_aziendeloghi">
-                    <img src="{{$promozione->promAz->image}}" alt="">
+                  <!--  <img src="{{$promozione->promAz->image}}" alt=""> -->
+                    @include('helpers/productImg', ['attrs' => 'imagefrm', 'imgFile' => $promozione->promAz->image])
                     </div>
                     <span>{{ $promozione->nome }}</span>
                 </a>
@@ -290,7 +291,8 @@ $totalCoupons = \App\Models\Coupon::count();
                 <td>
                 <a href="{{route('prompage.show', ['promId' => $promozione->promId]) }}" class="promotion-link">
                     <div class="img_aziendeloghi">
-                    <img src="{{ $promozione->promAz->image }}" alt="{{ $promozione->promAz->nome }}">
+                    <!--  <img src="{{$promozione->promAz->image}}" alt=""> -->
+                    @include('helpers/productImg', ['attrs' => 'imagefrm', 'imgFile' => $promozione->promAz->image])
                     </div>
                     <span>{{ $promozione->nome }}</span>
                 </a>

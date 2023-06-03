@@ -70,8 +70,8 @@ body {
 
 .immagine-ridotta{
 
-  width: 70px;
-  height: 70px;
+  width: 100px;
+  height: 100px;
 }
 
 .promotion-link {
@@ -147,6 +147,11 @@ body {
 
 .img_aziende img {
   width: 40%;
+  height: auto;
+}
+
+.company_logo img {
+  width: 90%;
   height: auto;
 }
 

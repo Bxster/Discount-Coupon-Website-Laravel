@@ -38,7 +38,9 @@
           <li class="list-group-item">
             <a href="{{ route('aziendapage.show', ['aziendeId' => $azienda->aziendeId]) }}" class="promotion-link">
               <div class="promotion">
-                <img src="{{ $azienda->image }}" alt="{{ $azienda->nome }}" class="immagine-ridotta">
+                <div class="img_aziende">
+                @include('helpers/productImg', ['attrs' => 'imagefrm', 'imgFile' => $azienda->image])
+                </div>
                 <div class="promotion-details">
                   <h1 class="promotion-title">{{ $azienda->ragionesociale }}</h1>
                   <p class="promotion-description">{{ $azienda->desc }}</p>
