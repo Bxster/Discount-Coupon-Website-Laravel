@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Admin;
+use App\Http\Requests\NewAziendaRequest;
 use App\Models\Aziende;
 use App\Models\User;
 use App\Models\Faq;
@@ -20,7 +20,7 @@ class AdminController extends Controller
     return view('aggiunta_azienda');
 }
 
-    public function storeAzienda(Request $request)
+  /*  public function storeAzienda(Request $request)
     {
         // Validazione dei dati inseriti nel form
         $validatedData = $request->validate([
@@ -63,33 +63,38 @@ class AdminController extends Controller
             $imageName = 'public/images/azienda.png';
         }
         
-       /* if ($validatedData->hasFile('image')) {
-            $image = $validatedData->file('image');
-            $imageName = $image->getClientOriginalName();
-        } else {
-            $imageName = NULL;
-        }
-
-        $azienda->image = $imageName;
-
-        if (!is_null($imageName)) {
-            $destinationPath = public_path() . '/images';
-            $image->move($destinationPath, $imageName);
-        }; */
-        
-
-      /*  if ($request->hasFile('image')) {
-            $image = $request->file('image');
-            $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('images'), $imageName);
-            $azienda->image = $imageName;
-        } */
+       
 
         $azienda->save();
 
         // Reindirizzamento o altra azione dopo il salvataggio dell'azienda
         return redirect()->route('home')->with('success', 'Azienda aggiunta con successo!');
+    } */
+
+    public function storeAzienda(NewAziendaRequest $request) {
+
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imageName = $image->getClientOriginalName();
+        } else {
+            $imageName = NULL;
+        }
+
+        $azienda = new Aziende;
+        $azienda->fill($request->validated());
+        $azienda->image = $imageName;
+        $azienda->save();
+
+        if (!is_null($imageName)) {
+            $destinationPath = public_path() . '/images';
+            $image->move($destinationPath, $imageName);
+        };
+
+        return response()->json(['redirect' => route('home')]);
+        ;
     }
+
+
 
         public function destroy($aziendeId)
     {

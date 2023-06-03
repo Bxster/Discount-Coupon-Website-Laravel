@@ -11,6 +11,11 @@
   <meta name="keywords" content="" />
   <meta name="description" content="" />
   <meta name="author" content="" />
+  @section('link')
+
+  @show
+    @section('scripts')
+  @show
 
   <title>CouponMania | @yield('title', 'CouponMania')</title>
 
