@@ -29,7 +29,7 @@ $(function () {
 
 <div class="static">
 
-    <h3>Aggiungi Azienda</h3>
+    <h3>Pagina di Aggiunta Azienda</h3>
 
     <div class="container-contact">
         <div class="wrap-contact">
