@@ -120,7 +120,7 @@
                             @if ( $coupon->coupPr)
                             {{ $coupon->coupPr->nome }} 
                             @else
-                            Promozione eliminata
+                            Promozione eliminata dal sito
                             @endif 
                             , Codice coupon: {{ $coupon->codice }}</li>
                         @endforeach
