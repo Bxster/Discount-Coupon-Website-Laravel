@@ -108,7 +108,7 @@ class AdminController extends Controller
 
     public function storeFaq(NewFaqRequest $request)
     {
-    $faq = new FAQ;
+    $faq = new Faq;
     $faq->fill($request->validated());
     $faq->save();
 
@@ -118,7 +118,7 @@ class AdminController extends Controller
 
     public function modificaFaq($faqId)   
     {
-        $faq=FAQ::find($faqId);
+        $faq=Faq::find($faqId);
 
         return view('pagina_modifica_faq')
         ->with('faq', $faq);
@@ -126,7 +126,7 @@ class AdminController extends Controller
 
     public function updateFaq(Request $request, $faqId)
     {  
-        $faq=FAQ::find($faqId);
+        $faq=Faq::find($faqId);
         
         $faq->update($request->all());
 
@@ -136,7 +136,7 @@ class AdminController extends Controller
     public function destroyFaq($faqId)
     {
         // Trova la faq da eliminare
-        $faq = FAQ::findOrFail($faqId);
+        $faq = Faq::findOrFail($faqId);
 
         // Elimina l'faq$faq
         $faq->delete();
