@@ -45,7 +45,7 @@ Route::post('/admin/staff', [AdminController::class, 'addStaff'])->name('admin.s
 Route::get('/admin/aggiunta_staff', [AdminController::class, 'create2'])->name('aggiunta_staff')->can('isAdmin');
 
 
-Route::post('/promozioni/{aziendeId}', [StaffController::class, 'storePromozione'])->name('promozione.store');
+Route::post('/promozioni/{aziendeId}', [StaffController::class, 'storePromozione'])->name('promozione.store')->can('isStaff');
 Route::get('/staff/promozioni/create/{aziendeId}', [StaffController::class, 'create'])->name('aggiunta_promozione')->can('isStaff');
 Route::delete('/staff/promozioni/{promId}', [StaffController::class, 'destroy'])->name('staff.promozioni.destroy')->can('isStaff');
 
