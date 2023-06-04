@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\NewAziendaRequest;
+use App\Http\Requests\NewFaqRequest;
 use App\Models\Aziende;
 use App\Models\User;
 use App\Models\Faq;
@@ -98,29 +99,23 @@ class AdminController extends Controller
         // Reindirizzamento o visualizzazione di un messaggio di successo
         return redirect()->route('home')->with('success', 'Utente staff aggiunto con successo!');
     }
+
     public function createFaq()
     {
         return view('aggiunta_faq');
     }
 
-    public function storeFaq(Request $request)
+
+    public function storeFaq(NewFaqRequest $request)
     {
-        // Validazione dei dati inseriti nel form
-        $validatedData = $request->validate([
-            'titolo' => 'required|string|max:200',
-            'corpo' => 'required|string|max:2500',
-        ]);
+    $faq = new FAQ;
+    $faq->fill($request->validated());
+    $faq->save();
 
-        // Salvataggio delle faq nel database
-        $faq = new FAQ();
-        $faq->titolo = $validatedData['titolo'];
-        $faq->corpo = $validatedData['corpo'];
-
-        $faq->save();
-
-        // Reindirizzamento o altra azione dopo il salvataggio delle faq
-        return redirect()->route('faqs')->with('success', 'Faq aggiunta con successo!');
+    return response()->json(['redirect' => route('home')]);
     }
+
+
     public function modificaFaq($faqId)   
     {
         $faq=FAQ::find($faqId);
@@ -128,6 +123,7 @@ class AdminController extends Controller
         return view('pagina_modifica_faq')
         ->with('faq', $faq);
     }
+
     public function updateFaq(Request $request, $faqId)
     {  
         $faq=FAQ::find($faqId);
