@@ -106,22 +106,25 @@
             </div>
             </div> 
             @can('isUser')
+            <div class="info_form ">
             <button class ="btn btn-success"id="toggleButton">Mostra/Nascondi sezione</button>
-
+            </div>
             <section id="hiddenSection" style="display: none;">
+
             <h1>Coupon dell'utente</h1>
 
-            @if ($coupons)
 
                     <ul>
                         @foreach ($coupons as $coupon)
-                            <li>Promozione: {{ $coupon->coupPr->nome }}, Codice coupon: {{ $coupon->codice }}</li>
+                            <li>Promozione: 
+                            @if ( $coupon->coupPr)
+                            {{ $coupon->coupPr->nome }} 
+                            @else
+                            Promozione eliminata
+                            @endif 
+                            , Codice coupon: {{ $coupon->codice }}</li>
                         @endforeach
                     </ul>
-
-            @else
-                <p>Nessun coupon disponibile</p>
-            @endif
             </section>
             @endcan
 
