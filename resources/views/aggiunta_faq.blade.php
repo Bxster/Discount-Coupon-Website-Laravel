@@ -46,17 +46,10 @@ $(function () {
                 {{ Form::text('titolo', '', ['class' => 'input', 'id' => 'titolo']) }}
             </div>
 
-        <div class="wrap-input">
-            {!! Form::label('corpo', 'Corpo') !!}
-            {!! Form::textarea('corpo', null, ['class' => 'form-control']) !!}
-            @if ($errors->first('corpo'))
-            <ul class="errors">
-                @foreach ($errors->get('corpo') as $message)
-                <li>{{ $message }}</li>
-                @endforeach
-            </ul>
-            @endif
-</div>
+            <div  class="wrap-input">
+                {{ Form::label('corpo', 'Corpo', ['class' => 'label-input']) }}
+                {{ Form::textarea('corpo', '', ['class' => 'input', 'id' => 'corpo']) }}
+            </div>
 
             <div class="button-box">
                     {{ Form::submit('Aggiungi', ['class' => 'btn submit-btn']) }}
