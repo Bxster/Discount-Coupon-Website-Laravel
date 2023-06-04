@@ -33,7 +33,8 @@
               </button>
             </a>
           @endcan
-         @can('isAdmin')           
+         @can('isAdmin') 
+         <div class="button-box">       
             <a href="{{ route('pagina_modifica_azienda',['aziendeId' => $azienda->aziendeId])}} ">
               <button class="btn btn-success">
                 Modifica
@@ -44,6 +45,7 @@
                 @method('DELETE')
                 <button type="submit" class="btn btn-success delete-button" data-confirm="Sei sicuro di voler eliminare l'azienda?">Elimina</button>
             </form>
+</div>
            <!-- <a href=" ">
               <button class="btn btn-success">
                 Elimina

@@ -106,7 +106,7 @@
             </div>
             </div> 
             @can('isUser')
-            <button id="toggleButton">Mostra/Nascondi sezione</button>
+            <button class ="btn btn-success"id="toggleButton">Mostra/Nascondi sezione</button>
 
             <section id="hiddenSection" style="display: none;">
             <h1>Coupon dell'utente</h1>

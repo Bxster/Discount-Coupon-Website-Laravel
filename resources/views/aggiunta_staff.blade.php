@@ -4,10 +4,16 @@
 
 @section('content')
 
+<link href="{{ asset('css/style.css')}}" rel="stylesheet" />
+<link href="{{ asset('css/register.css')}}" rel="stylesheet" />
+<link href="{{ asset('css/login.css')}}" rel="stylesheet" />
+
 <div class="register-container">
-<h1>Pagina di Aggiunta Staff</h1>
+    <div class = "register-box">
+
 
      <div class="wrap-contact1">
+     <h1>Pagina di Aggiunta Staff</h1>
      {!! Form::open(['route' => 'admin.staff.add', 'method' => 'post']) !!}
 
     <div class="wrap-input">
@@ -99,10 +105,9 @@
         @endif
     </div>
 
-    <div class="buttons">
-        <div class="container-form-btn col-4">
-            {{ Form::submit('Aggiungi', ['class' => 'form-btn1']) }}
-        </div>
+    <div class="button-box">
+
+            {{ Form::submit('Aggiungi', ['class' => 'btn submit-btn']) }}
 
         <button type="reset" class="btn cancel-btn" ><a href="{{ route('admin.elencoStaff') }}">Annulla</a></button>
     </div>
@@ -111,6 +116,7 @@
   {{ Form::close() }}
 
   </div>
+</div>
 
 </div>
 <!-- Custom styles for this template -->

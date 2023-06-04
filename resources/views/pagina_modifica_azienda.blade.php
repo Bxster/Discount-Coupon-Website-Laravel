@@ -6,9 +6,12 @@
 
 <link href="{{ asset('css/login.css')}}" rel="stylesheet" />
 <link href="{{ asset('css/style.css')}}" rel="stylesheet" />
+<link href="{{ asset('css/register.css')}}" rel="stylesheet" />
 
-<div class="login-container">
-<div class="static">
+<div class="register-container">
+<div class="register-box">
+    
+<div class="wrap-contact1">
 <h1>Pagina di modifica azienda</h1>
 
 <form action="{{ route('aziendapage_update',['aziendeId' => $azienda->aziendeId]) }}" method="POST">
@@ -89,12 +92,11 @@
     <!-- Altri campi per i dati personali -->
     <div class="button_box">
     <button class= "btn cancel-btn" type="submit">Aggiorna</button>
-
-    
-
-</div>
+    <button type="reset" class="btn cancel-btn"> <a href="{{ route('lista_aziende') }}">Annulla</a></button>
+    </div>
 </form>
-<button type="reset" class="btn cancel-btn"> <a href="{{ route('lista_aziende') }}">Annulla</a></button>
+</div>
+
 </div>
 </div>
 @endsection

@@ -6,12 +6,15 @@
 
 <!-- Custom styles for this template -->
 <link href="{{ asset('css/style.css')}}" rel="stylesheet" />
+<link href="{{ asset('css/register.css')}}" rel="stylesheet" />
 <link href="{{ asset('css/login.css')}}" rel="stylesheet" />
 
-<div class="login-container">
-<h1>Pagina di Aggiunta Promozione</h1>
+<div class="register-container">
+<div class="register-box">
+
 
      <div class="wrap-contact1">
+     <h1>Pagina di Aggiunta Promozione</h1>
      <form action="{{ route('promozione.store',['aziendeId' => $azienda->aziendeId]) }}" method="POST">
     @csrf
 
@@ -79,18 +82,17 @@
 
 
 
-    <div class="buttons">
-        <div class="container-form-btn col-4">
-            {{ Form::submit('Aggiungi', ['class' => 'form-btn1']) }}
-        </div>
+    <div class="button-box">
+    {{ Form::submit('Aggiungi', ['class' => 'bnt submit-btn']) }}
 
-        <button type="reset" class="btn cancel-btn" ><a href="{{ route('lista_aziende') }}">Annulla</a></button>
+    <button type="reset" class="btn cancel-btn" ><a href="{{ route('lista_aziende') }}">Annulla</a></button>
     </div>
 
 
 </form>
 
   </div>
+</div>
 
 </div>
 @endsection

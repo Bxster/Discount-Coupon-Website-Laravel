@@ -4,108 +4,107 @@
 
 @section('content')
 
-<link href="{{ asset('css/login.css')}}" rel="stylesheet" />
+<link href="{{ asset('css/register.css')}}" rel="stylesheet" />
 <link href="{{ asset('css/style.css')}}" rel="stylesheet" />
 
-<div class="login-container">
-<div class="static">
+<div class="register-container">
+<div class="register-box">
+ <div class="wrap-contact1">
 <h1>Pagina di modifica profilo</h1>
 
 <form action="{{ route('userpage_update',['userId' => $user->userId]) }}" method="POST">
     @csrf
     @method('PUT')
-<div>
-    <label for="name">Nome:</label>
-    <input type="text" id="name" name="name" value="{{ $user->name }}" required>
-    @if ($errors->first('name'))
-                <ul class="errors">
-                    @foreach ($errors->get('name') as $message)
-                    <li>{{ $message }}</li>
-                    @endforeach
-                </ul>
-                @endif
-</div>
-<div>
-    <label for="surname">Cognome:</label>
-    <input type="text" id="surname" name="surname" value="{{ $user->surname }}" required>
-    @if ($errors->first('surname'))
-                <ul class="errors">
-                    @foreach ($errors->get('surname') as $message)
-                    <li>{{ $message }}</li>
-                    @endforeach
-                </ul>
-                @endif
-</div>
+    <div class="wrap-input">
+        {{ Form::label('name', 'Nome', ['class' => 'label-input']) }}
+        {{ Form::text('name', '', ['class' => 'input', 'id' => 'name']) }}
+        @if ($errors->first('name'))
+        <ul class="errors">
+            @foreach ($errors->get('name') as $message)
+            <li>{{ $message }}</li>
+            @endforeach
+        </ul>
+        @endif
+    </div>
+    <div class="wrap-input">
+                    {{ Form::label('surname', 'Cognome', ['class' => 'label-input']) }}
+                    {{ Form::text('surname', '', ['class' => 'input', 'id' => 'surname']) }}
+                    @if ($errors->first('surname'))
+                        <ul class="errors">
+                            @foreach ($errors->get('surname') as $message)
+                                <li>{{ $message }}</li>
+                            @endforeach
+                        </ul>
+                    @endif
+                </div>
+
 <div>
     <label for="username">Nome Utente:</label>
     {{$user->username}}
 </div>
-    <div>
-    <label for="pasword">Password:</label>
-    <input type="password" id="password" name="password" value="" >
-    @if ($errors->first('password'))
-                <ul class="errors">
-                    @foreach ($errors->get('password') as $message)
-                    <li>{{ $message }}</li>
-                    @endforeach
-                </ul>
-                @endif
-</div>
+<div class="wrap-input">
+                    {{ Form::label('password', 'Password', ['class' => 'label-input']) }}
+                    {{ Form::password('password', ['class' => 'input', 'id' => 'password']) }}
+                    @if ($errors->first('password'))
+                        <ul class="errors">
+                            @foreach ($errors->get('password') as $message)
+                                <li>{{ $message }}</li>
+                            @endforeach
+                        </ul>
+                    @endif
+                </div>
 
-<div>
-    <label for="password_confirm">Conferma password:</label>
-    <input type="password" id="password_confirm" name="password_confirm" value="" >
-    @if ($errors->first('password'))
-                <ul class="errors">
-                    @foreach ($errors->get('password') as $message)
-                    <li>{{ $message }}</li>
-                    @endforeach
-                </ul>
-                @endif
-</div>
+                <div class="wrap-input">
+                    {{ Form::label('password-confirm', 'Conferma password', ['class' => 'label-input']) }}
+                    {{ Form::password('password_confirmation', ['class' => 'input', 'id' => 'password-confirm']) }}
+                </div>
 
 @can('isUser','isAdmin')
-    <div>
-    <label for="email">Email:</label>
-    <input type="text" id="email" name="email" value="{{ $user->email}}" required>
-    @if ($errors->first('email'))
-                <ul class="errors">
-                    @foreach ($errors->get('email') as $message)
-                    <li>{{ $message }}</li>
-                    @endforeach
-                </ul>
-                @endif
-</div>
-    <div>
-    <label for="cellulare">Cellulare:</label>
-    <input type="text" id="cellulare" name="cellulare" value="{{ $user->cellulare }}" required>
-    @if ($errors->first('cellulare'))
-                <ul class="errors">
-                    @foreach ($errors->get('cellulare') as $message)
-                    <li>{{ $message }}</li>
-                    @endforeach
-                </ul>
-                @endif
-</div>
+<div class="wrap-input">
+                    {{ Form::label('email', 'Email', ['class' => 'label-input']) }}
+                    {{ Form::text('email', '', ['class' => 'input','id' => 'email', 'type'=>'email']) }}
+                    @if ($errors->first('email'))
+                        <ul class="errors">
+                            @foreach ($errors->get('email') as $message)
+                                <li>{{ $message }}</li>
+                            @endforeach
+                        </ul>
+                    @endif
+                </div>
+                <div class="wrap-input">
+                    {{ Form::label('cellulare', 'Cellulare', ['class' => 'label-input']) }}
+                    {{ Form::text('cellulare', '', ['class' => 'input', 'id' => 'cellulare']) }}
+                    @if ($errors->first('cellulare'))
+                        <ul class="errors">
+                            @foreach ($errors->get('cellulare') as $message)
+                                <li>{{ $message }}</li>
+                            @endforeach
+                        </ul>
+                    @endif
+                </div>
 
-    <div>
-    <label for="dataNascita">Data di nascita:</label>
-    <input type="date" id="dataNascita" name="dataNascita" value="{{$user->dataNascita}}" required>
-    @if ($errors->first('dataNascita'))
-                <ul class="errors">
-                    @foreach ($errors->get('dataNascita') as $message)
-                    <li>{{ $message }}</li>
-                    @endforeach
-                </ul>
-                @endif
-</div>
-    <div>
-    <label for="genere">Genere:</label>
-    <select id="genere" name="genere" required>
-    <option value="0" {{ $user->genere == '0' ? 'selected' : '' }}>Maschio</option>
-    <option value="1" {{ $user->genere == '1' ? 'selected' : '' }}>Femmina</option>
-</select>
-</div>
+                <div class="wrap-input">
+                    {{ Form::label('dataNascita', 'Data di Nascita', ['class' => 'label-input']) }}
+                    {{ Form::date('dataNascita', null, ['class' => 'input', 'id' => 'dataNascita']) }}
+                    @if ($errors->first('dataNascita'))
+                        <ul class="errors">
+                            @foreach ($errors->get('dataNascita') as $message)
+                                <li>{{ $message }}</li>
+                            @endforeach
+                        </ul>
+                    @endif
+                </div>
+                <div class="wrap-input">
+                    {{ Form::label('genere', 'Genere', ['class' => 'label-input']) }}
+                    {{ Form::select('genere', ['0' => 'Maschio', '1' => 'Femmina'], null, ['class' => 'input', 'id' => 'genere']) }}
+                    @if ($errors->first('genere'))
+                        <ul class="errors">
+                            @foreach ($errors->get('genere') as $message)
+                                <li>{{ $message }}</li>
+                            @endforeach
+                        </ul>
+                    @endif
+                </div>
 @endcan
 
     <!-- Altri campi per i dati personali -->
@@ -123,6 +122,7 @@
     @endcan
 </div>
 </form>
+</div>
 </div>
 </div>
 @endsection

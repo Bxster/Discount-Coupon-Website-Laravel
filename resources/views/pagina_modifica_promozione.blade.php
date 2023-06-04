@@ -4,19 +4,20 @@
 
 @section('content')
 
-<link href="{{ asset('css/login.css')}}" rel="stylesheet" />
+<link href="{{ asset('css/register.css')}}" rel="stylesheet" />
 <link href="{{ asset('css/style.css')}}" rel="stylesheet" />
 
-<div class="login-container">
-<div class="static">
+<div class="register-container">
+<div class="register-box">
+<div class="wrap-contact1">
 <h1>Pagina di modifica promozione</h1>
 
 <form action="{{ route('prompage_update',['promId' => $promozione->promId]) }}" method="POST">
     @csrf
     @method('PUT')
-<div>
-    <label for="nome">Nome:</label>
-    <input type="text" id="nome" name="nome" value="{{ $promozione->nome }}" required>
+    <div class="wrap-input">
+                    {{ Form::label('nome', 'Nome', ['class' => 'label-input']) }}
+                    {{ Form::text('nome', $promozione->nome, ['class' => 'input', 'id' => 'name']) }}
     @if ($errors->first('nome'))
                 <ul class="errors">
                     @foreach ($errors->get('nome') as $message)
@@ -25,9 +26,9 @@
                 </ul>
                 @endif
 </div>
-<div>
-    <label for="oggetto">Oggetto:</label>
-    <input type="text" id="oggetto" name="oggetto" value="{{ $promozione->oggetto }}" required>
+<div class="wrap-input">
+                    {{ Form::label('oggetto', 'Oggetto', ['class' => 'label-input']) }}
+                    {{ Form::text('oggetto', $promozione->oggetto, ['class' => 'input', 'id' => 'name']) }}
     @if ($errors->first('oggetto'))
                 <ul class="errors">
                     @foreach ($errors->get('oggetto') as $message)
@@ -36,9 +37,9 @@
                 </ul>
                 @endif
 </div>
-    <div>
-    <label for="modalita">Modalità di fruizione:</label>
-    <input type="text" id="modalita" name="modalita" value="{{ $promozione->modalita }}" >
+<div class="wrap-input">
+                    {{ Form::label('modalita', 'Modalità di fruizione', ['class' => 'label-input']) }}
+                    {{ Form::text('modalita', $promozione->modalita, ['class' => 'input', 'id' => 'name']) }}
     @if ($errors->first('modalita'))
                 <ul class="errors">
                     @foreach ($errors->get('modalita') as $message)
@@ -48,9 +49,9 @@
                 @endif
 </div>
 
-    <div>
-    <label for="luoghi_fruizione">Luogo di fruizione:</label>
-    <input type="text" id="luoghi_fruizione" name="luoghi_fruizione" value="{{ $promozione->luoghi_fruizione}}" required>
+<div class="wrap-input">
+                    {{ Form::label('luoghi_fruizione', 'Luoghi di fruizione', ['class' => 'label-input']) }}
+                    {{ Form::text('luoghi_fruizione', $promozione->luoghi_fruizione, ['class' => 'input', 'id' => 'name']) }}
     @if ($errors->first('luoghi_fruizione'))
                 <ul class="errors">
                     @foreach ($errors->get('luoghi_fruzione') as $message)
@@ -60,9 +61,9 @@
                 @endif
 </div>
 
-    <div>
-    <label for="tempi_fruizione">Tempi di fruizione:</label>
-    <input type="date" select id="tempi_fruizione" name="tempi_fruizione" value="{{ $promozione->tempi_fruizione}}"required>
+<div class="wrap-input">
+                    {{ Form::label('tempi_fruizione', 'Tempi di fruizione', ['class' => 'label-input']) }}
+                    {{ Form::date('tempi_fruizione', $promozione->tempi_fruizione, ['class' => 'input', 'id' => 'dataNascita']) }}
     @if ($errors->first('tempi_fruizione'))
                 <ul class="errors">
                     @foreach ($errors->get('tempi_fruizione') as $message)
@@ -80,6 +81,7 @@
 
 </div>
 </form>
+</div>
 </div>
 </div>
 @endsection

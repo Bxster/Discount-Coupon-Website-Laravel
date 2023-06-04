@@ -4,6 +4,7 @@
 
 @section('content')
 
+
 <!-- profile section -->
 
 <section>
@@ -46,7 +47,8 @@
           </div>
             <div class="col-md-6">
                 <div class="mb-3">
-                  <div class="info_form ">
+
+                    <div class = "button-box">
                   <a href="{{ route('pagina_modifica', ['userId' => $user->userId]) }}">
                   <button type="button" class="btn btn-success">Modifica</button>
                   </a>
@@ -56,8 +58,9 @@
                     @method('DELETE')
                     <button type="submit" class="btn btn-success delete-button" data-confirm="Sei sicuro di voler eliminare lo staff?">Elimina</button>
                   </form>
+</div>
                   @endcan                
-                  </div>
+
                 </div>
             </div>
             </div> 

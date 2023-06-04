@@ -3,11 +3,16 @@
 @section('title', 'Pagina Modifica')
 
 @section('content')
+<link href="{{ asset('css/login.css')}}" rel="stylesheet" />
+<link href="{{ asset('css/style.css')}}" rel="stylesheet" />
+<link href="{{ asset('css/register.css')}}" rel="stylesheet" />
 
 <div class="register-container">
-    <h1>Pagina di Modifica Faq</h1>
+<div class="register-box">
+
 
     <div class="wrap-contact1">
+    <h1>Pagina di Modifica Faq</h1>
         <form action="{{ route('faq_update_success',['faqId' => $faq->faqId]) }}" method="POST">
             @csrf
             @method('PUT')
@@ -25,7 +30,7 @@
 
             <div class="wrap-input">
                 {!! Form::label('corpo', 'Corpo') !!}
-                {!! Form::text('corpo', $faq->corpo, ['class' => 'form-control']) !!}
+                {!! Form::textarea('corpo', $faq->corpo, ['class' => 'form-control']) !!}
                 @if ($errors->first('corpo'))
                 <ul class="errors">
                     @foreach ($errors->get('corpo') as $message)
@@ -33,21 +38,19 @@
                     @endforeach
                 </ul>
                 @endif
+</div>
 
-                <div class="buttons">
-                    <div class="container-form-btn col-4">
-                        {{ Form::submit('Modifica', ['class' => 'form-btn1']) }}
-                    </div>
+                <div class="button-box">
+
+                        {{ Form::submit('Modifica', ['class' => 'btn submit-btn']) }}
+                        <button type="reset"class="btn cancel-btn" ><a href="{{ route('faqs') }}">Annulla</a></button>
 
                 </div>
 
         </form>
 
-              <button type="reset"class="btn cancel-btn" ><a href="{{ route('faqs') }}">Annulla</a></button>
+</div>
 
     </div>
 </div>
 @endsection
-<!-- Custom styles for this template -->
-<link href="{{ asset('css/style.css')}}" rel="stylesheet" />
-<link href="{{ asset('css/login.css')}}" rel="stylesheet" />

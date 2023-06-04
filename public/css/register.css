@@ -1,11 +1,23 @@
-.register-container {
+.register-container{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding:70px 50px ;
+	box-shadow: 0 5px 15px rgba(0,0,0,.5);
+
+}
+.register-box {
     margin: 0 auto;
-    width: 500px;
+    width: 700px;
     background-color: white;
     border: 1px solid black;
     padding: 20px;
     box-sizing: border-box;
-    padding:70px 30px ;
+    display: flex;
+	justify-content: center;
+	align-items: center;
+	padding:70px 50px ;
+	box-shadow: 0 5px 15px rgba(0,0,0,.5)
 }
 h1 {
     text-align: center;
@@ -15,6 +27,7 @@ form {
     display: flex;
     flex-direction: column;
     gap: 10px;
+
 }
 label {
     display: flex;
@@ -42,13 +55,23 @@ button {
     color: white;
     border: none;
 }
-.cancel {
-    background-color:#30ae69;
-}
-.register {
-    background-color: #30ae69;
-}
+.cancel-btn{
 
+	background-color: #30ae69;
+	color: #f1f1f1;
+	border-radius: 0;
+	margin-right: 50px;
+}
+.register-btn{
+	background-color: #30ae69;
+	color: #f1f1f1;
+	border-radius: 0;
+}
+.button-box{
+	display: flex;
+	justify-content: space-between;
+	color:#000;
+}
 a {
     color:white;
 

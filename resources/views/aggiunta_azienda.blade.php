@@ -25,55 +25,60 @@ $(function () {
 @endsection
 
 
+
 @section('content')
+<link href="{{ asset('css/style.css')}}" rel="stylesheet" />
+<link href="{{ asset('css/register.css')}}" rel="stylesheet" />
+<link href="{{ asset('css/login.css')}}" rel="stylesheet" />
 
-<div class="static">
+<div class="register-container">
 
-    <h3>Aggiungi Azienda</h3>
 
-    <div class="container-contact">
-        <div class="wrap-contact">
+
+    <div class="register-box">
+        <div class="wrap-contact1">
+            <h1>Aggiungi Azienda</h1>
             {{ Form::open(array('route' => 'aziende.store', 'id' => 'addazienda', 'files' => true, 'class' => 'contact-form')) }}
-            <div  class="wrap-input  rs1-wrap-input">
+            <div  class="wrap-input">
                 {{ Form::label('ragionesociale', 'Ragione Sociale', ['class' => 'label-input']) }}
                 {{ Form::text('ragionesociale', '', ['class' => 'input', 'id' => 'ragionesociale']) }}
             </div>
 
-            <div  class="wrap-input  rs1-wrap-input">
+            <div  class="wrap-input">
                 {{ Form::label('tipologia', 'Tipologia', ['class' => 'label-input']) }}
                 {{ Form::text('tipologia', '', ['class' => 'input', 'id' => 'tipologia']) }}
             </div>
 
-            <div  class="wrap-input  rs1-wrap-input">
+            <div  class="wrap-input">
                 {{ Form::label('desc', 'Descrizione', ['class' => 'label-input']) }}
                 {{ Form::text('desc', '', ['class' => 'input', 'id' => 'desc']) }}
             </div>
 
-            <div  class="wrap-input  rs1-wrap-input">
+            <div  class="wrap-input">
                 {{ Form::label('citta', 'Città', ['class' => 'label-input']) }}
                 {{ Form::text('citta', '', ['class' => 'input', 'id' => 'citta']) }}
             </div>
 
-            <div  class="wrap-input  rs1-wrap-input">
+            <div  class="wrap-input">
                 {{ Form::label('via', 'Via', ['class' => 'label-input']) }}
                 {{ Form::text('via', '', ['class' => 'input', 'id' => 'via']) }}
             </div>
 
-            <div  class="wrap-input  rs1-wrap-input">
+            <div  class="wrap-input">
                 {{ Form::label('cap', 'Cap', ['class' => 'label-input']) }}
                 {{ Form::text('cap', '', ['class' => 'input', 'id' => 'cap']) }}
             </div>
 
-            <div  class="wrap-input  rs1-wrap-input">
+            <div  class="wrap-input">
                 {{ Form::label('image', 'Logo', ['class' => 'label-input']) }}
                 {{ Form::file('image', ['class' => 'input', 'id' => 'image']) }}
             </div>
 
-            <div class="container-form-btn">
-                {{ Form::submit('Aggiungi Azienda', ['class' => 'form-btn1']) }}
-            </div>
-            <button type="reset" class="btn cancel-btn" ><a href="{{ route('lista_aziende') }}">Annulla</a></button>
+            <div class="button-box">
+                {{ Form::submit('Aggiungi', ['class' => 'btn submit-btn']) }}
 
+               <button type="reset" class="btn cancel-btn" ><a href="{{ route('lista_aziende') }}">Annulla</a></button>
+            </div>
             {{ Form::close() }}
         </div>
     </div>

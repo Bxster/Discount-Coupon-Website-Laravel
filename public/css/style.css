@@ -3,10 +3,11 @@ body {
   color: #000000;
   background-color: #ffffff;
 }
-
-
-
-/*fine login*/
+.button-box{
+	display: flex;
+	justify-content: space-between;
+	color:#000;
+}
 
 /*gestione promozione*/
 
@@ -250,6 +251,7 @@ body {
 .hero_area {
   background-image: url(../images/sfondo\ verde.jpg);
   background-size: cover;
+
 }
 
 .sub_page .hero_area {
@@ -391,7 +393,7 @@ a:focus {
 .container-1 {
   display: flex;
   align-items: center;
-  width: 100%;
+  width: 100px;
   height: 80px;
 }
 

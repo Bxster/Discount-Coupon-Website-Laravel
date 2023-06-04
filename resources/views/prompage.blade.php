@@ -72,6 +72,7 @@
             </a>
           @endcan
           @can('isStaff') 
+          <div class="button-box">
           <form action="{{ route('pagina_modifica_promozione', ['promId' => $promozione->promId]) }}">
                 <button type="submit" class="btn btn-success">Modifica</button>
             </form>
@@ -80,6 +81,7 @@
                 @method('DELETE')
                 <button type="submit" class="btn btn-success delete-button" data-confirm="Sei sicuro di voler eliminare la promozione?">Elimina</button>
             </form>
+</div>
             @endcan
          </div>   
         </div>

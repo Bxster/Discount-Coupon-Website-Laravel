@@ -9,7 +9,7 @@
 
 
 <div class="login-container">
-<div class="static">
+<div class="login-box">
     <h3>Login</h3>
     <p>Utilizza questa form per autenticarti al sito</p>
 
@@ -18,7 +18,7 @@
             {{ Form::open(array('route' => 'login', 'class' => 'contact-form')) }}
             
              <div  class="wrap-input">
-                 <p> Se non hai già un account <button class="btn register-btn"><a  href="{{ route('register') }}">Registrati</a></button></p>
+                 <p> Se non hai già un account <button type ="reset"class="btn register-btn"><a  href="{{ route('register') }}">Registrati</a></button></p>
              </div>            
              <div  class="wrap-input">
                 {{ Form::label('username', 'Nome Utente', ['class' => 'label-input']) }}
