@@ -22,7 +22,7 @@ class StaffController extends Controller
         public function storePromozione(Request $request, $aziendeId)
         {
 
-            $oggi = Carbon::now();
+            $oggi = Carbon::now()->format('Y-m-d');
             // Validazione dei dati inseriti nel form
             $validatedData = $request->validate([
                 'nome' => 'required|string|max:35',
@@ -86,7 +86,7 @@ class StaffController extends Controller
     
             public function update(Request $request, $promId)
     {
-        $oggi = Carbon::now();
+        $oggi = Carbon::now()->format('Y-m-d');
 
         $request->validate([
             'nome' => ['required', 'string', 'max:35'],
@@ -105,6 +105,41 @@ class StaffController extends Controller
         $promozione->tempi_fruizione = $request['tempi_fruizione'];
         //$promozione->update($request->all());
         $promozione->update();
+    
+        return redirect()->route('home');
+    }
+
+    public function showStaff($userId) {
+        $user = User::find($userId);
+    
+        if (!$user) {
+            abort(404);
+        }
+    
+        return view('pagina_modifica_staff', compact('user'));
+        }
+    
+    
+    public function updateStaff(Request $request, $userId)
+    {
+    
+        $user = User::find($userId);
+    
+    
+        $request->validate([
+            'name' => ['required', 'string', 'max:255', 'regex:/^[a-zA-Z\s]+$/'],
+            'surname' => ['required', 'string', 'max:255', 'regex:/^[a-zA-Z\s]+$/'],
+            'password' => ['nullable', 'string', 'min:8'],
+        ]);
+    
+        
+        $user->name = $request->name;
+        $user->surname = $request->surname;
+        if ($request->password) {
+            $user->password = Hash::make($request->password);
+        }
+    
+        $user->update();
     
         return redirect()->route('home');
     }

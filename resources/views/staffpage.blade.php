@@ -49,7 +49,7 @@
                 <div class="mb-3">
 
                     <div class = "button-box">
-                  <a href="{{ route('pagina_modifica', ['userId' => $user->userId]) }}">
+                  <a href="{{ route('pagina_modifica_staff', ['userId' => $user->userId]) }}">
                   <button type="button" class="btn btn-success">Modifica</button>
                   </a>
                   @can('isAdmin')

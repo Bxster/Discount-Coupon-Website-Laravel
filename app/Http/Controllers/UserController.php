@@ -60,7 +60,7 @@ class UserController extends Controller
 
     $user = User::find($userId);
 
-    $oggi = Carbon::now();
+    $oggi = Carbon::now()->format('Y-m-d');
 
     $request->validate([
         'name' => ['required', 'string', 'max:255', 'regex:/^[a-zA-Z\s]+$/'],
@@ -86,6 +86,8 @@ class UserController extends Controller
 
     return redirect()->route('home');
 }
+
+
 
 public function lista()
 {
