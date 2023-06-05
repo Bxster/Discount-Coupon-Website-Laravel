@@ -35,9 +35,10 @@
                     <li class="list-group-item">
                         <a href="{{ route('prompage.show', ['promId' => $result['proId']]) }}" class="promotion-link">
                             <div class="promotion">
-                             <!--   <img src="{{ $result['image_link'] }}" alt="Promotion Image" class="promotion-image"> -->
+                            <div class="image-container">
                              <div class="img_aziende">
-                            @include('helpers/productImg', ['attrs' => 'imagefrm', 'imgFile' => $result['image_link']])
+                             @include('helpers/productImg', ['attrs' => 'imagefrm', 'imgFile' => $result['image_link']])
+</div>
                             </div>
                                 <div class="promotion-details">
                                     <h3 class="promotion-title">{{ $result['nome']}}</h3>

@@ -32,8 +32,10 @@
                     @foreach($promozioni as $promozione)
                     <li class="list-group-item">
                         <div class="promotion">
+                        <div class="image-container">
                         <div class="img_aziende">
                            @include('helpers/productImg', ['attrs' => 'imagefrm', 'imgFile' => $promozione->promAz->image])
+</div>
                         </div>
                             <a href="{{route('prompage.show', ['promId' => $promozione->promId]) }}" class="promotion-link">
                                 <div class="promotion-details">

@@ -28,18 +28,17 @@ $(function () {
 @section('content')
 <link href="{{ asset('css/style.css')}}" rel="stylesheet" />
 <link href="{{ asset('css/register.css')}}" rel="stylesheet" />
-<link href="{{ asset('css/login.css')}}" rel="stylesheet" />
+
 
 <div class="register-container">
 <div class="register-box">
 
 
-    <div class="wrap-contact1">
-    <h1>Pagina di Aggiunta Faq</h1>
-        {!! Form::open(['route' => 'faq.store', 'enctype' => 'multipart/form-data']) !!}
 
-    <div class="container-contact">
+
+
         <div class="wrap-contact1">
+        <h1>Pagina di Aggiunta Faq</h1>
             {{ Form::open(array('route' => 'faq.store', 'id' => 'addfaq', 'class' => 'contact-form')) }}
             <div  class="wrap-input">
                 {{ Form::label('titolo', 'Titolo', ['class' => 'label-input']) }}
@@ -52,12 +51,12 @@ $(function () {
             </div>
 
             <div class="button-box">
-                    {{ Form::submit('Aggiungi', ['class' => 'btn submit-btn']) }}
+                    {{ Form::submit('Aggiungi', ['class' => 'btn register-btn']) }}
                     <button type="reset" class="btn cancel-btn" ><a href="{{ route('faqs') }}">Annulla</a></button>
                 </div>
                 {{ Form::close() }}
 
-            {{ Form::close() }}
+
         </div>
     </div>
 
@@ -66,9 +65,4 @@ $(function () {
 
 @endsection
 
-
-        </div>
-
-    </div>
-    @endsection
 

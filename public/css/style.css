@@ -9,6 +9,18 @@ body {
 	color:#000;
 }
 
+.image-container {
+  width: 300px; /* Larghezza desiderata per il container */
+  height: 70px; /* Altezza desiderata per il container */
+  
+}
+
+.image-container img {
+  width: 100%; /* Larghezza dell'immagine al 100% del container */
+  height: auto; /* Altezza dell'immagine automatica per mantenere l'aspetto originale */
+  object-fit: cover; /* Ridimensiona e ritaglia l'immagine per adattarla alle dimensioni del container */
+}
+
 /*gestione promozione*/
 
 .homepage_livello2 .btn-box a {

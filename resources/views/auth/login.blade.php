@@ -4,17 +4,17 @@
 @section('title', 'Registrazione')
 
 @section('content')
-<link href="{{ asset('css/login.css')}}" rel="stylesheet" />
 <link href="{{ asset('css/style.css')}}" rel="stylesheet" />
+<link href="{{ asset('css/register.css')}}" rel="stylesheet" />
 
 
-<div class="login-container">
-<div class="login-box">
-    <h3>Login</h3>
-    <p>Utilizza questa form per autenticarti al sito</p>
+<div class="register-container">
+<div class="register-box">
 
     <div class="container-contact">
         <div class="wrap-contact1">
+        <h3>Login</h3>
+    <p>Utilizza questa form per autenticarti al sito</p>
             {{ Form::open(array('route' => 'login', 'class' => 'contact-form')) }}
             
              <div  class="wrap-input">
@@ -44,7 +44,7 @@
                 @endif
             </div>
 			<div class="button-box">    
-               {{ Form::submit('Login', ['class' => 'btn submit-btn']) }}
+               {{ Form::submit('Login', ['class' => 'btn register-btn']) }}
 			   <button type="reset" class="btn cancel-btn"> <a href="{{route('home')}}">Annulla</a></button>
             </div>
             {{ Form::close() }}

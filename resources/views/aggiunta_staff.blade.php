@@ -6,7 +6,6 @@
 
 <link href="{{ asset('css/style.css')}}" rel="stylesheet" />
 <link href="{{ asset('css/register.css')}}" rel="stylesheet" />
-<link href="{{ asset('css/login.css')}}" rel="stylesheet" />
 
 <div class="register-container">
     <div class = "register-box">
@@ -107,7 +106,7 @@
 
     <div class="button-box">
 
-            {{ Form::submit('Aggiungi', ['class' => 'btn submit-btn']) }}
+            {{ Form::submit('Aggiungi', ['class' => 'btn register-btn']) }}
 
         <button type="reset" class="btn cancel-btn" ><a href="{{ route('admin.elencoStaff') }}">Annulla</a></button>
     </div>
@@ -119,9 +118,7 @@
 </div>
 
 </div>
-<!-- Custom styles for this template -->
-<link href="{{ asset('css/style.css')}}" rel="stylesheet" />
-<link href="{{ asset('css/login.css')}}" rel="stylesheet" />
+>
 
 
 @endsection

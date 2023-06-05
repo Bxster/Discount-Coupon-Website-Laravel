@@ -1,10 +1,30 @@
 @extends('layouts.public')
 
 @section('title', 'Pagina Modifica')
+@section('scripts')
+
+@parent
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script>
+$(function () {
+    var actionUrl = "{{ route('aziendapage_update',['aziendeId' => $azienda->aziendeId]) }}";
+    var formId = 'updateazienda';
+    $(":input").on('blur', function (event) {
+        var formElementId = $(this).attr('id');
+        doElemValidation(formElementId, actionUrl, formId);
+    });
+    $("#updateazienda").on('submit', function (event) {
+        event.preventDefault();
+        doFormValidation(actionUrl, formId);
+    });
+});
+</script>
+
+@endsection
 
 @section('content')
 
-<link href="{{ asset('css/login.css')}}" rel="stylesheet" />
 <link href="{{ asset('css/style.css')}}" rel="stylesheet" />
 <link href="{{ asset('css/register.css')}}" rel="stylesheet" />
 
@@ -13,88 +33,48 @@
     
 <div class="wrap-contact1">
 <h1>Pagina di modifica azienda</h1>
-
-<form action="{{ route('aziendapage_update',['aziendeId' => $azienda->aziendeId]) }}" method="POST">
+ {{ Form::open(array('route' => ['aziendapage_update','aziendeId' => $azienda->aziendeId ], 'id' => 'updateazienda', 'files' => true, 'class' => 'contact-form')) }}
     @csrf
     @method('PUT')
-<div>
-    <label for="ragionesociale">Nome:</label>
-    <input type="text" id="ragionesociale" name="ragionesociale" value="{{ $azienda->ragionesociale }}" required>
-    @if ($errors->first('ragionesociale'))
-                <ul class="errors">
-                    @foreach ($errors->get('ragionesociale') as $message)
-                    <li>{{ $message }}</li>
-                    @endforeach
-                </ul>
-                @endif
-</div>
-<div>
-    <label for="tipologia">Tipologia:</label>
-    <input type="text" id="tipologia" name="tipologia" value="{{ $azienda->tipologia }}" required>
-    @if ($errors->first('tipologia'))
-                <ul class="errors">
-                    @foreach ($errors->get('tipologia') as $message)
-                    <li>{{ $message }}</li>
-                    @endforeach
-                </ul>
-                @endif
-</div>
-<div>
-    <label for="desc">Descrizione:</label>
-    <input type="text" id="desc" name="desc" value="{{ $azienda->desc }}" required>
-    @if ($errors->first('desc'))
-                <ul class="errors">
-                    @foreach ($errors->get('desc') as $message)
-                    <li>{{ $message }}</li>
-                    @endforeach
-                </ul>
-                @endif
-</div>
-    <div>
-    <label for="citta">Città:</label>
-    <input type="text" id="citta" name="citta" value="{{$azienda->citta}}"required >
-    @if ($errors->first('citta'))
-                <ul class="errors">
-                    @foreach ($errors->get('citta') as $message)
-                    <li>{{ $message }}</li>
-                    @endforeach
-                </ul>
-                @endif
-</div>
+            <div  class="wrap-input">
+                {{ Form::label('ragionesociale', 'Ragione Sociale', ['class' => 'label-input']) }}
+                {{ Form::text('ragionesociale', $azienda->ragionesociale, ['class' => 'input', 'id' => 'ragionesociale']) }}
+            </div>
 
-<div>
-    <label for="via">Via:</label>
-    <input type="text" id="via" name="via" value="{{$azienda->via}}"required >
-    @if ($errors->first('via'))
-                <ul class="errors">
-                    @foreach ($errors->get('via') as $message)
-                    <li>{{ $message }}</li>
-                    @endforeach
-                </ul>
-                @endif
-</div>
-    <div>
-    <label for="cap">Cap:</label>
-    <input type="text" id="cap" name="cap" value="{{ $azienda->cap}}" required>
-    @if ($errors->first('cap'))
-                <ul class="errors">
-                    @foreach ($errors->get('cap') as $message)
-                    <li>{{ $message }}</li>
-                    @endforeach
-                </ul>
-                @endif
-</div>
-<div>
-    <label for="image">Immagine:</label>
-    <input type="file" id="image" name="image" value="{{ $azienda->image}}" >
-</div>
+            <div  class="wrap-input">
+                {{ Form::label('tipologia', 'Tipologia', ['class' => 'label-input']) }}
+                {{ Form::text('tipologia', $azienda->tipologia, ['class' => 'input', 'id' => 'tipologia']) }}
+            </div>
 
-    <!-- Altri campi per i dati personali -->
+            <div  class="wrap-input">
+                {{ Form::label('desc', 'Descrizione', ['class' => 'label-input']) }}
+                {{ Form::textarea('desc', $azienda->desc, ['class' => 'input', 'id' => 'desc']) }}
+            </div>
+
+            <div  class="wrap-input">
+                {{ Form::label('citta', 'Città', ['class' => 'label-input']) }}
+                {{ Form::text('citta', $azienda->citta, ['class' => 'input', 'id' => 'citta']) }}
+            </div>
+
+            <div  class="wrap-input">
+                {{ Form::label('via', 'Via', ['class' => 'label-input']) }}
+                {{ Form::text('via', $azienda->via, ['class' => 'input', 'id' => 'via']) }}
+            </div>
+
+            <div  class="wrap-input">
+                {{ Form::label('cap', 'Cap', ['class' => 'label-input']) }}
+                {{ Form::text('cap', $azienda->cap, ['class' => 'input', 'id' => 'cap']) }}
+            </div>
+
+            <div  class="wrap-input">
+                {{ Form::label('image', 'Logo', ['class' => 'label-input']) }}
+                {{ Form::file('image', ['class' => 'input', 'id' => 'image']) }}
+            </div>
     <div class="button_box">
     <button class= "btn cancel-btn" type="submit">Aggiorna</button>
     <button type="reset" class="btn cancel-btn"> <a href="{{ route('lista_aziende') }}">Annulla</a></button>
     </div>
-</form>
+    {{ Form::close() }}
 </div>
 
 </div>

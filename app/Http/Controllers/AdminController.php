@@ -45,6 +45,38 @@ class AdminController extends Controller
     }
 
 
+    public function update(NewAziendaRequest $request, $aziendeId)
+    {
+
+        
+    $azienda = Aziende::find($aziendeId);
+    $azienda->fill($request->validated());
+
+    if ($request->hasFile('image')) {
+        $image = $request->file('image');
+        $imageName = $image->getClientOriginalName();
+
+        $destinationPath = public_path() . '/images';
+        $image->move($destinationPath, $imageName);
+
+        // Rimuovi l'immagine precedente solo se ne esisteva una
+        if (!is_null($azienda->image)) {
+            $previousImage = public_path('images/' . $azienda->image);
+            if (file_exists($previousImage)) {
+                unlink($previousImage);
+            }
+        }
+
+        $azienda->image = $imageName;
+    }
+
+    $azienda->update();
+
+    return response()->json(['redirect' => route('home')]);
+}
+
+
+
 
         public function destroy($aziendeId)
     {
@@ -124,13 +156,15 @@ class AdminController extends Controller
         ->with('faq', $faq);
     }
 
-    public function updateFaq(Request $request, $faqId)
+    public function updateFaq(NewFaqRequest $request, $faqId)
     {  
         $faq=Faq::find($faqId);
         
-        $faq->update($request->all());
+        $faq->fill($request->validated());
+        $faq->update();
 
-        return redirect()->route('faqs')->with('success', 'Faq aggiornate con successo');
+    return response()->json(['redirect' => route('home')]);
+
     }
 
     public function destroyFaq($faqId)
@@ -204,29 +238,7 @@ public function searchStaff(Request $request, $paged = 4)
             return view('pagina_modifica_azienda', compact('azienda'));
             }
     
-        public function update(Request $request, $aziendeId)
-    {
 
-        $request->validate([
-            'ragionesociale' => ['required', 'string'],
-            'tipologia' => ['required', 'string', 'regex:/^[a-zA-Z\s]+$/'],
-            'desc' => ['required', 'string'],
-            'citta' => ['required', 'string', 'regex:/^[a-zA-Z\s]+$/'],
-            'via' => ['required', 'string'],
-            'cap' => ['required', 'numeric', 'digits:5'],
-        ]);
-
-        $azienda = Aziende::find($aziendeId);
-        $azienda->ragionesociale = $request['ragionesociale'];
-        $azienda->tipologia = $request['tipologia'];
-        $azienda->desc = $request['desc'];
-        $azienda->citta = $request['citta'];
-        $azienda->via = $request['via'];
-        $azienda->cap = $request['cap'];
-        $azienda->update();
-    
-        return redirect()->route('home')->with('success', 'Azienda aggiornata con successo.');
-    }
     
     
 

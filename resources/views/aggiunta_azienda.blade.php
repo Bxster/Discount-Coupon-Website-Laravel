@@ -29,7 +29,6 @@ $(function () {
 @section('content')
 <link href="{{ asset('css/style.css')}}" rel="stylesheet" />
 <link href="{{ asset('css/register.css')}}" rel="stylesheet" />
-<link href="{{ asset('css/login.css')}}" rel="stylesheet" />
 
 <div class="register-container">
 
@@ -75,7 +74,7 @@ $(function () {
             </div>
 
             <div class="button-box">
-                {{ Form::submit('Aggiungi', ['class' => 'btn submit-btn']) }}
+                {{ Form::submit('Aggiungi', ['class' => 'btn register-btn']) }}
 
                <button type="reset" class="btn cancel-btn" ><a href="{{ route('lista_aziende') }}">Annulla</a></button>
             </div>
