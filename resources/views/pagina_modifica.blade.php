@@ -17,7 +17,7 @@
     @method('PUT')
     <div class="wrap-input">
         {{ Form::label('name', 'Nome', ['class' => 'label-input']) }}
-        {{ Form::text('name', '', ['class' => 'input', 'id' => 'name']) }}
+        {{ Form::text('name', $user->name, ['class' => 'input', 'id' => 'name']) }}
         @if ($errors->first('name'))
         <ul class="errors">
             @foreach ($errors->get('name') as $message)
@@ -28,7 +28,7 @@
     </div>
     <div class="wrap-input">
                     {{ Form::label('surname', 'Cognome', ['class' => 'label-input']) }}
-                    {{ Form::text('surname', '', ['class' => 'input', 'id' => 'surname']) }}
+                    {{ Form::text('surname', $user->surname, ['class' => 'input', 'id' => 'surname']) }}
                     @if ($errors->first('surname'))
                         <ul class="errors">
                             @foreach ($errors->get('surname') as $message)
@@ -54,15 +54,10 @@
                     @endif
                 </div>
 
-                <div class="wrap-input">
-                    {{ Form::label('password-confirm', 'Conferma password', ['class' => 'label-input']) }}
-                    {{ Form::password('password_confirmation', ['class' => 'input', 'id' => 'password-confirm']) }}
-                </div>
-
 @can('isUser','isAdmin')
 <div class="wrap-input">
                     {{ Form::label('email', 'Email', ['class' => 'label-input']) }}
-                    {{ Form::text('email', '', ['class' => 'input','id' => 'email', 'type'=>'email']) }}
+                    {{ Form::text('email', $user->email, ['class' => 'input','id' => 'email', 'type'=>'email']) }}
                     @if ($errors->first('email'))
                         <ul class="errors">
                             @foreach ($errors->get('email') as $message)
@@ -73,7 +68,7 @@
                 </div>
                 <div class="wrap-input">
                     {{ Form::label('cellulare', 'Cellulare', ['class' => 'label-input']) }}
-                    {{ Form::text('cellulare', '', ['class' => 'input', 'id' => 'cellulare']) }}
+                    {{ Form::text('cellulare', $user->cellulare, ['class' => 'input', 'id' => 'cellulare']) }}
                     @if ($errors->first('cellulare'))
                         <ul class="errors">
                             @foreach ($errors->get('cellulare') as $message)
@@ -85,7 +80,7 @@
 
                 <div class="wrap-input">
                     {{ Form::label('dataNascita', 'Data di Nascita', ['class' => 'label-input']) }}
-                    {{ Form::date('dataNascita', null, ['class' => 'input', 'id' => 'dataNascita']) }}
+                    {{ Form::date('dataNascita', $user->dataNascita, ['class' => 'input', 'id' => 'dataNascita']) }}
                     @if ($errors->first('dataNascita'))
                         <ul class="errors">
                             @foreach ($errors->get('dataNascita') as $message)
@@ -96,7 +91,7 @@
                 </div>
                 <div class="wrap-input">
                     {{ Form::label('genere', 'Genere', ['class' => 'label-input']) }}
-                    {{ Form::select('genere', ['0' => 'Maschio', '1' => 'Femmina'], null, ['class' => 'input', 'id' => 'genere']) }}
+                    {{ Form::select('genere', ['0' => 'Maschio', '1' => 'Femmina'], $user->genere, ['class' => 'input', 'id' => 'genere']) }}
                     @if ($errors->first('genere'))
                         <ul class="errors">
                             @foreach ($errors->get('genere') as $message)

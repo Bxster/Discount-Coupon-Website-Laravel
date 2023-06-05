@@ -84,7 +84,7 @@ class UserController extends Controller
     $user->dataNascita = $request->dataNascita;
     $user->update();
 
-    return redirect()->route('home')->with('success', 'Dati personali aggiornati con successo.');
+    return redirect()->route('home');
 }
 
 public function lista()
@@ -96,18 +96,5 @@ public function utenti()
 {
     return view('home');
 }
-
-
-/*public function storicoCoupon()
-{
-    // Recupera l'ID dell'utente autenticato
-    $userId = $user->userId;
-
-    // Recupera i coupon generati dall'utente
-    $couponList = Coupon::where('userId', $userId)->get();
-
-    // Passa i dati dei coupon alla vista parziale
-    return view('partials.storico_coupon', ['couponList' => $couponList]);
-} */
 
 }

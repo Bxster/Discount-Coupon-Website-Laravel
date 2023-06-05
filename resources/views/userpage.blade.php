@@ -107,13 +107,11 @@
             </div> 
             @can('isUser')
             <div class="info_form ">
-            <button class ="btn btn-success"id="toggleButton">Mostra/Nascondi sezione</button>
+            <button class ="btn btn-success"id="toggleButton">Storico Coupon</button>
             </div>
             <section id="hiddenSection" style="display: none;">
 
-            <h1>Coupon dell'utente</h1>
-
-
+            <h1>Storico Coupon</h1>
                     <ul>
                         @foreach ($coupons as $coupon)
                             <li>Promozione: 

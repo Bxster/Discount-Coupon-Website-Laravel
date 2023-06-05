@@ -31,9 +31,9 @@ class NewAziendaRequest extends FormRequest {
     public function rules() {
         return [
             'ragionesociale' => 'required|string|max:25',
-            'tipologia' => 'required|string|max:30|regex:/^[a-zA-Z\s]+$/',
+            'tipologia' => 'required|string|max:30|regex:/^[\p{L}\'\s\-\,]+$/u',
             'desc' => 'required|string|max:2500',
-            'citta' => 'required|string|max:30|regex:/^[a-zA-Z\s]+$/',
+            'citta' => 'required|string|max:30|regex:/^[\p{L}\'\s]+$/u',
             'via' => 'required|string|max:30',
             'cap' => 'required|string|numeric|digits:5',
             'image' => 'file|mimes:jpeg,png,jpg,gif|max:2048',

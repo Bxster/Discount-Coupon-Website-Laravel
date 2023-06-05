@@ -45,35 +45,49 @@ class AdminController extends Controller
     }
 
 
-    public function update(NewAziendaRequest $request, $aziendeId)
+    public function update(Request $request, $aziendeId)
     {
 
-        
-    $azienda = Aziende::find($aziendeId);
-    $azienda->fill($request->validated());
+        $request->validate([
+            'ragionesociale' => ['required', 'string', 'max:25'],
+            'tipologia' => ['required', 'string', 'max:30', 'regex:/^[\p{L}\'\s\-\,]+$/u'],
+            'desc' => ['required', 'string', 'max:2500'],
+            'citta' => ['required', 'string', 'max:30', 'regex:/^[\p{L}\'\s]+$/u'],
+            'via' => ['required', 'string', 'max:30'],
+            'cap' => ['required', 'numeric', 'digits:5'],
+            'image' => ['file', 'mimes:jpeg,png,jpg,gif', 'max:2048'],
+        ]);
 
-    if ($request->hasFile('image')) {
-        $image = $request->file('image');
-        $imageName = $image->getClientOriginalName();
+        $azienda = Aziende::find($aziendeId);
+        $azienda->ragionesociale = $request['ragionesociale'];
+        $azienda->tipologia = $request['tipologia'];
+        $azienda->desc = $request['desc'];
+        $azienda->citta = $request['citta'];
+        $azienda->via = $request['via'];
+        $azienda->cap = $request['cap'];
 
-        $destinationPath = public_path() . '/images';
-        $image->move($destinationPath, $imageName);
-
-        // Rimuovi l'immagine precedente solo se ne esisteva una
-        if (!is_null($azienda->image)) {
-            $previousImage = public_path('images/' . $azienda->image);
-            if (file_exists($previousImage)) {
-                unlink($previousImage);
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imageName = $image->getClientOriginalName();
+    
+            $destinationPath = public_path() . '/images';
+            $image->move($destinationPath, $imageName);
+    
+            // Rimuovi l'immagine precedente solo se ne esisteva una
+            if (!is_null($azienda->image)) {
+                $previousImage = public_path('images/' . $azienda->image);
+                if (file_exists($previousImage)) {
+                    unlink($previousImage);
+                }
             }
+    
+            $azienda->image = $imageName;
         }
 
-        $azienda->image = $imageName;
+        $azienda->update();
+
+        return redirect()->route('home');
     }
-
-    $azienda->update();
-
-    return response()->json(['redirect' => route('home')]);
-}
 
 
 
@@ -89,7 +103,7 @@ class AdminController extends Controller
         // Esegui eventuali altre azioni o reindirizzamenti
 
         // Ad esempio, puoi reindirizzare l'utente a una pagina di conferma
-        return redirect()->route('home')->with('success', 'Azienda eliminata con successo.');
+        return redirect()->route('home');
     }
 
     public function create2()
@@ -129,7 +143,7 @@ class AdminController extends Controller
         $user->save();
 
         // Reindirizzamento o visualizzazione di un messaggio di successo
-        return redirect()->route('home')->with('success', 'Utente staff aggiunto con successo!');
+        return redirect()->route('home');
     }
 
     public function createFaq()
@@ -156,15 +170,18 @@ class AdminController extends Controller
         ->with('faq', $faq);
     }
 
-    public function updateFaq(NewFaqRequest $request, $faqId)
+    public function updateFaq(Request $request, $faqId)
     {  
         $faq=Faq::find($faqId);
+
+        $request->validate([
+            'titolo' => 'required|string|max:200',
+            'corpo' => 'required|string|max:2500',
+        ]);
+
+        $faq->update($request->all());
         
-        $faq->fill($request->validated());
-        $faq->update();
-
-    return response()->json(['redirect' => route('home')]);
-
+        return redirect()->route('faqs');
     }
 
     public function destroyFaq($faqId)
@@ -176,7 +193,7 @@ class AdminController extends Controller
         $faq->delete();
 
         // Ad esempio, puoi reindirizzare l'utente a una pagina di conferma
-        return redirect()->route('faqs')->with('success', 'Faq eliminata con successo.');
+        return redirect()->route('faqs');
     }
 
 
@@ -191,7 +208,7 @@ class AdminController extends Controller
         // Esegui eventuali altre azioni o reindirizzamenti
 
         // Ad esempio, puoi reindirizzare l'admin a una pagina di conferma
-        return redirect()->route('home')->with('success', 'Utente eliminato con successo.');
+        return redirect()->route('home');
     }
 
     public function searchUtenti(Request $request, $paged = 4)
@@ -236,10 +253,7 @@ public function searchStaff(Request $request, $paged = 4)
             }
         
             return view('pagina_modifica_azienda', compact('azienda'));
-            }
-    
-
-    
+        }
     
 
 }

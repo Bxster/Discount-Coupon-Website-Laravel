@@ -25,8 +25,8 @@ class StaffController extends Controller
             $oggi = Carbon::now();
             // Validazione dei dati inseriti nel form
             $validatedData = $request->validate([
-                'nome' => 'required|string|max:25',
-                'oggetto' => 'required|string|max:30',
+                'nome' => 'required|string|max:35',
+                'oggetto' => 'required|string|max:50',
                 'modalita' => 'required|string|max:2500',
                 'luoghi_fruizione' => 'required|string|max:30',
                 'tempi_fruizione' => 'required|date|after_or_equal:'.$oggi,
@@ -45,7 +45,7 @@ class StaffController extends Controller
             $promozione->save();
     
             // Reindirizzamento o altra azione dopo il salvataggio dell'promozione
-            return redirect()->route('home')->with('success', 'Promozione aggiunta con successo!');
+            return redirect()->route('home');
         }
     
             public function destroy($promId)
@@ -59,7 +59,7 @@ class StaffController extends Controller
             // Esegui eventuali altre azioni o reindirizzamenti
     
             // Ad esempio, puoi reindirizzare l'utente a una pagina di conferma
-            return redirect()->route('home')->with('success', 'Promozione eliminata con successo.');
+            return redirect()->route('home');
         }
 
         public function show($userId)
@@ -88,11 +88,9 @@ class StaffController extends Controller
     {
         $oggi = Carbon::now();
 
-        
-
         $request->validate([
-            'nome' => ['required', 'string', 'max:25'],
-            'oggetto' => ['required', 'string', 'max:30'],
+            'nome' => ['required', 'string', 'max:35'],
+            'oggetto' => ['required', 'string', 'max:50'],
             'modalita' => ['required', 'string', 'max:2500'],
             'luoghi_fruizione' => ['required', 'string', 'max:30'],
             'tempi_fruizione' => ['required', 'string', 'after_or_equal:'.$oggi],
@@ -108,7 +106,7 @@ class StaffController extends Controller
         //$promozione->update($request->all());
         $promozione->update();
     
-        return redirect()->route('home')->with('success', 'Promozione aggiornata con successo.');
+        return redirect()->route('home');
     }
     
     

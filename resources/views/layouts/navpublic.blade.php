@@ -73,7 +73,7 @@
             @endcan
             @can('isAdmin')
             <li class="nav-item">
-              <a class="nav-link" href="{{ route('staffpage.show', ['userId' => Auth::user()->userId]) }}">{{ Auth::user()->username }}</a>
+              <a class="nav-link">{{ Auth::user()->username }}</a>
             </li>
             @endcan
             <li class="nav-item">

@@ -2,28 +2,6 @@
 
 @section('title', 'Pagina Modifica')
 
-@section('scripts')
-
-@parent
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
-<script>
-$(function () {
-    var actionUrl = "{{ route('faq_update_success',['faqId' => $faq->faqId]) }}";
-    var formId = 'updatefaq';
-    $(":input").on('blur', function (event) {
-        var formElementId = $(this).attr('id');
-        doElemValidation(formElementId, actionUrl, formId);
-    });
-    $("#updatefaq").on('submit', function (event) {
-        event.preventDefault();
-        doFormValidation(actionUrl, formId);
-    });
-});
-</script>
-
-@endsection
-
 @section('content')
 
 <link href="{{ asset('css/style.css')}}" rel="stylesheet" />
@@ -42,11 +20,25 @@ $(function () {
             <div  class="wrap-input">
                 {{ Form::label('titolo', 'Titolo', ['class' => 'label-input']) }}
                 {{ Form::text('titolo', $faq->titolo, ['class' => 'input', 'id' => 'titolo']) }}
+                @if ($errors->first('titolo'))
+                <ul class="errors">
+                    @foreach ($errors->get('titolo') as $message)
+                    <li>{{ $message }}</li>
+                    @endforeach
+                </ul>
+                @endif
             </div>
 
             <div  class="wrap-input">
                 {{ Form::label('corpo', 'Corpo', ['class' => 'label-input']) }}
                 {{ Form::textarea('corpo', $faq->corpo, ['class' => 'input', 'id' => 'corpo']) }}
+                @if ($errors->first('corpo'))
+                <ul class="errors">
+                    @foreach ($errors->get('corpo') as $message)
+                    <li>{{ $message }}</li>
+                    @endforeach
+                </ul>
+                @endif
             </div>
 
                 <div class="button-box">
