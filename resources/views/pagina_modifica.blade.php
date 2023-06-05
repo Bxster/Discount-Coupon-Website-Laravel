@@ -39,7 +39,7 @@
                 </div>
 
 <div>
-    <label for="username">Nome Utente:</label>
+    <label>Nome Utente:</label>
     {{$user->username}}
 </div>
 <div class="wrap-input">
@@ -116,6 +116,7 @@
     <button type="reset" class="btn cancel-btn"> <a href="{{ route('staffpage.show', ['userId' => $user->userId]) }}">Annulla</a></button>
     @endcan
 </div>
+
 </form>
 </div>
 </div>
