@@ -77,10 +77,10 @@ use App\Models\Coupon
                   <div class="detail-box">
                     <div>
                       <h1>
-                        aaaaaaaa
+                        Solo da noi
                       </h1>
                       <h2>
-                        aaaaaaaa
+                        Le offerte migliori
                       </h2>
                       <div class="">
                         <a href="{{route('lista_promozioni')}}">

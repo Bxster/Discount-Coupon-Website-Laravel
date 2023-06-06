@@ -1134,7 +1134,30 @@ section.app_section .img-box img {
   font-weight: bold;
 }
 
-/* footer section*/
+.site-description {
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
 
-/* end footer section*/
-/*# sourceMappingURL=style.css.map */
+.site-description h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.site-description p {
+  margin-bottom: 10px;
+}
+
+.site-description ol {
+  margin-bottom: 10px;
+}
+
+.site-description ol p {
+  margin-bottom: 5px;
+}
+
+.site-description p:last-child {
+  margin-bottom: 0;
+}
