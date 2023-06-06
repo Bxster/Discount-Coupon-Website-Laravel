@@ -8,14 +8,14 @@
 <link href="{{ asset('css/register.css')}}" rel="stylesheet" />
 
 <div class="register-container">
-<div class="register-box">
-    
-<div class="wrap-contact1">
-<h1>Pagina di modifica azienda</h1>
- {{ Form::open(array('route' => ['aziendapage_update','aziendeId' => $azienda->aziendeId ], 'id' => 'updateazienda', 'files' => true, 'class' => 'contact-form')) }}
-    @csrf
-    @method('PUT')
-            <div  class="wrap-input">
+    <div class="register-box">
+
+        <div class="wrap-contact1">
+            <h1>Pagina di modifica azienda</h1>
+            {{ Form::open(array('route' => ['aziendapage_update','aziendeId' => $azienda->aziendeId ], 'id' => 'updateazienda', 'files' => true, 'class' => 'contact-form')) }}
+            @csrf
+            @method('PUT')
+            <div class="wrap-input">
                 {{ Form::label('nome', 'Nome', ['class' => 'label-input']) }}
                 {{ Form::text('nome', $azienda->nome, ['class' => 'input', 'id' => 'nome']) }}
                 @if ($errors->first('nome'))
@@ -27,7 +27,7 @@
                 @endif
             </div>
 
-            <div  class="wrap-input">
+            <div class="wrap-input">
                 {{ Form::label('tipologia', 'Tipologia', ['class' => 'label-input']) }}
                 {{ Form::text('tipologia', $azienda->tipologia, ['class' => 'input', 'id' => 'tipologia']) }}
                 @if ($errors->first('tipologia'))
@@ -39,7 +39,7 @@
                 @endif
             </div>
 
-            <div  class="wrap-input">
+            <div class="wrap-input">
                 {{ Form::label('desc', 'Descrizione', ['class' => 'label-input']) }}
                 {{ Form::textarea('desc', $azienda->desc, ['class' => 'input', 'id' => 'desc']) }}
                 @if ($errors->first('desc'))
@@ -51,7 +51,7 @@
                 @endif
             </div>
 
-            <div  class="wrap-input">
+            <div class="wrap-input">
                 {{ Form::label('citta', 'Città', ['class' => 'label-input']) }}
                 {{ Form::text('citta', $azienda->citta, ['class' => 'input', 'id' => 'citta']) }}
                 @if ($errors->first('citta'))
@@ -63,7 +63,7 @@
                 @endif
             </div>
 
-            <div  class="wrap-input">
+            <div class="wrap-input">
                 {{ Form::label('via', 'Via', ['class' => 'label-input']) }}
                 {{ Form::text('via', $azienda->via, ['class' => 'input', 'id' => 'via']) }}
                 @if ($errors->first('via'))
@@ -75,7 +75,7 @@
                 @endif
             </div>
 
-            <div  class="wrap-input">
+            <div class="wrap-input">
                 {{ Form::label('cap', 'Cap', ['class' => 'label-input']) }}
                 {{ Form::text('cap', $azienda->cap, ['class' => 'input', 'id' => 'cap']) }}
                 @if ($errors->first('cap'))
@@ -87,7 +87,7 @@
                 @endif
             </div>
 
-            <div  class="wrap-input">
+            <div class="wrap-input">
                 {{ Form::label('image', 'Logo', ['class' => 'label-input']) }}
                 {{ Form::file('image', ['class' => 'input', 'id' => 'image']) }}
                 @if ($errors->first('image'))
@@ -99,13 +99,12 @@
                 @endif
             </div>
 
-    <div class="button_box">
-    <button class= "btn cancel-btn" type="submit">Aggiorna</button>
-    <button type="reset" class="btn cancel-btn"> <a href="{{ route('lista_aziende') }}">Annulla</a></button>
+            <div class="button_box">
+                <button class="btn cancel-btn" type="submit">Aggiorna</button>
+                <button type="reset" class="btn cancel-btn"> <a href="{{ route('lista_aziende') }}">Annulla</a></button>
+            </div>
+            {{ Form::close() }}
+        </div>
     </div>
-    {{ Form::close() }}
-</div>
-
-</div>
 </div>
 @endsection

@@ -25,11 +25,11 @@
     <div>
         <div class="row mb-4">
             <div class="col-md-8 mx-auto">
-            @can('isAdmin')
-    <a href="{{ route('aggiunta_azienda') }}">
-    <button class="btn btn-success" > Aggiungi Azienda </button>
-    </a>
-    @endcan
+                @can('isAdmin')
+                <a href="{{ route('aggiunta_azienda') }}">
+                    <button class="btn btn-success"> Aggiungi Azienda </button>
+                </a>
+                @endcan
                 <h2>Risultati della ricerca:</h2>
                 <ul class="list-group mt-4">
                     @if ($aziende->count() > 0)
@@ -37,10 +37,10 @@
                     <li class="list-group-item">
                         <a href="{{ route('aziendapage.show', ['aziendeId' => $azienda->aziendeId]) }}" class="promotion-link">
                             <div class="promotion">
-                            <div class="image-container">
-                            @include('helpers/productImg', ['attrs' => 'imagefrm', 'imgFile' => $azienda->image, 'class' => 'img_aziende'])
-</div>   
-                            <div class="promotion-details">
+                                <div class="image-container">
+                                    @include('helpers/productImg', ['attrs' => 'imagefrm', 'imgFile' => $azienda->image, 'class' => 'img_aziende'])
+                                </div>
+                                <div class="promotion-details">
                                     <h1 class="promotion-title">{{ $azienda->nome }}</h1>
                                     <p class="promotion-description">{{ $azienda->desc }}</p>
                                 </div>

@@ -3,24 +3,6 @@
   * Copyright 2011-2019 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
   */
-function aggiungiElemento() {
-  // Ottieni la tabella HTML
-  var tabella = document.getElementById("tabella");
-
-  // Crea una nuova riga nella tabella
-  var nuovaRiga = tabella.insertRow();
-
-  // Crea le celle per i dati
-  var cella1 = nuovaRiga.insertCell();
-  var cella2 = nuovaRiga.insertCell();
-
-  // Aggiungi il testo alle celle
-  var valore1 = document.getElementById("valore1").value;
-  var valore2 = document.getElementById("valore2").value;
-  cella1.innerHTML = valore1;
-  cella2.innerHTML = valore2;
-}
-
 
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('jquery'), require('popper.js')) :

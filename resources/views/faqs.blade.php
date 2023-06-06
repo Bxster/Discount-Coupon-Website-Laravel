@@ -39,17 +39,17 @@
       </p>
       @can('isAdmin')
       <div class="button-box">
-      <a href=" {{ route('faq_update', ['faqId' => $faq->faqId]) }}">
-        <button class="btn btn-success">
-          Modifica
-        </button>
-      </a>
-      <form action="{{ route('admin.faq.destroy', ['faqId' => $faq->faqId]) }}" method="POST" class="confirm-delete-form">
-        @csrf
-        @method('DELETE')
-        <button type="submit" class="btn btn-success" data-confirm="Sei sicuro di voler eliminare la faq?">Elimina</button>
-      </form>
-</div>
+        <a href=" {{ route('faq_update', ['faqId' => $faq->faqId]) }}">
+          <button class="btn btn-success">
+            Modifica
+          </button>
+        </a>
+        <form action="{{ route('admin.faq.destroy', ['faqId' => $faq->faqId]) }}" method="POST" class="confirm-delete-form">
+          @csrf
+          @method('DELETE')
+          <button type="submit" class="btn btn-success" data-confirm="Sei sicuro di voler eliminare la faq?">Elimina</button>
+        </form>
+      </div>
       @endcan
     </div>
     @endforeach

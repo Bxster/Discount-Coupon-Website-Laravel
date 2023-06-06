@@ -31,9 +31,6 @@ $(function () {
 <link href="{{ asset('css/register.css')}}" rel="stylesheet" />
 
 <div class="register-container">
-
-
-
     <div class="register-box">
         <div class="wrap-contact1">
             <h1>Aggiungi Azienda</h1>
@@ -81,7 +78,6 @@ $(function () {
             {{ Form::close() }}
         </div>
     </div>
-
 </div>
 
 @endsection
