@@ -77,9 +77,9 @@
                 <div class="img-box">
                   <img src="{{asset('images/envelope.png')}}" width="18px" alt="" />
                 </div>
-                <a href="mailto:demo@gmail.com" target="_blank">
+                <a href="mailto:couponmania@gmail.com" target="_blank">
                   <p>
-                    demo@gmail.com
+                    couponmania@gmail.com
                   </p>
                 </a>
               </div>

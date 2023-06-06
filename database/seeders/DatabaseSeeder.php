@@ -119,7 +119,7 @@ class DatabaseSeeder extends Seeder {
             [
                 
                 'titolo' => 'Come faccio a cercare una promozione?',
-                'corpo' => 'Per cercare una promozione devi cliccare nel box di ricerca ed inserire il nome della promozione che vuoi cercare.',
+                'corpo' => 'Per cercare una promozione devi cliccare nei box di ricerca ed inserire il nome della promozione e/o dell\'azienda che vuoi cercare.',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -132,22 +132,22 @@ class DatabaseSeeder extends Seeder {
             ],
             [
                 
-                'titolo' => 'Come faccio a conttatarvi',
-                'corpo' => 'Nella sezione in basso trovi un pulsante "Contattaci" che ti permette di inviarci una mail.',
+                'titolo' => 'Come faccio a contattarvi?',
+                'corpo' => 'Nella sezione in basso trovi un email e cliccandola puoi inviarcene una.',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
                 
-                'titolo' => 'Domanda 4',
-                'corpo' => 'Risposta 4',
+                'titolo' => 'Qual è la validità delle promozioni?',
+                'corpo' => 'La validità delle promozioni varia a seconda dell\'offerta; ogni promozione avrà una data di scadenza specificata.',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
                 
-                'titolo' => 'Domanda 5',
-                'corpo' => 'Risposta 5',
+                'titolo' => 'Posso generare più coupon da una singola promozione?',
+                'corpo' => 'No, è possibile generare un solo coupon per ogni promozione.',
                 'created_at' => now(),
                 'updated_at' => now(),
             ]
@@ -214,7 +214,7 @@ class DatabaseSeeder extends Seeder {
                 'nome' => '3x2 Camera',
                 'oggetto' => '3x2 camera hotel',
                 'modalita' => 'Aggiungere il codice del buono in fase di acquisizione della stanza d\'hotel',
-                'tempi_fruizione' => '2031-08-11',
+                'tempi_fruizione' => '2022-08-11',
                 'luoghi_fruizione' => 'Sito Booking',
                 'aziendeId' => 1, 
                 'created_at' => now(),
