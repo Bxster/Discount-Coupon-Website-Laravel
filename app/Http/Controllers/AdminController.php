@@ -13,6 +13,7 @@ use Illuminate\Validation\Rule;
 use Carbon\Carbon;
 
 
+
 class AdminController extends Controller
 {
 
@@ -21,7 +22,7 @@ class AdminController extends Controller
     return view('aggiunta_azienda');
 }
 
-   /* public function storeAzienda(NewAziendaRequest $request) {
+   public function storeAzienda(NewAziendaRequest $request) {
 
         if ($request->hasFile('image')) {
             $image = $request->file('image');
@@ -30,109 +31,76 @@ class AdminController extends Controller
             $imageName = NULL;
         }
 
-        if (!is_null($imageName)) {
-            $destinationPath = public_path() . '/images';
-            $image->move($destinationPath, $imageName);
-            
-            $imagePath = $destinationPath . '/' . $imageName;
 
-            // Verifica se esiste già un'immagine con lo stesso nome nella cartella "images"
-            if (file_exists($imagePath)) {
-                return redirect()->back()->withErrors(['image' => 'Il nome dell\'immagine è già utilizzato. Si prega di scegliere un nome diverso.']);
-            }
-        };
 
         $azienda = new Aziende;
         $azienda->fill($request->validated());
         $azienda->image = $imageName;
         $azienda->save();
 
+    
+        if (!is_null($imageName)) {
+            $destinationPath = public_path() . '/images';
+            $image->move($destinationPath, $imageName);
+
+        }
+
         
 
         return response()->json(['redirect' => route('home')]);
         
-    } */
+    } 
 
-    public function storeAzienda(NewAziendaRequest $request)
+
+    public function update(Request $request, $aziendeId)
 {
+    $request->validate([
+        'nome' => ['required', 'string', 'max:25'],
+        'tipologia' => ['required', 'string', 'max:30', 'regex:/^[\p{L}\'\s\-\,]+$/u'],
+        'desc' => ['required', 'string', 'max:2500'],
+        'citta' => ['required', 'string', 'max:30', 'regex:/^[\p{L}\'\s]+$/u'],
+        'via' => ['required', 'string', 'max:30'],
+        'cap' => ['required', 'numeric', 'digits:5'],
+        'image' => ['file', 'mimes:jpeg,png,jpg,gif', 'max:2048'],
+    ]);
+
+    $azienda = Aziende::find($aziendeId);
+    $azienda->nome = $request['nome'];
+    $azienda->tipologia = $request['tipologia'];
+    $azienda->desc = $request['desc'];
+    $azienda->citta = $request['citta'];
+    $azienda->via = $request['via'];
+    $azienda->cap = $request['cap'];
+
     if ($request->hasFile('image')) {
         $image = $request->file('image');
         $imageName = $image->getClientOriginalName();
-
-        $destinationPath = public_path('images');
+        
+        $destinationPath = public_path() . '/images';
         $imagePath = $destinationPath . '/' . $imageName;
 
         // Verifica se esiste già un'immagine con lo stesso nome nella cartella "images"
         if (file_exists($imagePath)) {
-            $errorMessage = 'Il nome dell\'immagine è già utilizzato. Si prega di scegliere un nome diverso.';
-            return response()->json(['error' => $errorMessage], 422);
+            return redirect()->back()->withErrors(['image' => 'Il nome dell\'immagine è già utilizzato. Si prega di scegliere un nome diverso.']);
+        }
+
+        // Rimuovi l'immagine precedente solo se ne esisteva una
+        if (!is_null($azienda->image)) {
+            $previousImage = public_path('images/' . $azienda->image);
+            if (file_exists($previousImage)) {
+                unlink($previousImage);
+            }
         }
 
         $image->move($destinationPath, $imageName);
-    } else {
-        $imageName = null;
+        $azienda->image = $imageName;
     }
 
-    $azienda = new Aziende;
-    $azienda->fill($request->validated());
-    $azienda->image = $imageName;
-    $azienda->save();
+    $azienda->update();
 
-    return response()->json(['redirect' => route('home')]);
+    return redirect()->route('home');
 }
 
-
-    public function update(Request $request, $aziendeId)
-    {
-
-        $request->validate([
-            'nome' => ['required', 'string', 'max:25'],
-            'tipologia' => ['required', 'string', 'max:30', 'regex:/^[\p{L}\'\s\-\,]+$/u'],
-            'desc' => ['required', 'string', 'max:2500'],
-            'citta' => ['required', 'string', 'max:30', 'regex:/^[\p{L}\'\s]+$/u'],
-            'via' => ['required', 'string', 'max:30'],
-            'cap' => ['required', 'numeric', 'digits:5'],
-            'image' => ['file', 'mimes:jpeg,png,jpg,gif', 'max:2048'],
-        ]);
-
-        $azienda = Aziende::find($aziendeId);
-        $azienda->nome = $request['nome'];
-        $azienda->tipologia = $request['tipologia'];
-        $azienda->desc = $request['desc'];
-        $azienda->citta = $request['citta'];
-        $azienda->via = $request['via'];
-        $azienda->cap = $request['cap'];
-
-        if ($request->hasFile('image')) {
-            $image = $request->file('image');
-            $imageName = $image->getClientOriginalName();
-    
-            $destinationPath = public_path() . '/images';
-            $image->move($destinationPath, $imageName);
-
-
-            $imagePath = $destinationPath . '/' . $imageName;
-
-            // Verifica se esiste già un'immagine con lo stesso nome nella cartella "images"
-            if (file_exists($imagePath)) {
-                return redirect()->back()->withErrors(['image' => 'Il nome dell\'immagine è già utilizzato. Si prega di scegliere un nome diverso.']);
-            }
-
-            // Rimuovi l'immagine precedente solo se ne esisteva una
-            if (!is_null($azienda->image)) {
-                $previousImage = public_path('images/' . $azienda->image);
-                if (file_exists($previousImage)) {
-                    unlink($previousImage);
-                }
-            }
-    
-            $azienda->image = $imageName;
-        }
-
-        $azienda->update();
-
-        return redirect()->route('home');
-    }
 
 
 

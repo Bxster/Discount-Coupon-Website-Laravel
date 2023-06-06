@@ -10,17 +10,10 @@ body {
 }
 
 .image-container {
-  width: 300px; /* Larghezza desiderata per il container */
-  height: 70px; /* Altezza desiderata per il container */
+  width: 300px; 
+  height: 70px;
   
 }
-
-.image-container img {
-  width: 100%; /* Larghezza dell'immagine al 100% del container */
-  height: auto; /* Altezza dell'immagine automatica per mantenere l'aspetto originale */
-  object-fit: cover; /* Ridimensiona e ritaglia l'immagine per adattarla alle dimensioni del container */
-}
-
 /*gestione promozione*/
 
 .homepage_livello2 .btn-box a {
@@ -99,19 +92,20 @@ body {
   border-radius: 5px;
   background-color: #f8f8f8;
   transition: background-color 0.3s ease;
+  min-height: 200px;
 }
 
 .promotion:hover {
   background-color: #ebebeb;
 }
 
-.promotion-image {
+/*.promotion-image {
   width: 100px;
   height: 100px;
   object-fit: cover;
   border-radius: 5px;
   margin-right: 10px;
-}
+}*/
 
 .promotion-details {
   flex: 1;
@@ -158,9 +152,15 @@ body {
   height: auto;
 }
 
+.img_aziende{
+  width: 100%;
+  height: 100%;
+}
+
 .img_aziende img {
   width: 40%;
   height: auto;
+  object-fit: cover; 
 }
 
 .company_logo img {
@@ -263,7 +263,6 @@ body {
 .hero_area {
   background-image: url(../images/sfondo\ verde.jpg);
   background-size: cover;
-
 }
 
 .sub_page .hero_area {
@@ -711,6 +710,20 @@ a:focus {
 }
 
 .about_section .btn-box1 a {
+  display: inline-block;
+  padding: 10px 45px;
+  background-color: #30ae69;
+  border: 1px solid #30ae69;
+  color: #ffffff;
+  border-radius: 5px;
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
+  margin-top: 35px;
+}
+
+.about_section .btn-box1 button {
   display: inline-block;
   padding: 10px 45px;
   background-color: #30ae69;

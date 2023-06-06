@@ -2,13 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Date;
 use App\Models\Coupon;
 use App\Models\Promozioni;
+
 use Illuminate\Support\Facades\View;
 use Carbon\Carbon;
 

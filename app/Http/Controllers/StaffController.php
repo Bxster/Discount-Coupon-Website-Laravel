@@ -7,6 +7,7 @@ use App\Models\Aziende;
 use App\Models\Promozioni;
 use App\Models\User;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Hash;
 
 
 class StaffController extends Controller

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\FAQ;
+use App\Models\Faq;
 use Illuminate\Http\Request;
 
 class FaqController extends Controller

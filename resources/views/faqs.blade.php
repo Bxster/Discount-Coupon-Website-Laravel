@@ -21,7 +21,7 @@
     Trova qui le risposte alle tue domande!
   </p>
   @Can('isAdmin')
-  <div class="btn btn-success">
+  <div class="btn-box1">
     <a href="{{ route('aggiunta_faq') }}" class='promotion-link'>
       Aggiungi domanda/risposta
     </a>

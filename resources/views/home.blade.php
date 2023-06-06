@@ -202,8 +202,9 @@ $totalCoupons = \App\Models\Coupon::count();
 
 @can('isAdmin')
 <section class="about_section layout_padding">
-  <button class="btn btn-success" id="toggleButton">Totale Coupon Generati</button>
-
+<div class="container"><div class="btn-box1">
+  <button  id="toggleButton">Totale Coupon Generati</button>
+</div>
   <section id="hiddenSection" style="display: none;">
     <div class="heading_container">
       <h2>Numero di coupon emessi dal sito: {{$totalCoupons}}</h2>
@@ -231,8 +232,8 @@ $totalCoupons = \App\Models\Coupon::count();
               <div class="img_aziendeloghi">
                 @include('helpers/productImg', ['attrs' => 'imagefrm', 'imgFile' => $azienda->image])
               </div>
-            </div>
             <span>{{ $azienda->nome }}</span>
+            </div>
           </a>
           </td>
           @endif

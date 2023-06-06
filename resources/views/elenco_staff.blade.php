@@ -11,10 +11,21 @@
       LISTA STAFF
     </h2>
   </div>
-  <form action="{{ route('elenco_staff_search') }}">
-    @csrf
-    <input type="text" name="query" placeholder="Cerca staff" onkeydown="if(event.keyCode===13){event.preventDefault(); this.form.submit();}">
-  </form>
+ 
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 mx-auto">
+        <div class="container-1">
+          <form action="{{ route('elenco_staff_search') }}">
+            @csrf
+            <input type="text" name="query" placeholder="Cerca staff" onkeydown="if(event.keyCode===13){event.preventDefault(); this.form.submit();}">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    
   <div class="row mb-4">
     <div class="col-md-8 mx-auto">
       @can('isAdmin')
