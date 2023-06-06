@@ -19,8 +19,8 @@ class SearchControllerPromozioni extends Controller
         $promotionQuery = $request->input('promotionQuery');
 
         $results = Promozioni::join('aziende', 'promozioni.aziendeId', '=', 'aziende.aziendeId')
-            ->select('promozioni.nome', 'promozioni.oggetto', 'aziende.ragionesociale', 'aziende.image AS image_link', 'promozioni.promId AS proId')
-            ->where('aziende.ragionesociale', 'LIKE', "%$companyQuery%")
+            ->select('promozioni.nome', 'promozioni.oggetto', 'aziende.nome', 'aziende.image AS image_link', 'promozioni.promId AS proId')
+            ->where('aziende.nome', 'LIKE', "%$companyQuery%")
             ->where(function ($query) use ($promotionQuery) {
                 $query->where('promozioni.nome', 'LIKE', "%$promotionQuery%")
                     ->orWhere('promozioni.oggetto', 'LIKE', "%$promotionQuery%");

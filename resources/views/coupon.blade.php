@@ -11,7 +11,7 @@
         <div class="col-lg-4">
           <div class="company_logo">
               @include('helpers/productImg', ['attrs' => 'imagefrm', 'imgFile' => $coupon->coupPr->promAz->image])
-            <h4>{{ $coupon->coupPr->promAz->ragionesociale }}</h4>
+            <h4>{{ $coupon->coupPr->promAz->nome }}</h4>
           </div>
         </div>
         <div class="col-lg-8">

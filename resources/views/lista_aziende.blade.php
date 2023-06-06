@@ -45,7 +45,7 @@
                 </div>
 </div>
                 <div class="promotion-details">
-                  <h1 class="promotion-title">{{ $azienda->ragionesociale }}</h1>
+                  <h1 class="promotion-title">{{ $azienda->nome }}</h1>
                   <p class="promotion-description">{{ $azienda->desc }}</p>
                 </div>
               </div>

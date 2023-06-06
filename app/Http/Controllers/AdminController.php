@@ -49,7 +49,7 @@ class AdminController extends Controller
     {
 
         $request->validate([
-            'ragionesociale' => ['required', 'string', 'max:25'],
+            'nome' => ['required', 'string', 'max:25'],
             'tipologia' => ['required', 'string', 'max:30', 'regex:/^[\p{L}\'\s\-\,]+$/u'],
             'desc' => ['required', 'string', 'max:2500'],
             'citta' => ['required', 'string', 'max:30', 'regex:/^[\p{L}\'\s]+$/u'],
@@ -59,7 +59,7 @@ class AdminController extends Controller
         ]);
 
         $azienda = Aziende::find($aziendeId);
-        $azienda->ragionesociale = $request['ragionesociale'];
+        $azienda->nome = $request['nome'];
         $azienda->tipologia = $request['tipologia'];
         $azienda->desc = $request['desc'];
         $azienda->citta = $request['citta'];

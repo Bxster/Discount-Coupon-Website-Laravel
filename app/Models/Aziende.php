@@ -16,7 +16,7 @@ class Aziende extends Model
         $query = Aziende::query();
 
         if (!is_null($order)) {
-            $query->orderBy('ragionesociale', $order);
+            $query->orderBy('nome', $order);
         }
     
         return $query->paginate($paged);
@@ -28,7 +28,7 @@ class Aziende extends Model
     }
 
     protected $fillable = [
-        'ragionesociale',
+        'nome',
         'tipologia',
         'desc',
         'citta',

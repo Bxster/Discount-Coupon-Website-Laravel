@@ -11,7 +11,7 @@
    <div class="container">
      <div class="heading_container">
        <h2>
-         {{ $azienda->ragionesociale }}
+         {{ $azienda->nome }}
        </h2>
      </div>
      <div class="box">
@@ -58,7 +58,7 @@
  </section>
 
  <!--
- <p><strong>Ragione Sociale:</strong> {{ $azienda->ragionesociale }}</p>
+ <p><strong>Nome:</strong> {{ $azienda->nome }}</p>
 <p><strong>Tipologia:</strong> {{ $azienda->tipologia }}</p>
 <p><strong>Descrizione:</strong> {{ $azienda->desc }}</p>
 <p><strong>Città:</strong> {{ $azienda->citta }}</p>

@@ -16,11 +16,11 @@
     @csrf
     @method('PUT')
             <div  class="wrap-input">
-                {{ Form::label('ragionesociale', 'Ragione Sociale', ['class' => 'label-input']) }}
-                {{ Form::text('ragionesociale', $azienda->ragionesociale, ['class' => 'input', 'id' => 'ragionesociale']) }}
-                @if ($errors->first('ragionesociale'))
+                {{ Form::label('nome', 'Nome', ['class' => 'label-input']) }}
+                {{ Form::text('nome', $azienda->nome, ['class' => 'input', 'id' => 'nome']) }}
+                @if ($errors->first('nome'))
                 <ul class="errors">
-                    @foreach ($errors->get('ragionesociale') as $message)
+                    @foreach ($errors->get('nome') as $message)
                     <li>{{ $message }}</li>
                     @endforeach
                 </ul>
