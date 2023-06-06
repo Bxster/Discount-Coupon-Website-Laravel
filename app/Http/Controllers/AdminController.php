@@ -21,7 +21,7 @@ class AdminController extends Controller
     return view('aggiunta_azienda');
 }
 
-    public function storeAzienda(NewAziendaRequest $request) {
+   /* public function storeAzienda(NewAziendaRequest $request) {
 
         if ($request->hasFile('image')) {
             $image = $request->file('image');
@@ -30,19 +30,56 @@ class AdminController extends Controller
             $imageName = NULL;
         }
 
+        if (!is_null($imageName)) {
+            $destinationPath = public_path() . '/images';
+            $image->move($destinationPath, $imageName);
+            
+            $imagePath = $destinationPath . '/' . $imageName;
+
+            // Verifica se esiste già un'immagine con lo stesso nome nella cartella "images"
+            if (file_exists($imagePath)) {
+                return redirect()->back()->withErrors(['image' => 'Il nome dell\'immagine è già utilizzato. Si prega di scegliere un nome diverso.']);
+            }
+        };
+
         $azienda = new Aziende;
         $azienda->fill($request->validated());
         $azienda->image = $imageName;
         $azienda->save();
 
-        if (!is_null($imageName)) {
-            $destinationPath = public_path() . '/images';
-            $image->move($destinationPath, $imageName);
-        };
+        
 
         return response()->json(['redirect' => route('home')]);
         
+    } */
+
+    public function storeAzienda(NewAziendaRequest $request)
+{
+    if ($request->hasFile('image')) {
+        $image = $request->file('image');
+        $imageName = $image->getClientOriginalName();
+
+        $destinationPath = public_path('images');
+        $imagePath = $destinationPath . '/' . $imageName;
+
+        // Verifica se esiste già un'immagine con lo stesso nome nella cartella "images"
+        if (file_exists($imagePath)) {
+            $errorMessage = 'Il nome dell\'immagine è già utilizzato. Si prega di scegliere un nome diverso.';
+            return response()->json(['error' => $errorMessage], 422);
+        }
+
+        $image->move($destinationPath, $imageName);
+    } else {
+        $imageName = null;
     }
+
+    $azienda = new Aziende;
+    $azienda->fill($request->validated());
+    $azienda->image = $imageName;
+    $azienda->save();
+
+    return response()->json(['redirect' => route('home')]);
+}
 
 
     public function update(Request $request, $aziendeId)
@@ -72,7 +109,15 @@ class AdminController extends Controller
     
             $destinationPath = public_path() . '/images';
             $image->move($destinationPath, $imageName);
-    
+
+
+            $imagePath = $destinationPath . '/' . $imageName;
+
+            // Verifica se esiste già un'immagine con lo stesso nome nella cartella "images"
+            if (file_exists($imagePath)) {
+                return redirect()->back()->withErrors(['image' => 'Il nome dell\'immagine è già utilizzato. Si prega di scegliere un nome diverso.']);
+            }
+
             // Rimuovi l'immagine precedente solo se ne esisteva una
             if (!is_null($azienda->image)) {
                 $previousImage = public_path('images/' . $azienda->image);

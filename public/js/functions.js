@@ -97,32 +97,6 @@ function doElemValidation(id, actionUrl, formId) {
 }
 
 
-/*
-function doFormValidation(actionUrl, formId) {
-
-  var form = new FormData(document.getElementById(formId));
-  $.ajax({
-      type: 'POST',
-      url: actionUrl,
-      data: form,
-      dataType: "json",
-      error: function (data) {
-          if (data.status === 422) {
-              var errMsgs = JSON.parse(data.responseText);
-              $.each(errMsgs, function (id) {
-                  $("#" + id).parent().find('.errors').html(' ');
-                  $("#" + id).after(getErrorHtml(errMsgs[id]));
-              });
-          }
-      },
-      success: function (data) {
-          window.location.replace(data.redirect);
-      },
-      contentType: false,
-      processData: false
-  });
-} */
-
 function doFormValidation(actionUrl, formId) {
   var form = new FormData(document.getElementById(formId));
   $.ajax({
