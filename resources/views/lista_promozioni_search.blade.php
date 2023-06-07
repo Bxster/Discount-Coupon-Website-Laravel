@@ -43,7 +43,7 @@
                                 <div class="promotion-details">
                                     <h3 class="promotion-title">{{ $result['nome']}}</h3>
                                     <p class="promotion-description">{{ $result['oggetto'] }}</p>
-                                    <p class="promotion-company">{{ $result['nome'] }}</p>
+                                    <p class="promotion-company">{{ $result['name'] }}</p>
                                 </div>
                             </div>
                         </a>

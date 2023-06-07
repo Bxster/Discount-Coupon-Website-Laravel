@@ -20,7 +20,7 @@
           Nome Azienda
         </h3>
         <p>
-          {{ $promozione->promAz->nome}}
+          {{ $promozione->promAz->name}}
         </p>
         <div class="img_aziende">
           @include('helpers/productImg', ['attrs' => 'imagefrm', 'imgFile' => $promozione->promAz->image])

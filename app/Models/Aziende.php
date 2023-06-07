@@ -16,7 +16,7 @@ class Aziende extends Model
         $query = Aziende::query();
 
         if (!is_null($order)) {
-            $query->orderBy('nome', $order);
+            $query->orderBy('name', $order);
         }
     
         return $query->paginate($paged);
@@ -28,7 +28,7 @@ class Aziende extends Model
     }
 
     protected $fillable = [
-        'nome',
+        'name',
         'tipologia',
         'desc',
         'citta',

@@ -41,7 +41,7 @@
                                     @include('helpers/productImg', ['attrs' => 'imagefrm', 'imgFile' => $azienda->image, 'class' => 'img_aziende'])
                                 </div>
                                 <div class="promotion-details">
-                                    <h1 class="promotion-title">{{ $azienda->nome }}</h1>
+                                    <h1 class="promotion-title">{{ $azienda->name }}</h1>
                                     <p class="promotion-description">{{ $azienda->desc }}</p>
                                 </div>
                             </div>

@@ -232,7 +232,7 @@ $totalCoupons = \App\Models\Coupon::count();
               <div class="img_aziendeloghi">
                 @include('helpers/productImg', ['attrs' => 'imagefrm', 'imgFile' => $azienda->image])
               </div>
-            <span>{{ $azienda->nome }}</span>
+            <span>{{ $azienda->name }}</span>
             </div>
           </a>
           </td>

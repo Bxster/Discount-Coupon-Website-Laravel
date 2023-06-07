@@ -11,7 +11,7 @@
   <div class="container">
     <div class="heading_container">
       <h2>
-        {{ $azienda->nome }}
+        {{ $azienda->name }}
       </h2>
     </div>
     <div class="box">

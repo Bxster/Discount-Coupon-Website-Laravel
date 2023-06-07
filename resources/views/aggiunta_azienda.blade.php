@@ -36,8 +36,8 @@ $(function () {
             <h1>Aggiungi Azienda</h1>
             {{ Form::open(array('route' => 'aziende.store', 'id' => 'addazienda', 'files' => true, 'class' => 'contact-form')) }}
             <div  class="wrap-input">
-                {{ Form::label('nome', 'Nome', ['class' => 'label-input']) }}
-                {{ Form::text('nome', '', ['class' => 'input', 'id' => 'nome']) }}
+                {{ Form::label('name', 'Nome', ['class' => 'label-input']) }}
+                {{ Form::text('name', '', ['class' => 'input', 'id' => 'name']) }}
             </div>
 
             <div  class="wrap-input">

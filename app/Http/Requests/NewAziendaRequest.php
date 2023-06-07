@@ -30,7 +30,7 @@ class NewAziendaRequest extends FormRequest {
      */
     public function rules() {
         return [
-            'nome' => 'required|string|max:25',
+            'name' => 'required|string|max:25',
             'tipologia' => 'required|string|max:30|regex:/^[\p{L}\'\s\-\,]+$/u',
             'desc' => 'required|string|max:2500',
             'citta' => 'required|string|max:30|regex:/^[\p{L}\'\s]+$/u',
