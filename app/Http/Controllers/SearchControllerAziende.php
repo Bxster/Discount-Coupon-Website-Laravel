@@ -16,7 +16,7 @@ class SearchControllerAziende extends Controller
     public function search(Request $request, $paged= 4)
     {
         $query = $request->input('query');
-        $aziende = Aziende::where('nome', 'LIKE', "%$query%")
+        $aziende = Aziende::where('name', 'LIKE', "%$query%")
             ->paginate($paged);
 
         return view('lista_aziende_search', compact('aziende', 'query'));
