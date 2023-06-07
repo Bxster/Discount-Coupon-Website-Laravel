@@ -47,7 +47,7 @@ class AdminController extends Controller
 
         
 
-        return response()->json(['redirect' => route('home')]);
+        return response()->json(['redirect' => route('lista_aziende')]);
         
     } 
 
@@ -98,7 +98,7 @@ class AdminController extends Controller
 
     $azienda->update();
 
-    return redirect()->route('home');
+    return redirect()->route('lista_aziende');
 }
 
 
@@ -116,7 +116,7 @@ class AdminController extends Controller
         // Esegui eventuali altre azioni o reindirizzamenti
 
         // Ad esempio, puoi reindirizzare l'utente a una pagina di conferma
-        return redirect()->route('home');
+        return redirect()->route('lista_aziende');
     }
 
     public function create2()
@@ -128,7 +128,7 @@ class AdminController extends Controller
         public function addStaff(Request $request)
     {
         
-        $oggi = Carbon::now();
+        $oggi = Carbon::now()->format('Y-m-d');;
         // Validazione dei dati del form
         $validatedData = $request->validate([
             'name' => 'required|string|max:255|regex:/^[a-zA-Z\s]+$/',
@@ -156,7 +156,7 @@ class AdminController extends Controller
         $user->save();
 
         // Reindirizzamento o visualizzazione di un messaggio di successo
-        return redirect()->route('home');
+        return redirect()->route('elenco_staff');
     }
 
     public function createFaq()
@@ -171,7 +171,7 @@ class AdminController extends Controller
     $faq->fill($request->validated());
     $faq->save();
 
-    return response()->json(['redirect' => route('home')]);
+    return response()->json(['redirect' => route('faqs')]);
     }
 
 
@@ -221,7 +221,7 @@ class AdminController extends Controller
         // Esegui eventuali altre azioni o reindirizzamenti
 
         // Ad esempio, puoi reindirizzare l'admin a una pagina di conferma
-        return redirect()->route('home');
+        return redirect()->route('elenco_utenti');
     }
 
     public function searchUtenti(Request $request, $paged = 4)
