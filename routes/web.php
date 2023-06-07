@@ -11,7 +11,6 @@ use App\Http\Controllers\FaqController;
 use App\Http\Controllers\CouponController;
 
 
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -34,14 +33,6 @@ Route::get('/azienda/{aziendeId}', [SearchControllerAziende::class, 'show'])->na
 Route::get('/promozione/{promId}', [SearchControllerPromozioni::class, 'show'])->name('prompage.show');
 
 
-
-Route::middleware(['can:isStaff'|'can:isAdmin'])->group(function () {
-    Route::put('/staffpage_update/{userId}', [StaffController::class, 'updateStaff'])->name('staffpage_update');
-    Route::get('/pagina_modifica_staff/{userId}', [StaffController::class, 'showStaff'])->name('pagina_modifica_staff');
-});
-
-
-
 Route::middleware('can:isUser')->group(function () {
     Route::get('/userpage/{userId}', [UserController::class, 'show'])->name('userpage.show');
     Route::get('/pagina_modifica/{userId}', [UserController::class, 'show1'])->name('pagina_modifica');
@@ -49,9 +40,6 @@ Route::middleware('can:isUser')->group(function () {
     Route::get('/coupon/store/{promozioneId}', [CouponController::class, 'store'])->name('coupon.store');
     Route::get('/coupon/{couponId}', [CouponController::class, 'show'])->name('coupon.show');
 });
-
-
-
 
 
 Route::middleware('can:isStaff')->group(function () {
@@ -66,7 +54,11 @@ Route::middleware('can:isStaff')->group(function () {
 });
 
 
-
+// Rotte in cui possono accederci sia gli staff che l'admin
+    Route::middleware('can:isStaffOrAdmin')->group(function () {
+    Route::put('/staffpage_update/{userId}', [StaffController::class, 'updateStaff'])->name('staffpage_update');
+    Route::get('/pagina_modifica_staff/{userId}', [StaffController::class, 'showStaff'])->name('pagina_modifica_staff');
+});
 
 
 Route::middleware('can:isAdmin')->group(function () {
@@ -95,13 +87,6 @@ Route::middleware('can:isAdmin')->group(function () {
     Route::get('/elenco_utenti_search', [AdminController::class, 'searchUtenti'])->name('elenco_utenti_search');
 
 });
-
-//Route::middleware(['can:isStaff,isAdmin'])->group(function () {
-   // Route::put('/staffpage_update/{userId}', [StaffController::class, 'updateStaff'])->name('staffpage_update');
-   // Route::get('/pagina_modifica_staff/{userId}', [StaffController::class, 'showStaff'])->name('pagina_modifica_staff');
-//});
-
-
 
 
 require __DIR__.'/auth.php';
