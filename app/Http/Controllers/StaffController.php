@@ -46,7 +46,7 @@ class StaffController extends Controller
             $promozione->save();
     
             // Reindirizzamento o altra azione dopo il salvataggio dell'promozione
-            return redirect()->route('home');
+            return redirect()->route('lista_promozioni');
         }
     
             public function destroy($promId)
@@ -60,7 +60,7 @@ class StaffController extends Controller
             // Esegui eventuali altre azioni o reindirizzamenti
     
             // Ad esempio, puoi reindirizzare l'utente a una pagina di conferma
-            return redirect()->route('home');
+            return redirect()->route('lista_promozioni');
         }
 
         public function show($userId)
@@ -107,7 +107,7 @@ class StaffController extends Controller
         //$promozione->update($request->all());
         $promozione->update();
     
-        return redirect()->route('home');
+        return redirect()->route('lista_promozioni');
     }
 
     public function showStaff($userId) {
