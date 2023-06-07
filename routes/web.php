@@ -34,15 +34,18 @@ Route::get('/promozione/{promId}', [SearchControllerPromozioni::class, 'show'])-
 
 
 Route::middleware('can:isUser')->group(function () {
+
     Route::get('/userpage/{userId}', [UserController::class, 'show'])->name('userpage.show');
     Route::get('/pagina_modifica/{userId}', [UserController::class, 'show1'])->name('pagina_modifica');
     Route::put('/userpage_update/{userId}', [UserController::class, 'update'])->name('userpage_update');    
     Route::get('/coupon/store/{promozioneId}', [CouponController::class, 'store'])->name('coupon.store');
     Route::get('/coupon/{couponId}', [CouponController::class, 'show'])->name('coupon.show');
+
 });
 
 
 Route::middleware('can:isStaff')->group(function () {
+
     Route::post('/promozioni/{aziendeId}', [StaffController::class, 'storePromozione'])->name('promozione.store');
     Route::get('/staff/promozioni/create/{aziendeId}', [StaffController::class, 'create'])->name('aggiunta_promozione');
     Route::delete('/staff/promozioni/{promId}', [StaffController::class, 'destroy'])->name('staff.promozioni.destroy');
@@ -50,18 +53,20 @@ Route::middleware('can:isStaff')->group(function () {
     Route::put('/prompage_update/{promId}', [StaffController::class, 'update'])->name('prompage_update');
     Route::get('/staffpage/{userId}', [StaffController::class, 'show'])->name('staffpage.show');
 
-
 });
 
 
 // Rotte in cui possono accederci sia gli staff che l'admin
-    Route::middleware('can:isStaffOrAdmin')->group(function () {
+Route::middleware('can:isStaffOrAdmin')->group(function () {
+
     Route::put('/staffpage_update/{userId}', [StaffController::class, 'updateStaff'])->name('staffpage_update');
     Route::get('/pagina_modifica_staff/{userId}', [StaffController::class, 'showStaff'])->name('pagina_modifica_staff');
+    
 });
 
 
 Route::middleware('can:isAdmin')->group(function () {
+
     Route::post('/aziende', [AdminController::class, 'storeAzienda'])->name('aziende.store');
     Route::get('/admin/aziende/create', [AdminController::class, 'create'])->name('aggiunta_azienda');
     Route::delete('/admin/aziende/{aziendeId}', [AdminController::class, 'destroy'])->name('admin.aziende.destroy');
