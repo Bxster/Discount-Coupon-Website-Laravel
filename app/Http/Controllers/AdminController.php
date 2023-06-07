@@ -128,7 +128,7 @@ class AdminController extends Controller
         public function addStaff(Request $request)
     {
         
-        $oggi = Carbon::now();
+        $oggi = Carbon::now()->format('Y-m-d');;
         // Validazione dei dati del form
         $validatedData = $request->validate([
             'name' => 'required|string|max:255|regex:/^[a-zA-Z\s]+$/',
