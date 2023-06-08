@@ -43,7 +43,7 @@ class RegisteredUserController extends Controller
             'surname' => ['required', 'string', 'max:255', 'regex:/^[a-zA-Z\s]+$/'],
             'cellulare' => ['required', 'numeric', 'digits:10'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'username' => ['required', 'string', 'min:8', 'unique:users'],
+            'username' => ['required', 'string', 'min:8', 'unique:users', 'not_regex:/@/'],
             'password' => ['required', 'confirmed', 'min:8'],
             'genere' => ['required', 'in:0,1'],
             'dataNascita' => ['required', 'date', 'before_or_equal:'.$oggi],
