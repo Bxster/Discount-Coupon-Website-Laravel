@@ -47,7 +47,7 @@ class AdminController extends Controller
 
         
 
-        return response()->json(['redirect' => route('lista_aziende')]);
+        return response()->json(['redirect' => route('home')]);
         
     } 
 
@@ -98,7 +98,7 @@ class AdminController extends Controller
 
     $azienda->update();
 
-    return redirect()->route('lista_aziende');
+    return redirect()->route('home');
 }
 
 
@@ -116,7 +116,7 @@ class AdminController extends Controller
         // Esegui eventuali altre azioni o reindirizzamenti
 
         // Ad esempio, puoi reindirizzare l'utente a una pagina di conferma
-        return redirect()->route('lista_aziende');
+        return redirect()->route('home');
     }
 
     public function create2()
@@ -156,7 +156,7 @@ class AdminController extends Controller
         $user->save();
 
         // Reindirizzamento o visualizzazione di un messaggio di successo
-        return redirect()->route('elenco_staff');
+        return redirect()->route('home');
     }
 
     public function createFaq()
@@ -221,7 +221,7 @@ class AdminController extends Controller
         // Esegui eventuali altre azioni o reindirizzamenti
 
         // Ad esempio, puoi reindirizzare l'admin a una pagina di conferma
-        return redirect()->route('elenco_utenti');
+        return redirect()->route('home');
     }
 
     public function searchUtenti(Request $request, $paged = 4)

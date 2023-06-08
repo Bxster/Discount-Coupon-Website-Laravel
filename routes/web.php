@@ -82,11 +82,11 @@ Route::middleware('can:isAdmin')->group(function () {
     Route::put('/faq_update_success/{faqId}', [AdminController::class, 'updateFaq'])->name('faq_update_success');
     Route::delete('/admin/faqs/{faqId}', [AdminController::class, 'destroyFaq'])->name('admin.faq.destroy');
     
-    Route::get('elenco-utenti', [UserController::class, 'lista'])->name('admin.elencoUtenti');
+    Route::get('elenco_utenti', [UserController::class, 'lista'])->name('admin.elencoUtenti');
     Route::get('utenti/{userId}', [UserController::class, 'show'])->name('admin.visualizzaUtente');
     Route::delete('/admin/utenti/{userId}', [AdminController::class, 'destroyUtenti'])->name('admin.user.destroy');
     Route::get('staff/{userId}', [StaffController::class, 'show'])->name('admin.visualizzaStaff');
-    Route::get('elenco-staff', [StaffController::class, 'lista'])->name('admin.elencoStaff');
+    Route::get('elenco_staff', [StaffController::class, 'lista'])->name('admin.elencoStaff');
     
     Route::get('/elenco_staff_search', [AdminController::class, 'searchStaff'])->name('elenco_staff_search');
     Route::get('/elenco_utenti_search', [AdminController::class, 'searchUtenti'])->name('elenco_utenti_search');
