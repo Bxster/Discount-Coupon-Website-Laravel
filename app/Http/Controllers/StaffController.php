@@ -45,7 +45,7 @@ class StaffController extends Controller
     
             $promozione->save();
     
-            // Reindirizzamento o altra azione dopo il salvataggio dell'promozione
+            // Reindirizzamento dopo il salvataggio dell'promozione
             return redirect()->route('home');
         }
     
@@ -56,10 +56,8 @@ class StaffController extends Controller
     
             // Elimina l'promozione
             $promozione->delete();
-    
-            // Esegui eventuali altre azioni o reindirizzamenti
-    
-            // Ad esempio, puoi reindirizzare l'utente a una pagina di conferma
+
+            // Reindirizzamento dopo l'eliminazione dell'promozione
             return redirect()->route('home');
         }
 
@@ -85,7 +83,7 @@ class StaffController extends Controller
             return view('pagina_modifica_promozione', compact('promozione'));
             }
     
-            public function update(Request $request, $promId)
+        public function update(Request $request, $promId)
     {
         $oggi = Carbon::now()->format('Y-m-d');
 

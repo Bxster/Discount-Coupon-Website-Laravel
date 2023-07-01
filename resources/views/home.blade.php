@@ -324,8 +324,8 @@ $totalCoupons = \App\Models\Coupon::count();
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
 </script>
 
-<!-- owl carousel script 
-    -->
+<!-- owl carousel script -->
+<!-- not used -->
 <script type="text/javascript">
   $(".owl-carousel").owlCarousel({
     loop: true,

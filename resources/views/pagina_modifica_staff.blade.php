@@ -54,10 +54,11 @@
                 </div>
 
 
-                <!-- Altri campi per i dati personali -->
+                <!-- Bottoni -->
                 <div class="button_box">
                     <button class="btn cancel-btn" type="submit">Aggiorna</button>
                     <button type="reset" class="btn cancel-btn"> <a href="{{ route('staffpage.show', ['userId' => $user->userId]) }}">Annulla</a></button>
+                    <!-- errore per l'admin visto durante l'esame: per risolverlo sulla rotta spostare staffpage.show sotto -->
                 </div>
 
             </form>
