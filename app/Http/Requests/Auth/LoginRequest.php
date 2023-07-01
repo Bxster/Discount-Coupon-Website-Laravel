@@ -46,12 +46,12 @@ class LoginRequest extends FormRequest
     {
         $this->ensureIsNotRateLimited();
 
-//        if (! Auth::attempt($this->only('email', 'password'), $this->boolean('remember'))) {
+        // default breeze: email al posto di username
+
         if (! Auth::attempt($this->only('username', 'password'), $this->boolean('remember'))) {
             RateLimiter::hit($this->throttleKey());
 
             throw ValidationException::withMessages([
-//                'email' => trans('auth.failed'),
                 'username' => trans('auth.failed'),
             ]);
         }
