@@ -46,8 +46,8 @@ Route::middleware('can:isUser')->group(function () {
 
 Route::middleware('can:isStaff')->group(function () {
 
-    Route::post('/promozioni/{aziendeId}', [StaffController::class, 'storePromozione'])->name('promozione.store');
     Route::get('/staff/promozioni/create/{aziendeId}', [StaffController::class, 'create'])->name('aggiunta_promozione');
+    Route::post('/promozioni/{aziendeId}', [StaffController::class, 'storePromozione'])->name('promozione.store');
     Route::delete('/staff/promozioni/{promId}', [StaffController::class, 'destroy'])->name('staff.promozioni.destroy');
     Route::get('/pagina_modifica_promozione/{promId}', [StaffController::class, 'show1'])->name('pagina_modifica_promozione');
     Route::put('/prompage_update/{promId}', [StaffController::class, 'update'])->name('prompage_update');
@@ -59,25 +59,25 @@ Route::middleware('can:isStaff')->group(function () {
 // Rotte in cui possono accederci sia gli staff che l'admin
 Route::middleware('can:isStaffOrAdmin')->group(function () {
 
-    Route::put('/staffpage_update/{userId}', [StaffController::class, 'updateStaff'])->name('staffpage_update');
     Route::get('/pagina_modifica_staff/{userId}', [StaffController::class, 'showStaff'])->name('pagina_modifica_staff');
-    
+    Route::put('/staffpage_update/{userId}', [StaffController::class, 'updateStaff'])->name('staffpage_update');
+
 });
 
 
 Route::middleware('can:isAdmin')->group(function () {
 
-    Route::post('/aziende', [AdminController::class, 'storeAzienda'])->name('aziende.store');
     Route::get('/admin/aziende/create', [AdminController::class, 'create'])->name('aggiunta_azienda');
+    Route::post('/aziende', [AdminController::class, 'storeAzienda'])->name('aziende.store');
     Route::delete('/admin/aziende/{aziendeId}', [AdminController::class, 'destroy'])->name('admin.aziende.destroy');
     Route::get('/pagina_modifica_azienda/{aziendeId}', [AdminController::class, 'show1'])->name('pagina_modifica_azienda');
     Route::put('/aziendapage_update/{aziendeId}', [AdminController::class, 'update'])->name('aziendapage_update');  
 
-    Route::post('/admin/staff', [AdminController::class, 'addStaff'])->name('admin.staff.add');
     Route::get('/admin/aggiunta_staff', [AdminController::class, 'create2'])->name('aggiunta_staff');
+    Route::post('/admin/staff', [AdminController::class, 'addStaff'])->name('admin.staff.add');
 
-    Route::post('/faqs', [AdminController::class, 'storeFaq'])->name('faq.store');
     Route::get('/admin/faqs/create', [AdminController::class, 'createFaq'])->name('aggiunta_faq');
+    Route::post('/faqs', [AdminController::class, 'storeFaq'])->name('faq.store');
     Route::get('/faq_update/{faqId}', [AdminController::class, 'modificaFaq'])->name('faq_update');
     Route::put('/faq_update_success/{faqId}', [AdminController::class, 'updateFaq'])->name('faq_update_success');
     Route::delete('/admin/faqs/{faqId}', [AdminController::class, 'destroyFaq'])->name('admin.faq.destroy');
