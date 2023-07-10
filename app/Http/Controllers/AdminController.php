@@ -52,6 +52,16 @@ class AdminController extends Controller
     } 
 
 
+    public function show1($aziendeId) {
+        $azienda = Aziende::find($aziendeId);
+    
+        if (!$azienda) {
+            abort(404);
+        }
+    
+        return view('pagina_modifica_azienda', compact('azienda'));
+    }
+
     public function update(Request $request, $aziendeId)
 {
     $request->validate([
@@ -102,9 +112,6 @@ class AdminController extends Controller
 }
 
 
-
-
-
         public function destroy($aziendeId)
     {
         // Trova l'azienda da eliminare
@@ -113,9 +120,7 @@ class AdminController extends Controller
         // Elimina l'azienda
         $azienda->delete();
 
-        // Esegui eventuali altre azioni o reindirizzamenti
-
-        // Ad esempio, puoi reindirizzare l'utente a una pagina di conferma
+        // reindirizzare l'utente
         return redirect()->route('home');
     }
 
@@ -205,7 +210,7 @@ class AdminController extends Controller
         // Elimina l'faq$faq
         $faq->delete();
 
-        // Ad esempio, puoi reindirizzare l'utente a una pagina di conferma
+        // reindirizzare l'utente
         return redirect()->route('faqs');
     }
 
@@ -218,9 +223,7 @@ class AdminController extends Controller
         // Elimina l'utente
         $user->delete();
 
-        // Esegui eventuali altre azioni o reindirizzamenti
-
-        // Ad esempio, puoi reindirizzare l'admin a una pagina di conferma
+        // reindirizzare l'admin
         return redirect()->route('home');
     }
 
@@ -257,16 +260,6 @@ public function searchStaff(Request $request, $paged = 4)
 
     return view('elenco_staff_search', compact('user', 'query'));
 }    
-
-        public function show1($aziendeId) {
-            $azienda = Aziende::find($aziendeId);
-        
-            if (!$azienda) {
-                abort(404);
-            }
-        
-            return view('pagina_modifica_azienda', compact('azienda'));
-        }
     
 
 }

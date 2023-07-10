@@ -15,6 +15,7 @@ class FaqController extends Controller
     }
     public function index()
     {
+        // ottiene faq principali
         $topFaq = $this->_faq->getFaq();
 
         return view('faqs')->with('faqs', $topFaq);
