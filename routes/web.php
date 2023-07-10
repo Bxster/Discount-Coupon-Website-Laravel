@@ -93,5 +93,5 @@ Route::middleware('can:isAdmin')->group(function () {
 
 });
 
-
+// include le rotte di breeze scritte in auth
 require __DIR__.'/auth.php';
