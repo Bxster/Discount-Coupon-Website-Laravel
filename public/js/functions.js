@@ -1,3 +1,13 @@
+
+
+
+
+/* 
+  Funzioni js usate nel nostro progetto per generare pup-up di conferma, per rendere
+  visibili delle sezioni, per sfruttare la libreria ajax per validare gli elementi e le form
+*/
+
+
 $(document).ready(function() {
     // Gestione del clic sul bottone
     $('#toggleButton').click(function() {
@@ -6,6 +16,8 @@ $(document).ready(function() {
     });
 });
 
+
+// genera pop-up
 $(document).ready(function() {
   $('.confirm-delete-form').on('click', '.delete-button', function(e) {
     e.preventDefault(); // Evita l'invio del form predefinito
@@ -31,6 +43,7 @@ $(document).ready(function() {
   });
 });
 
+// controllano delle condizioni
 $(document).ready(function() {
   $('#couponExistsModal').modal('show');
 });
@@ -50,6 +63,7 @@ function getErrorHtml(elemErrors) {
   return out;
 }
 
+// validazione singoli elementi
 function doElemValidation(id, actionUrl, formId) {
 
   var formElems;
@@ -96,7 +110,7 @@ function doElemValidation(id, actionUrl, formId) {
 
 }
 
-
+// validazione form
 function doFormValidation(actionUrl, formId) {
   var form = new FormData(document.getElementById(formId));
   $.ajax({
