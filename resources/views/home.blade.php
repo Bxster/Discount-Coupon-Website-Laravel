@@ -23,6 +23,8 @@ use App\Models\Coupon
             <input type="text" name="promotionQuery" placeholder="Cerca promozioni" onkeydown="if(event.keyCode===13){event.preventDefault(); this.form.submit();}">
           </form>
         </div>
+        <!-- input permette all'utente di inserire una query di ricerca. Premuto invio, il modulo viene
+        sottomesso ed è gestito nel backend per eseguire la ricerca corrispondente alla query inserita -->
 
       </div>
     </div>

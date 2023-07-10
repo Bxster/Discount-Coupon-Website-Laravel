@@ -11,10 +11,12 @@
 $(function () {
     var actionUrl = "{{ route('aziende.store') }}";
     var formId = 'addazienda';
+    // perdita del focus dell'elemento
     $(":input").on('blur', function (event) {
         var formElementId = $(this).attr('id');
         doElemValidation(formElementId, actionUrl, formId);
     });
+    // dopo la submit
     $("#addazienda").on('submit', function (event) {
         event.preventDefault();
         doFormValidation(actionUrl, formId);

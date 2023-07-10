@@ -11,10 +11,12 @@
     $(function() {
         var actionUrl = "{{ route('faq.store') }}";
         var formId = 'addfaq';
+        // perdita del focus dell'elemento
         $(":input").on('blur', function(event) {
             var formElementId = $(this).attr('id');
             doElemValidation(formElementId, actionUrl, formId);
         });
+        // dopo la submit
         $("#addfaq").on('submit', function(event) {
             event.preventDefault();
             doFormValidation(actionUrl, formId);
