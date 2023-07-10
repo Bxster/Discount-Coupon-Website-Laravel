@@ -17,8 +17,7 @@ class SearchControllerAziende extends Controller
     {
         $query = $request->input('query');
 
-        // cercare le aziende il cui nome contiene la stringa cercata
-        // operatore 'LIKE' per effettuare una corrispondenza parziale
+        // 'LIKE' per effettuare una corrispondenza parziale
         $aziende = Aziende::where('name', 'LIKE', "%$query%")
             ->paginate($paged);
 

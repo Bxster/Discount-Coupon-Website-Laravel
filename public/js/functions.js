@@ -52,6 +52,11 @@ $(document).ready(function() {
   $('#promScadutaModal').modal('show');
 });
 
+
+
+
+// Form
+
 function getErrorHtml(elemErrors) {
   if ((typeof (elemErrors) === 'undefined') || (elemErrors.length < 1))
       return;

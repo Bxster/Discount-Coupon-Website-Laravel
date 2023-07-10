@@ -207,7 +207,7 @@ class AdminController extends Controller
         // Trova la faq da eliminare
         $faq = Faq::findOrFail($faqId);
 
-        // Elimina l'faq$faq
+        // Elimina l'faq
         $faq->delete();
 
         // reindirizzare l'utente

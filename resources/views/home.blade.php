@@ -24,7 +24,7 @@ use App\Models\Coupon
           </form>
         </div>
         <!-- input permette all'utente di inserire una query di ricerca. Premuto invio, il modulo viene
-        sottomesso ed è gestito nel backend per eseguire la ricerca corrispondente alla query inserita -->
+        gestito nel backend per eseguire la ricerca corrispondente alla query inserita -->
 
       </div>
     </div>
