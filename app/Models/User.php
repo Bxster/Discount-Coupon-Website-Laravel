@@ -49,9 +49,14 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
     
+    /**
+     * 
+     * Verifica se l'utente ha un ruolo; se si ritorna true
+     * altrimenti ritorna false.
+     */
     public function hasRole($role) {
         $role = (array)$role;
-        return in_array($this->role, $role);
+        return in_array($this->role, $role); 
     }
 
 }
