@@ -11,8 +11,6 @@
 
 This repository represents the outcome of the project developed during my bachelor's degree in Computer and Automation Engineering. The project involves a website implemented with the Laravel framework, which provides discount coupons for other companies.
 
-All detailed changes, additions, and implementations are documented in the [official project PDF](link_to_pdf). The PDF provides a comprehensive and detailed overview of the work done during the development of the project.
-
 ## How to Contribute
 
 If you wish to contribute to the project, feel free to create a pull request or open an issue.
